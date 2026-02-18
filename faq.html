@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequently Asked Questions | New Bridges ABA - NJ & OH</title>
     
+    <!-- SEO & JSON-LD for Cleveland, Ohio Location -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "New Bridges ABA",
+      "image": "https://newbridgesaba.net/wp-content/uploads/2025/02/new-bridges-aba-logo.png",
+      "@id": "https://newbridgesaba.net",
+      "url": "https://newbridgesaba.net",
+      "telephone": "833-823-5433",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14055 Cedar Road",
+        "addressLocality": "Cleveland",
+        "addressRegion": "OH",
+        "postalCode": "44118",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.5012,
+        "longitude": -81.5422
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": "https://newbridgesaba.net"
+    }
+    </script>
+
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -32,164 +72,127 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-pattern { 
-            background-color: #fdfbff; 
-            background-image: radial-gradient(#804e9e10 2px, transparent 2px); 
-            background-size: 30px 30px; 
-        }
-        .faq-card {
-            transition: all 0.3s ease;
-        }
-        .faq-card.active {
-            border-color: #804E9E;
-            background-color: #fafafa;
-        }
+        .hero-pattern { background-color: #fdfbff; background-image: radial-gradient(#804e9e10 2px, transparent 2px); background-size: 30px 30px; }
+        .faq-tab-btn { @apply px-8 py-3 rounded-full font-bold transition-all duration-300 border-2; }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-white" x-data="{ activeFaq: null }">
+<body class="font-sans text-gray-800 bg-white" x-data="{ faqTab: 'general', activeFaq: null }">
 
-    <!-- Header Placeholder (Injected via header.js) -->
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
     <main class="pt-20">
-        <!-- HERO SECTION -->
-        <section class="hero-pattern py-24 border-b border-gray-100">
+        <!-- HERO -->
+        <section class="hero-pattern py-24 md:py-32 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-6 text-center">
                 <h1 class="text-6xl md:text-8xl font-black text-brandPurple mb-8 italic" data-aos="fade-up">Help Center.</h1>
                 <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                    Find answers to common questions about our <span class="text-brandPurple font-bold">ABA Therapy</span> model, 
-                    insurance coverage in NJ & OH, and clinical qualifications.
+                    Comprehensive answers for families in <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandBlue font-bold italic">Ohio</span>.
                 </p>
             </div>
         </section>
 
-        <!-- FAQ CONTENT -->
-        <section class="py-24 max-w-4xl mx-auto px-6">
-            
-            <!-- Category: Understanding ABA -->
-            <div class="mb-20" data-aos="fade-up">
-                <h2 class="text-2xl font-black text-brandBlue uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                    <span class="w-10 h-1 bg-brandBlue rounded-full"></span> Understanding ABA
-                </h2>
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 1 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 1 ? null : 1)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">What is ABA therapy?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 1 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 1" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            ABA (Applied Behavior Analysis) is a scientifically-validated approach to understanding and changing behavior. It focuses on increasing desired behaviors (like communication and social skills) and reducing problematic behaviors by using positive reinforcement strategies tailored to the individual.
-                        </div>
-                    </div>
-                    <!-- Q2 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 2 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 2 ? null : 2)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">Who is eligible for your services?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 2 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 2" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            Our services are specifically designed for individuals with Autism Spectrum Disorder (ASD) and other developmental disabilities. We serve children and young adults from early intervention ages through age 21.
-                        </div>
-                    </div>
+        <!-- FAQ INTERACTIVE HUB -->
+        <section class="py-24 bg-white min-h-screen">
+            <div class="max-w-4xl mx-auto px-6">
+                
+                <!-- Category Switcher -->
+                <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up">
+                    <button @click="faqTab = 'general'; activeFaq = null" :class="faqTab === 'general' ? 'bg-brandPurple text-white border-brandPurple shadow-lg' : 'bg-white text-gray-400 border-gray-100 hover:border-brandPurple/30'" class="faq-tab-btn">The Basics</button>
+                    <button @click="faqTab = 'model'; activeFaq = null" :class="faqTab === 'model' ? 'bg-brandBlue text-white border-brandBlue shadow-lg' : 'bg-white text-gray-400 border-gray-100 hover:border-brandBlue/30'" class="faq-tab-btn">Our Consistency Model</button>
+                    <button @click="faqTab = 'insurance'; activeFaq = null" :class="faqTab === 'insurance' ? 'bg-brandOrange text-white border-brandOrange shadow-lg' : 'bg-white text-gray-400 border-gray-100 hover:border-brandOrange/30'" class="faq-tab-btn">Insurance & Laws</button>
+                    <button @click="faqTab = 'staff'; activeFaq = null" :class="faqTab === 'staff' ? 'bg-brandYellow text-brandPurple border-brandYellow shadow-lg' : 'bg-white text-gray-400 border-gray-100 hover:border-brandYellow/30'" class="faq-tab-btn">Staff & Safety</button>
                 </div>
-            </div>
 
-            <!-- Category: The New Bridges Model -->
-            <div class="mb-20" data-aos="fade-up">
-                <h2 class="text-2xl font-black text-brandPurple uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                    <span class="w-10 h-1 bg-brandPurple rounded-full"></span> The New Bridges Model
-                </h2>
-                <div class="space-y-4">
-                    <!-- Q3 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 3 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 3 ? null : 3)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">Why do you work in both school and home?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 3 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 3" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            Consistency is the foundation of progress. When a child learns a skill in school but cannot apply it at home, their progress is stalled. By sending the same therapist to both settings, we ensure that skills generalize, routines stay predictable, and the child feels supported 100% of the time.
+                <!-- CATEGORY: GENERAL -->
+                <div x-show="faqTab === 'general'" x-transition class="space-y-4">
+                    <template x-for="(faq, i) in [
+                        {q: 'What exactly is ABA Therapy?', a: 'Applied Behavior Analysis (ABA) is a therapy based on the science of learning and behavior. It helps us understand how behavior works, how it is affected by the environment, and how learning takes place. We use these principles to increase meaningful behaviors like communication and decrease behaviors that may be harmful or interfere with learning.'},
+                        {q: 'What ages does New Bridges ABA serve?', a: 'We specialize in early intervention and school-aged support. We typically serve children from 18 months through 21 years of age.'},
+                        {q: 'How long does a typical session last?', a: 'Session length is determined by clinical necessity, but typically ranges from 2 to 4 hours per day. Most children receive 15–30 hours of therapy per week.'},
+                        {q: 'Is ABA therapy forever?', a: 'No. Our goal is independence. We constantly monitor data to fade out support as your child masters their goals and generalizes their skills to everyday life.'}
+                    ]">
+                        <div class="border border-gray-100 rounded-[2rem] overflow-hidden bg-gray-50/50">
+                            <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-8 text-left flex justify-between items-center group">
+                                <span class="text-xl font-black group-hover:text-brandPurple transition" x-text="faq.q"></span>
+                                <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === i ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="activeFaq === i" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed italic" x-text="faq.a"></div>
                         </div>
-                    </div>
-                    <!-- Q4 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 4 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 4 ? null : 4)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">How are therapy goals determined?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 4 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 4" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            Therapy goals are determined through a collaborative process. Our Board Certified Behavior Analysts (BCBAs) conduct a thorough assessment of your child’s strengths and needs, then work with parents and school staff to build a plan that prioritizes the most impactful skills for the child’s independence.
-                        </div>
-                    </div>
+                    </template>
                 </div>
-            </div>
 
-            <!-- Category: Insurance & States -->
-            <div class="mb-20" data-aos="fade-up">
-                <h2 class="text-2xl font-black text-brandOrange uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                    <span class="w-10 h-1 bg-brandOrange rounded-full"></span> Insurance & Locations
-                </h2>
-                <div class="space-y-4">
-                    <!-- Q5 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 5 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 5 ? null : 5)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">Do you accept insurance in Ohio?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 5 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 5" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            Yes! We are proud to serve the entire state of Ohio. We accept various insurance plans and private pay options. Our intake team will handle the verification process with your provider to confirm your coverage details before therapy begins.
+                <!-- CATEGORY: THE MODEL -->
+                <div x-show="faqTab === 'model'" x-transition class="space-y-4">
+                    <template x-for="(faq, i) in [
+                        {q: 'Why do you use the same therapist for school and home?', a: 'Most ABA providers are fragmented. A child might have one person at school and a stranger at home. This causes confusion. By using the same Registered Behavior Technician (RBT) for both, we ensure that the child experiences a consistent environment. If they learn a social skill at 10:00 AM in the classroom, they are practicing it at 4:00 PM in the living room with the same mentor.'},
+                        {q: 'Does New Bridges work with my child’s school district?', a: 'Yes. In New Jersey and Ohio, we coordinate with school districts to provide 1:1 support that aligns with your child’s IEP (Individualized Education Program).'},
+                        {q: 'Can therapy take place in the community?', a: 'Absolutely. Part of our model includes community-based instruction. This could include trips to the grocery store, library, or park to practice real-world social and safety skills.'},
+                        {q: 'How often will I see the BCBA?', a: 'Your Board Certified Behavior Analyst (BCBA) will provide direct supervision for about 10-20% of the total therapy hours. They also meet with parents at least once a month for Parent Training.'}
+                    ]">
+                        <div class="border border-brandBlue/20 rounded-[2rem] overflow-hidden bg-brandBlue/5">
+                            <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-8 text-left flex justify-between items-center group">
+                                <span class="text-xl font-black group-hover:text-brandBlue transition" x-text="faq.q"></span>
+                                <span class="text-2xl text-brandBlue transition transform" :class="activeFaq === i ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="activeFaq === i" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed italic" x-text="faq.a"></div>
                         </div>
-                    </div>
-                    <!-- Q6 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 6 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 6 ? null : 6)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">What information do I need for the intake?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 6 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 6" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            To start the process, we generally require basic demographic information, a copy of the child’s ASD diagnosis from a qualified professional, insurance card details, and any current IEP or school documentation you may have.
-                        </div>
-                    </div>
+                    </template>
                 </div>
-            </div>
 
-            <!-- Category: Staff Qualifications -->
-            <div class="mb-20" data-aos="fade-up">
-                <h2 class="text-2xl font-black text-brandYellow uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                    <span class="w-10 h-1 bg-brandYellow rounded-full"></span> Staff Qualifications
-                </h2>
-                <div class="space-y-4">
-                    <!-- Q7 -->
-                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 7 ? 'active shadow-lg' : 'border-gray-100'">
-                        <button @click="activeFaq = (activeFaq === 7 ? null : 7)" class="w-full p-8 text-left flex justify-between items-center group">
-                            <span class="text-xl font-bold group-hover:text-brandPurple transition">What training do your staff receive?</span>
-                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 7 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="activeFaq === 7" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
-                            Our staff are highly trained professionals. Every clinical team consists of Board Certified Behavior Analysts (BCBAs) and Registered Behavior Technicians (RBTs). They receive ongoing supervision, data-driven training, and updates on clinical best practices to ensure your child receives the highest level of care.
+                <!-- CATEGORY: INSURANCE & LAWS -->
+                <div x-show="faqTab === 'insurance'" x-transition class="space-y-4">
+                    <template x-for="(faq, i) in [
+                        {q: 'Is ABA a mandated benefit in New Jersey?', a: 'Yes. New Jersey law requires many health insurance plans to provide coverage for the screening, diagnosis, and treatment of ASD, including ABA therapy, for individuals under the age of 21.'},
+                        {q: 'What are the Ohio ABA laws?', a: 'Ohio’s House Bill 463 mandates that certain health insurance plans cover the diagnosis and treatment of ASD. We help Ohio families navigate these specific state benefits and the Federal Parity laws.'},
+                        {q: 'Do you accept Medicaid?', a: 'Yes. We are authorized providers for NJ FamilyCare and Ohio Medicaid (Managed Care Organizations).'},
+                        {q: 'What is a Benefits Verification?', a: 'It is the first step of our process. We call your insurance company to confirm that your plan covers ABA, and we provide you with a written breakdown of any co-pays or deductibles.'}
+                    ]">
+                        <div class="border border-brandOrange/20 rounded-[2rem] overflow-hidden bg-brandOrange/5">
+                            <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-8 text-left flex justify-between items-center group">
+                                <span class="text-xl font-black group-hover:text-brandOrange transition" x-text="faq.q"></span>
+                                <span class="text-2xl text-brandOrange transition transform" :class="activeFaq === i ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="activeFaq === i" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed italic" x-text="faq.a"></div>
                         </div>
-                    </div>
+                    </template>
                 </div>
-            </div>
 
+                <!-- CATEGORY: STAFF & SAFETY -->
+                <div x-show="faqTab === 'staff'" x-transition class="space-y-4">
+                    <template x-for="(faq, i) in [
+                        {q: 'What qualifications do your RBTs have?', a: 'All Registered Behavior Technicians (RBTs) at New Bridges have completed 40+ hours of specialized training, passed a criminal background check, and passed a competency assessment and national exam through the BACB.'},
+                        {q: 'Are your staff background checked?', a: 'Yes. We maintain a zero-tolerance policy for safety. Every employee undergoes a federal and state criminal background check as well as fingerprinting.'},
+                        {q: 'How do you handle staff absences?', a: 'Consistency is our priority. If your primary RBT is ill, we attempt to provide a substitute who is familiar with your child’s case, or we reschedule to ensure no clinical time is lost.'},
+                        {q: 'What is the role of the parent?', a: 'Parents are the most important part of the team. While we provide the therapy, we require parent participation in Parent Training sessions to ensure you have the tools to manage behaviors when we aren’t there.'}
+                    ]">
+                        <div class="border border-brandYellow/30 rounded-[2rem] overflow-hidden bg-brandYellow/5">
+                            <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-8 text-left flex justify-between items-center group">
+                                <span class="text-xl font-black group-hover:text-brandPurple transition" x-text="faq.q"></span>
+                                <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === i ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="activeFaq === i" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed italic" x-text="faq.a"></div>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
         </section>
 
-        <!-- CTA SECTION -->
+        <!-- CTA -->
         <section class="py-24 bg-brandPurple text-white text-center">
             <div class="max-w-4xl mx-auto px-6">
                 <h2 class="text-5xl font-black mb-8 italic">Still have questions?</h2>
-                <p class="text-xl opacity-90 mb-12">
-                    Our team is here to help you navigate the process. Speak with an intake specialist today.
-                </p>
+                <p class="text-xl opacity-90 mb-12">Our clinical intake team is available Monday–Friday to walk you through the specifics of your case.</p>
                 <div class="flex flex-wrap justify-center gap-6">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white transition">Contact Us</a>
-                    <a href="tel:8338235433" class="bg-white/10 border-2 border-white/20 text-white px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white/20 transition">Call 833-823-5433</a>
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white transition">Enroll Now</a>
+                    <a href="tel:8338235433" class="bg-white/10 border-2 border-white/20 text-white px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white/20 transition">833-823-5433</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer Placeholder (Injected via footer.js) -->
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
