@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | New Bridges ABA - NJ & OH</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Modular JS Includes -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: '#804E9E',
+                        brandYellow: '#FDBF0F',
+                        brandBlue: '#029CC0',
+                        brandOrange: '#F37C20',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-pattern { background-color: #fdfbff; background-image: radial-gradient(#804e9e10 2px, transparent 2px); background-size: 30px 30px; }
+        .service-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .service-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(128, 78, 158, 0.15); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+    <!-- Header Placeholder (Injected via header.js) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <!-- HERO SECTION -->
+        <section class="hero-pattern py-24 md:py-32">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h1 class="text-6xl md:text-8xl font-black text-brandPurple mb-8 italic" data-aos="fade-up">Support Without Borders.</h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                    We provide a unique "Wrap-Around" model that supports your child in school and at home across 
+                    <span class="text-brandPurple font-bold">New Jersey</span> and <span class="text-brandBlue font-bold">Ohio</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- THE DUAL-CARE MODEL SECTION -->
+        <section class="py-24 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl font-black text-brandPurple mb-6 italic">Consistent School Support</h2>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            ABA services in school are an effective way to help children with ASD progress at their own pace within a structured setting. Our therapists attend school with your child to provide:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandPurple text-xl">✔</span>
+                                <div><strong class="text-gray-900">1:1 Behavior Intervention:</strong> Real-time redirection and support during classroom activities.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandPurple text-xl">✔</span>
+                                <div><strong class="text-gray-900">Social Skills Coaching:</strong> Helping your child interact with peers during recess and group work.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandPurple text-xl">✔</span>
+                                <div><strong class="text-gray-900">IEP Goal Alignment:</strong> Working closely with teachers and school staff in NJ & OH districts.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative" data-aos="fade-left">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/AdobeStock_563757582-1.png" alt="Therapist with boy" class="rounded-[3rem] shadow-2xl">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1 relative" data-aos="fade-right">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/boy-smiling-holding-toy.png" alt="In-home therapy" class="rounded-[3rem] shadow-2xl">
+                    </div>
+                    <div class="order-1 md:order-2" data-aos="fade-left">
+                        <h2 class="text-4xl font-black text-brandBlue mb-6 italic">Predictable In-Home Care</h2>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            But what happens when they get home? Studies show children benefit greatly from generalization. <strong>That’s why our therapists work with your child both in school and at home.</strong>
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandBlue text-xl">✔</span>
+                                <div><strong class="text-gray-900">Skill Generalization:</strong> Using school-learned skills in a natural home environment.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandBlue text-xl">✔</span>
+                                <div><strong class="text-gray-900">Daily Living Mastery:</strong> Independence in eating, dressing, and hygiene.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandBlue text-xl">✔</span>
+                                <div><strong class="text-gray-900">Sibling & Family Integration:</strong> Helping the whole family unit communicate effectively.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETAILED PILLARS GRID -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-5xl font-black text-brandPurple italic mb-4">Our Clinical Pillars</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">We focus on 5 core areas to ensure your child develops into a confident, independent individual.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Column 1 -->
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/communication-skills.png" class="h-14 mb-8" alt="Icon">
+                        <h4 class="text-2xl font-bold text-brandPurple mb-4">Communication</h4>
+                        <p class="text-gray-500 leading-relaxed">Focusing on vocal speech, conversation cues, and social prompts to develop functional language across all contexts.</p>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/behavious-management.png" class="h-14 mb-8" alt="Icon">
+                        <h4 class="text-2xl font-bold text-brandYellow mb-4">Behavior Management</h4>
+                        <p class="text-gray-500 leading-relaxed">Applying consistent reinforcement and intervention to help children understand expectations and consequences.</p>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/daily-living-skills.png" class="h-14 mb-8" alt="Icon">
+                        <h4 class="text-2xl font-bold text-brandOrange mb-4">Daily Living</h4>
+                        <p class="text-gray-500 leading-relaxed">Reinforcing routines so your child gains independence in tasks like grooming, dressing, and eating.</p>
+                    </div>
+                    <!-- Column 4 -->
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/cognitive-development.png" class="h-14 mb-8" alt="Icon">
+                        <h4 class="text-2xl font-bold text-brandBlue mb-4">Cognitive Growth</h4>
+                        <p class="text-gray-500 leading-relaxed">Developing memory and learning skills, such as following complex instructions and task completion.</p>
+                    </div>
+                    <!-- Column 5 -->
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/emotional-regulation.png" class="h-14 mb-8" alt="Icon">
+                        <h4 class="text-2xl font-bold text-brandPurple mb-4">Emotional Regulation</h4>
+                        <p class="text-gray-500 leading-relaxed">Providing tools for self-regulation to help your child manage stress and adapt to challenging new situations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-24 bg-brandPurple text-white text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-5xl font-black mb-8 italic" data-aos="fade-up">Ready for Consistency?</h2>
+                <p class="text-xl opacity-90 mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Our team in New Jersey and Ohio is ready to verify your insurance and begin the clinical assessment process.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white transition">Enroll Now</a>
+                    <a href="tel:8338235433" class="bg-white/10 border-2 border-white/20 text-white px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white/20 transition">Call 833-823-5433</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder (Injected via footer.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
