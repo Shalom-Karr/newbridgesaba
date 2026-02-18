@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="text-center text-gray-400 text-sm italic font-medium">
-                © 2025 New Bridges ABA. All rights reserved. | Convenient. Consistent. Compassionate.
+                © 2026 New Bridges ABA. All rights reserved. | Convenient. Consistent. Compassionate.
             </div>
         </div>
     </footer>
