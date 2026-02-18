@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | New Bridges ABA - NJ & OH</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Modular JS Includes -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: '#804E9E',
+                        brandYellow: '#FDBF0F',
+                        brandBlue: '#029CC0',
+                        brandOrange: '#F37C20',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-pattern { 
+            background-color: #fdfbff; 
+            background-image: radial-gradient(#804e9e10 2px, transparent 2px); 
+            background-size: 30px 30px; 
+        }
+        .faq-card {
+            transition: all 0.3s ease;
+        }
+        .faq-card.active {
+            border-color: #804E9E;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white" x-data="{ activeFaq: null }">
+
+    <!-- Header Placeholder (Injected via header.js) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <!-- HERO SECTION -->
+        <section class="hero-pattern py-24 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h1 class="text-6xl md:text-8xl font-black text-brandPurple mb-8 italic" data-aos="fade-up">Help Center.</h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                    Find answers to common questions about our <span class="text-brandPurple font-bold">ABA Therapy</span> model, 
+                    insurance coverage in NJ & OH, and clinical qualifications.
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ CONTENT -->
+        <section class="py-24 max-w-4xl mx-auto px-6">
+            
+            <!-- Category: Understanding ABA -->
+            <div class="mb-20" data-aos="fade-up">
+                <h2 class="text-2xl font-black text-brandBlue uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-brandBlue rounded-full"></span> Understanding ABA
+                </h2>
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 1 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 1 ? null : 1)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">What is ABA therapy?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 1 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 1" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            ABA (Applied Behavior Analysis) is a scientifically-validated approach to understanding and changing behavior. It focuses on increasing desired behaviors (like communication and social skills) and reducing problematic behaviors by using positive reinforcement strategies tailored to the individual.
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 2 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 2 ? null : 2)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">Who is eligible for your services?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 2 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 2" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            Our services are specifically designed for individuals with Autism Spectrum Disorder (ASD) and other developmental disabilities. We serve children and young adults from early intervention ages through age 21.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: The New Bridges Model -->
+            <div class="mb-20" data-aos="fade-up">
+                <h2 class="text-2xl font-black text-brandPurple uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-brandPurple rounded-full"></span> The New Bridges Model
+                </h2>
+                <div class="space-y-4">
+                    <!-- Q3 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 3 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 3 ? null : 3)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">Why do you work in both school and home?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 3 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 3" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            Consistency is the foundation of progress. When a child learns a skill in school but cannot apply it at home, their progress is stalled. By sending the same therapist to both settings, we ensure that skills generalize, routines stay predictable, and the child feels supported 100% of the time.
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 4 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 4 ? null : 4)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">How are therapy goals determined?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 4 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 4" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            Therapy goals are determined through a collaborative process. Our Board Certified Behavior Analysts (BCBAs) conduct a thorough assessment of your child’s strengths and needs, then work with parents and school staff to build a plan that prioritizes the most impactful skills for the child’s independence.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Insurance & States -->
+            <div class="mb-20" data-aos="fade-up">
+                <h2 class="text-2xl font-black text-brandOrange uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-brandOrange rounded-full"></span> Insurance & Locations
+                </h2>
+                <div class="space-y-4">
+                    <!-- Q5 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 5 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 5 ? null : 5)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">Do you accept insurance in Ohio?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 5 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 5" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            Yes! We are proud to serve the entire state of Ohio. We accept various insurance plans and private pay options. Our intake team will handle the verification process with your provider to confirm your coverage details before therapy begins.
+                        </div>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 6 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 6 ? null : 6)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">What information do I need for the intake?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 6 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 6" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            To start the process, we generally require basic demographic information, a copy of the child’s ASD diagnosis from a qualified professional, insurance card details, and any current IEP or school documentation you may have.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Staff Qualifications -->
+            <div class="mb-20" data-aos="fade-up">
+                <h2 class="text-2xl font-black text-brandYellow uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-brandYellow rounded-full"></span> Staff Qualifications
+                </h2>
+                <div class="space-y-4">
+                    <!-- Q7 -->
+                    <div class="faq-card border rounded-[2rem] overflow-hidden" :class="activeFaq === 7 ? 'active shadow-lg' : 'border-gray-100'">
+                        <button @click="activeFaq = (activeFaq === 7 ? null : 7)" class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold group-hover:text-brandPurple transition">What training do your staff receive?</span>
+                            <span class="text-2xl text-brandPurple transition transform" :class="activeFaq === 7 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="activeFaq === 7" x-collapse class="px-8 pb-8 text-gray-600 leading-relaxed">
+                            Our staff are highly trained professionals. Every clinical team consists of Board Certified Behavior Analysts (BCBAs) and Registered Behavior Technicians (RBTs). They receive ongoing supervision, data-driven training, and updates on clinical best practices to ensure your child receives the highest level of care.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-24 bg-brandPurple text-white text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-5xl font-black mb-8 italic">Still have questions?</h2>
+                <p class="text-xl opacity-90 mb-12">
+                    Our team is here to help you navigate the process. Speak with an intake specialist today.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white transition">Contact Us</a>
+                    <a href="tel:8338235433" class="bg-white/10 border-2 border-white/20 text-white px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white/20 transition">Call 833-823-5433</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder (Injected via footer.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
