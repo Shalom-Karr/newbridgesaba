@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & Enrollment | New Bridges ABA - NJ & OH</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Modular JS Includes -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: '#804E9E',
+                        brandYellow: '#FDBF0F',
+                        brandBlue: '#029CC0',
+                        brandOrange: '#F37C20',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-pattern { 
+            background-color: #FAF9F6; 
+            background-image: radial-gradient(#804e9e15 2px, transparent 2px); 
+            background-size: 30px 30px; 
+        }
+        .form-input {
+            @apply w-full bg-white border border-gray-200 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-brandPurple transition;
+        }
+        .contact-card {
+            @apply bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 transition duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white" x-data="{ submitted: false }">
+
+    <!-- Header Placeholder (Injected via header.js) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <!-- HERO SECTION -->
+        <section class="hero-pattern py-24 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h1 class="text-6xl md:text-8xl font-black text-brandPurple mb-8 italic" data-aos="fade-up">Get in Touch.</h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                    Ready to provide your child with <span class="text-brandPurple font-bold">consistent ABA care</span>? 
+                    Our intake specialists in NJ and OH are standing by.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACT & FORM SECTION -->
+        <section class="py-24 max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Left: Contact Details & Info -->
+                <div class="space-y-12" data-aos="fade-right">
+                    <div>
+                        <h2 class="text-4xl font-black text-brandPurple mb-6 italic leading-tight">Your bridge to support <br>starts here.</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-10">
+                            Whether you have questions about insurance, state mandates in Ohio, or our clinical model in New Jersey, we are here to help your family navigate the journey.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="contact-card">
+                            <div class="bg-brandBlue/10 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">📞</div>
+                            <h4 class="font-bold text-gray-400 uppercase tracking-widest text-xs mb-2">Primary Line</h4>
+                            <a href="tel:9739440903" class="text-xl font-black text-brandBlue hover:text-brandPurple transition">(973) 944-0903</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="bg-brandYellow/10 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">📱</div>
+                            <h4 class="font-bold text-gray-400 uppercase tracking-widest text-xs mb-2">Secondary Line</h4>
+                            <a href="tel:9732067867" class="text-xl font-black text-brandYellow hover:text-brandPurple transition">(973) 206-7867</a>
+                        </div>
+                        <div class="contact-card md:col-span-2">
+                            <div class="bg-brandPurple/10 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">✉️</div>
+                            <h4 class="font-bold text-gray-400 uppercase tracking-widest text-xs mb-2">Email Support</h4>
+                            <a href="mailto:info@newbridgesaba.net" class="text-xl font-black text-brandPurple break-all">info@newbridgesaba.net</a>
+                        </div>
+                    </div>
+
+                    <!-- Step-by-Step Enrollment -->
+                    <div class="pt-8 border-t border-gray-100">
+                        <h3 class="text-2xl font-black text-brandPurple mb-8 italic">Enrollment Process</h3>
+                        <div class="space-y-6">
+                            <div class="flex gap-6">
+                                <div class="w-8 h-8 rounded-full bg-brandPurple text-white flex-shrink-0 flex items-center justify-center font-bold">1</div>
+                                <p class="text-gray-600"><span class="font-bold text-gray-900">Submit Inquiry:</span> Fill out the form or call our intake line.</p>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="w-8 h-8 rounded-full bg-brandBlue text-white flex-shrink-0 flex items-center justify-center font-bold">2</div>
+                                <p class="text-gray-600"><span class="font-bold text-gray-900">Benefits Check:</span> We verify your insurance coverage in NJ or OH.</p>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="w-8 h-8 rounded-full bg-brandYellow text-brandPurple flex-shrink-0 flex items-center justify-center font-bold">3</div>
+                                <p class="text-gray-600"><span class="font-bold text-gray-900">Clinical Evaluation:</span> A BCBA schedules an assessment for your child.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: The Enrollment Form -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-brandPurple/5 rounded-[4rem] -rotate-2"></div>
+                    <div class="relative bg-white p-10 md:p-14 rounded-[3.5rem] shadow-2xl border border-gray-100">
+                        
+                        <div x-show="!submitted">
+                            <h3 class="text-3xl font-black text-brandPurple mb-2 italic">Start Enrollment</h3>
+                            <p class="text-gray-500 mb-10">Briefly share your needs and we'll reach out.</p>
+
+                            <form @submit.prevent="submitted = true" class="space-y-5">
+                                <div class="grid md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Child's Name</label>
+                                        <input required type="text" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="First & Last">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">State</label>
+                                        <select required class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none text-gray-500">
+                                            <option value="">Select Location</option>
+                                            <option>New Jersey</option>
+                                            <option>Ohio</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Guardian Name</label>
+                                    <input required type="text" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="Your Name">
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Email</label>
+                                        <input required type="email" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="email@address.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Phone</label>
+                                        <input required type="tel" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="(000) 000-0000">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Additional Information</label>
+                                    <textarea rows="4" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="What should we know about your child?"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brandPurple text-white py-5 rounded-2xl font-black text-xl hover:bg-brandBlue transition shadow-xl shadow-brandPurple/20 active:scale-95">Send Request</button>
+                            </form>
+                        </div>
+
+                        <!-- Success State -->
+                        <div x-show="submitted" x-cloak class="text-center py-20">
+                            <div class="text-7xl mb-6">✨</div>
+                            <h3 class="text-4xl font-black text-brandPurple mb-4 italic">Message Received!</h3>
+                            <p class="text-gray-500 text-lg leading-relaxed mb-10">
+                                Thank you for reaching out to New Bridges ABA. An intake specialist will review your details and contact you within 24 hours to begin the verification process.
+                            </p>
+                            <button @click="submitted = false" class="text-brandBlue font-bold underline">Submit another inquiry</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INSURANCES (Trust Signals) -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h3 class="text-2xl font-black text-brandPurple uppercase tracking-widest italic">Accepted Insurance</h3>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-12 items-center opacity-50 hover:opacity-100 transition-opacity duration-500">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/aetna.png" alt="Aetna">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/ameri-health.png" alt="AmeriHealth">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/united-healthcare.png" alt="UHC">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/horizon-nj.png" alt="Horizon">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/wellcare.png" alt="Wellcare">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/nj-family-care.png" alt="NJ Family Care">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/united-healthcare-2.png" alt="UHC">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/horizon-logo.jpg" alt="Horizon Logo">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Placeholder (Injected via footer.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
