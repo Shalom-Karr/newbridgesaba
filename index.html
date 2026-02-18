@@ -105,6 +105,34 @@
     <div id="header-placeholder"></div>
 
     <main class="pt-20">
+
+        <!-- Add this right after the opening <main> tag -->
+<div class="relative w-full">
+    <!-- BACKGROUND BLOBS -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-brandPurple/5 rounded-full blur-[120px] animate-float"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-brandBlue/5 rounded-full blur-[120px] animate-float" style="animation-delay: -5s;"></div>
+    </div>
+
+    <!-- HERO SECTION (Updated with Animation) -->
+    <section class="py-24 md:py-48">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-up" data-aos-duration="1200">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="w-12 h-[2px] bg-brandYellow"></span>
+                    <span class="text-xs font-black uppercase tracking-[0.3em] text-brandBlue">New Jersey & Ohio Care</span>
+                </div>
+                <h1 class="text-5xl md:text-8xl font-black leading-[0.9] text-gray-900 mb-8">
+                    Stability <br> For Their <br> <span class="text-gradient italic">Future.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-500 mb-12 font-light">
+                    We bring the clinic to you. Consistent 1:1 therapy that bridges the gap between home and school.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="contact.html" class="btn-magnetic bg-brandPurple text-white px-10 py-5 rounded-[2rem] font-bold text-lg shadow-2xl shadow-brandPurple/20 text-center">Start Enrollment</a>
+                    <a href="services.html" class="btn-magnetic bg-white border-2 border-brandPurple/20 text-brandPurple px-10 py-5 rounded-[2rem] font-bold text-lg text-center">View Care Model</a>
+                </div>
+            </div>
         
         <!-- HERO SECTION -->
         <section class="hero-pattern py-24 md:py-40 relative overflow-hidden">
