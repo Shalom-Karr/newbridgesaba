@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="index.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Home</a>
                 <a href="about.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">About</a>
                 <a href="services.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Services</a>
+                <a href="locations.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Locations</a>
+                <a href="careers.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Careers</a>
                 <a href="contact.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Contact Us</a>
                 
                 <div class="h-8 w-px bg-gray-100 mx-4"></div>
@@ -62,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="index.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Home</a>
                 <a href="about.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">About</a>
                 <a href="services.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Services</a>
+                <a href="locations.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Locations</a>
+                <a href="careers.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Careers</a>
                 <a href="contact.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Contact Us</a>
                 
                 <div class="pt-12 space-y-8">
