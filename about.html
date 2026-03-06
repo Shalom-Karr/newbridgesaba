@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | New Bridges ABA - NJ & OH</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Modular JS Includes -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: {
+                            DEFAULT: '#804E9E',
+                            light: '#9D73B6',
+                            soft: '#F3EEF6',
+                        },
+                        brandYellow: {
+                            DEFAULT: '#FDBF0F',
+                            light: '#FDCB3F',
+                            soft: '#FFF9E7',
+                        },
+                        brandBlue: {
+                            DEFAULT: '#029CC0',
+                            light: '#35B0CD',
+                            soft: '#E6F5F9',
+                        },
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
+                            light: '#F6964D',
+                            soft: '#FEF2E9',
+                        },
+                        brandBeige: '#FAF9F6',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(128, 78, 158, 0.05); }
+        .text-gradient { background: linear-gradient(135deg, #804E9E 0%, #029CC0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .blob { position: absolute; filter: blur(60px); opacity: 0.15; z-index: -1; animation: blob-float 20s infinite alternate; }
+        @keyframes blob-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(20px, -30px) scale(1.1); } }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-pattern pt-32 pb-24 md:pt-48 md:pb-40 relative overflow-hidden text-center">
+            <div class="blob w-96 h-96 bg-brandPurple/20 -top-24 -left-24"></div>
+            <div class="blob w-96 h-96 bg-brandBlue/20 -bottom-24 -right-24"></div>
+            
+            <div class="max-w-7xl mx-auto px-6">
+                <div data-aos="fade-up" data-aos-duration="1200">
+                    <h4 class="text-brandBlue font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Our Story & Mission</h4>
+                    <h1 class="text-7xl md:text-9xl font-black leading-[0.85] text-gray-900 mb-10 tracking-tighter">
+                        Who We <br> <span class="text-gradient italic">Are.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                        New Bridges ABA is a dedicated team of clinical professionals committed to providing consistent, high-quality care for children with Autism Spectrum Disorder across New Jersey and Ohio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO WE ARE SECTION -->
+        <section class="py-32 bg-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Dedicated to Your Child's Success.</h2>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-6 font-medium">
+                        At New Bridges ABA, we view each child as an individual with unique strengths and potential. Our mission is to provide the "bridge" between different environments—school, home, and community—ensuring that progress is never interrupted.
+                    </p>
+                    <p class="text-lg text-gray-500 leading-relaxed font-medium">
+                        We are more than just service providers; we are partners in your child's journey. Our empathetic BCBAs and skilled RBTs work tirelessly to create customized interventions that empower children to communicate, interact, and thrive.
+                    </p>
+                </div>
+                <div class="relative" data-aos="fade-left">
+                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/AdobeStock_563757582-1.png" alt="About Us Team" class="rounded-5xl shadow-2xl shadow-brandPurple/20 transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT WE OFFER SECTION -->
+        <section class="py-32 bg-brandBeige relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-24" data-aos="fade-up">
+                    <h3 class="text-brandPurple font-black uppercase tracking-[0.3em] text-[11px] mb-4">Our Services</h3>
+                    <h2 class="text-5xl md:text-6xl font-black text-gray-900 italic tracking-tight mb-6">What We Offer.</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-white p-12 rounded-5xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-brandPurple-soft text-brandPurple rounded-2xl flex items-center justify-center text-3xl mb-8">🏠</div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4">In-Home Therapy</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">We bring evidence-based ABA therapy to the comfort of your home, focusing on daily living skills and family integration.</p>
+                    </div>
+                    <div class="bg-white p-12 rounded-5xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-brandBlue-soft text-brandBlue rounded-2xl flex items-center justify-center text-3xl mb-8">🏫</div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4">School Support</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">Our therapists accompany your child to school, providing 1:1 behavioral coaching and social skills training in the classroom.</p>
+                    </div>
+                    <div class="bg-white p-12 rounded-5xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-brandYellow-soft text-brandPurple rounded-2xl flex items-center justify-center text-3xl mb-8">👪</div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4">Parent Training</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">We empower parents with the tools and strategies they need to support their child's progress when our therapists aren't present.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-40 bg-brandPurple text-white text-center relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
+                <h2 class="text-7xl md:text-9xl font-black mb-12 italic leading-[0.85] text-brandYellow tracking-tighter" data-aos="zoom-out">Join Our Community.</h2>
+                <p class="text-xl md:text-3xl opacity-90 mb-16 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">
+                    Ready to start your child's journey with a team that truly cares?
+                </p>
+                <div class="flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-2">Enroll Now</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-2">Call 833-823-5433</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+    </script>
+</body>
+</html>

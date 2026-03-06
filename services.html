@@ -20,21 +20,42 @@
             theme: {
                 extend: {
                     colors: {
-                        brandPurple: '#804E9E',
-                        brandYellow: '#FDBF0F',
-                        brandBlue: '#029CC0',
-                        brandOrange: '#F37C20',
+                        brandPurple: {
+                            DEFAULT: '#804E9E',
+                            light: '#9D73B6',
+                            soft: '#F3EEF6',
+                        },
+                        brandYellow: {
+                            DEFAULT: '#FDBF0F',
+                            light: '#FDCB3F',
+                            soft: '#FFF9E7',
+                        },
+                        brandBlue: {
+                            DEFAULT: '#029CC0',
+                            light: '#35B0CD',
+                            soft: '#E6F5F9',
+                        },
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
+                            light: '#F6964D',
+                            soft: '#FEF2E9',
+                        },
+                        brandBeige: '#FAF9F6',
                     },
-                    fontFamily: { sans: ['Onest', 'sans-serif'] }
+                    fontFamily: { sans: ['Onest', 'sans-serif'] },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    }
                 }
             }
         }
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-pattern { background-color: #fdfbff; background-image: radial-gradient(#804e9e10 2px, transparent 2px); background-size: 30px 30px; }
-        .service-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .service-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(128, 78, 158, 0.15); }
+        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .service-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+        .service-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px -12px rgba(128, 78, 158, 0.15); }
     </style>
 
     <script type="application/ld+json">
@@ -65,126 +86,185 @@
 
     <main class="pt-20">
         <!-- HERO SECTION -->
-        <section class="hero-pattern py-24 md:py-32">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <h1 class="text-6xl md:text-8xl font-black text-brandPurple mb-8 italic" data-aos="fade-up">Support Without Borders.</h1>
-                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        <section class="hero-pattern py-32 md:py-48 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Professional ABA Therapy</h3>
+                <h1 class="text-7xl md:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Support <br>Without <span class="text-brandPurple">Borders.</span></h1>
+                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
                     We provide a unique "Wrap-Around" model that supports your child in school and at home across 
-                    <span class="text-brandPurple font-bold">New Jersey</span> and <span class="text-brandBlue font-bold">Ohio</span>.
+                    <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandBlue font-bold italic">Ohio</span>.
                 </p>
             </div>
+            <!-- Decorative Blobs -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-brandPurple/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brandBlue/10 rounded-full blur-3xl animate-pulse"></div>
         </section>
 
         <!-- THE DUAL-CARE MODEL SECTION -->
-        <section class="py-24 bg-white overflow-hidden">
+        <section class="py-32 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
+                <div class="grid md:grid-cols-2 gap-24 items-center mb-40">
                     <div data-aos="fade-right">
-                        <h2 class="text-4xl font-black text-brandPurple mb-6 italic">Consistent School Support</h2>
-                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                            ABA services in school are an effective way to help children with ASD progress at their own pace within a structured setting. Our therapists attend school with your child to provide:
+                        <div class="inline-flex items-center gap-3 bg-brandPurple-soft px-4 py-2 rounded-2xl mb-8">
+                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
+                            <span class="text-xs font-black uppercase tracking-widest text-brandPurple">Classroom Integration</span>
+                        </div>
+                        <h2 class="text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Consistent School Support.</h2>
+                        <p class="text-lg text-gray-500 mb-10 leading-relaxed font-medium">
+                            ABA services in school help children with ASD progress at their own pace within a structured setting. Our therapists attend school with your child to provide:
                         </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandPurple text-xl">✔</span>
-                                <div><strong class="text-gray-900">1:1 Behavior Intervention:</strong> Real-time redirection and support during classroom activities.</div>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-5 group">
+                                <span class="w-10 h-10 rounded-xl bg-brandPurple-soft text-brandPurple flex items-center justify-center font-bold group-hover:bg-brandPurple group-hover:text-white transition-all duration-300 flex-shrink-0">1</span>
+                                <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">1:1 Behavior Intervention</strong> <span class="text-gray-500 font-medium">Real-time redirection and support during classroom activities.</span></div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandPurple text-xl">✔</span>
-                                <div><strong class="text-gray-900">Social Skills Coaching:</strong> Helping your child interact with peers during recess and group work.</div>
+                            <li class="flex items-start gap-5 group">
+                                <span class="w-10 h-10 rounded-xl bg-brandPurple-soft text-brandPurple flex items-center justify-center font-bold group-hover:bg-brandPurple group-hover:text-white transition-all duration-300 flex-shrink-0">2</span>
+                                <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Social Skills Coaching</strong> <span class="text-gray-500 font-medium">Helping your child interact with peers during recess and group work.</span></div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandPurple text-xl">✔</span>
-                                <div><strong class="text-gray-900">IEP Goal Alignment:</strong> Working closely with teachers and school staff in NJ & OH districts.</div>
+                            <li class="flex items-start gap-5 group">
+                                <span class="w-10 h-10 rounded-xl bg-brandPurple-soft text-brandPurple flex items-center justify-center font-bold group-hover:bg-brandPurple group-hover:text-white transition-all duration-300 flex-shrink-0">3</span>
+                                <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">IEP Goal Alignment</strong> <span class="text-gray-500 font-medium">Working closely with teachers and school staff in NJ & OH districts.</span></div>
                             </li>
                         </ul>
                     </div>
                     <div class="relative" data-aos="fade-left">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/AdobeStock_563757582-1.png" alt="Therapist with boy" class="rounded-[3rem] shadow-2xl">
+                        <div class="absolute inset-0 bg-brandPurple/5 rounded-5xl -rotate-3"></div>
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/AdobeStock_563757582-1.png" alt="Therapist with boy" class="relative z-10 rounded-5xl shadow-2xl shadow-brandPurple/20 transform hover:scale-[1.02] transition-transform duration-500">
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="grid md:grid-cols-2 gap-24 items-center">
                     <div class="order-2 md:order-1 relative" data-aos="fade-right">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/boy-smiling-holding-toy.png" alt="In-home therapy" class="rounded-[3rem] shadow-2xl">
+                        <div class="absolute inset-0 bg-brandBlue/5 rounded-5xl rotate-3"></div>
+                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/boy-smiling-holding-toy.png" alt="In-home therapy" class="relative z-10 rounded-5xl shadow-2xl shadow-brandBlue/20 transform hover:scale-[1.02] transition-transform duration-500">
                     </div>
                     <div class="order-1 md:order-2" data-aos="fade-left">
-                        <h2 class="text-4xl font-black text-brandBlue mb-6 italic">Predictable In-Home Care</h2>
-                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        <div class="inline-flex items-center gap-3 bg-brandBlue-soft px-4 py-2 rounded-2xl mb-8">
+                            <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
+                            <span class="text-xs font-black uppercase tracking-widest text-brandBlue">Home-Based Mastery</span>
+                        </div>
+                        <h2 class="text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Predictable In-Home Care.</h2>
+                        <p class="text-lg text-gray-500 mb-10 leading-relaxed font-medium">
                             But what happens when they get home? Studies show children benefit greatly from generalization. <strong>That’s why our therapists work with your child both in school and at home.</strong>
                         </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandBlue text-xl">✔</span>
-                                <div><strong class="text-gray-900">Skill Generalization:</strong> Using school-learned skills in a natural home environment.</div>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-5 group">
+                                <span class="w-10 h-10 rounded-xl bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 flex-shrink-0">1</span>
+                                <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Skill Generalization</strong> <span class="text-gray-500 font-medium">Using school-learned skills in a natural home environment.</span></div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandBlue text-xl">✔</span>
-                                <div><strong class="text-gray-900">Daily Living Mastery:</strong> Independence in eating, dressing, and hygiene.</div>
+                            <li class="flex items-start gap-5 group">
+                                <span class="w-10 h-10 rounded-xl bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 flex-shrink-0">2</span>
+                                <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Daily Living Mastery</strong> <span class="text-gray-500 font-medium">Independence in eating, dressing, and hygiene.</span></div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandBlue text-xl">✔</span>
-                                <div><strong class="text-gray-900">Sibling & Family Integration:</strong> Helping the whole family unit communicate effectively.</div>
+                            <li class="flex items-start gap-5 group">
+                                <span class="w-10 h-10 rounded-xl bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 flex-shrink-0">3</span>
+                                <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Sibling & Family Integration</strong> <span class="text-gray-500 font-medium">Helping the whole family unit communicate effectively.</span></div>
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABA TECHNIQUES SECTION (Inspired by Reference Sites) -->
+        <section class="py-32 bg-white relative overflow-hidden border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-4">Evidence-Based Techniques</h3>
+                    <h2 class="text-5xl font-black text-gray-900 italic tracking-tight">ABA in Action.</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg mt-6">We turn everyday moments into milestones using proven clinical methods tailored to your child.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-10 rounded-5xl bg-brandBeige border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl mb-6">👍</div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Positive Reinforcement</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium text-sm">Encouraging progress by providing immediate positive feedback when a child masters a new skill or behavior.</p>
+                    </div>
+                    <div class="p-10 rounded-5xl bg-brandBeige border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl mb-6">🧩</div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Task Analysis</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium text-sm">Breaking down complex skills—like hand washing or dressing—into small, manageable steps for easier learning.</p>
+                    </div>
+                    <div class="p-10 rounded-5xl bg-brandBeige border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl mb-6">🌱</div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Natural Environment Teaching</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium text-sm">Integrating therapy into real-life situations, such as snack time or play, to ensure skills transfer to the real world.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- DETAILED PILLARS GRID -->
-        <section class="py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-20" data-aos="fade-up">
-                    <h2 class="text-5xl font-black text-brandPurple italic mb-4">Our Clinical Pillars</h2>
-                    <p class="text-gray-500 max-w-2xl mx-auto">We focus on 5 core areas to ensure your child develops into a confident, independent individual.</p>
+        <section class="py-32 bg-brandBeige relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-24" data-aos="fade-up">
+                    <h3 class="text-brandPurple font-black uppercase tracking-[0.3em] text-[11px] mb-4">Our Methodology</h3>
+                    <h2 class="text-5xl md:text-6xl font-black text-gray-900 italic tracking-tight mb-6">Our Clinical Pillars.</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg">We focus on 5 core areas to ensure your child develops into a confident, independent individual.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- Column 1 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/communication-skills.png" class="h-14 mb-8" alt="Icon">
-                        <h4 class="text-2xl font-bold text-brandPurple mb-4">Communication</h4>
-                        <p class="text-gray-500 leading-relaxed">Focusing on vocal speech, conversation cues, and social prompts to develop functional language across all contexts.</p>
+                    <div class="bg-white p-12 rounded-5xl border border-gray-100 service-card group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-brandPurple-soft rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brandPurple group-hover:rotate-6 transition-all duration-500">
+                            <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/communication-skills.png" class="h-10 group-hover:brightness-0 group-hover:invert transition-all" alt="Icon">
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Communication</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">Focusing on vocal speech, conversation cues, and social prompts to develop functional language across all contexts.</p>
                     </div>
                     <!-- Column 2 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/behavious-management.png" class="h-14 mb-8" alt="Icon">
-                        <h4 class="text-2xl font-bold text-brandYellow mb-4">Behavior Management</h4>
-                        <p class="text-gray-500 leading-relaxed">Applying consistent reinforcement and intervention to help children understand expectations and consequences.</p>
+                    <div class="bg-white p-12 rounded-5xl border border-gray-100 service-card group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-brandYellow-soft rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brandYellow group-hover:rotate-6 transition-all duration-500">
+                            <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/behavious-management.png" class="h-10 group-hover:brightness-0 transition-all" alt="Icon">
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Behavior Management</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">Applying consistent reinforcement and intervention to help children understand expectations and consequences.</p>
                     </div>
                     <!-- Column 3 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/daily-living-skills.png" class="h-14 mb-8" alt="Icon">
-                        <h4 class="text-2xl font-bold text-brandOrange mb-4">Daily Living</h4>
-                        <p class="text-gray-500 leading-relaxed">Reinforcing routines so your child gains independence in tasks like grooming, dressing, and eating.</p>
+                    <div class="bg-white p-12 rounded-5xl border border-gray-100 service-card group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-brandOrange-soft rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brandOrange group-hover:rotate-6 transition-all duration-500">
+                            <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/daily-living-skills.png" class="h-10 group-hover:brightness-0 group-hover:invert transition-all" alt="Icon">
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Daily Living</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">Reinforcing routines so your child gains independence in tasks like grooming, dressing, and eating.</p>
                     </div>
                     <!-- Column 4 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="400">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/cognitive-development.png" class="h-14 mb-8" alt="Icon">
-                        <h4 class="text-2xl font-bold text-brandBlue mb-4">Cognitive Growth</h4>
-                        <p class="text-gray-500 leading-relaxed">Developing memory and learning skills, such as following complex instructions and task completion.</p>
+                    <div class="bg-white p-12 rounded-5xl border border-gray-100 service-card group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-20 h-20 bg-brandBlue-soft rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brandBlue group-hover:rotate-6 transition-all duration-500">
+                            <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/cognitive-development.png" class="h-10 group-hover:brightness-0 group-hover:invert transition-all" alt="Icon">
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Cognitive Growth</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">Developing memory and learning skills, such as following complex instructions and task completion.</p>
                     </div>
                     <!-- Column 5 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 service-card" data-aos="fade-up" data-aos-delay="500">
-                        <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/emotional-regulation.png" class="h-14 mb-8" alt="Icon">
-                        <h4 class="text-2xl font-bold text-brandPurple mb-4">Emotional Regulation</h4>
-                        <p class="text-gray-500 leading-relaxed">Providing tools for self-regulation to help your child manage stress and adapt to challenging new situations.</p>
+                    <div class="bg-white p-12 rounded-5xl border border-gray-100 service-card group" data-aos="fade-up" data-aos-delay="500">
+                        <div class="w-20 h-20 bg-brandPurple-soft rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brandPurple group-hover:rotate-6 transition-all duration-500">
+                            <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/emotional-regulation.png" class="h-10 group-hover:brightness-0 group-hover:invert transition-all" alt="Icon">
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Emotional Regulation</h4>
+                        <p class="text-gray-500 leading-relaxed font-medium">Providing tools for self-regulation to help your child manage stress and adapt to challenging new situations.</p>
                     </div>
                 </div>
             </div>
+            <!-- Decorative shapes -->
+            <div class="absolute top-1/2 left-0 w-96 h-96 bg-brandPurple/5 rounded-full blur-3xl -translate-x-1/2"></div>
         </section>
 
         <!-- CTA SECTION -->
-        <section class="py-24 bg-brandPurple text-white text-center">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-5xl font-black mb-8 italic" data-aos="fade-up">Ready for Consistency?</h2>
-                <p class="text-xl opacity-90 mb-12" data-aos="fade-up" data-aos-delay="100">
+        <section class="py-40 bg-brandPurple text-white text-center relative overflow-hidden">
+            <div class="blob w-[600px] h-[600px] bg-brandBlue/20 -top-64 -right-64"></div>
+            <div class="blob w-[600px] h-[600px] bg-brandYellow/10 -bottom-64 -left-64"></div>
+
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
+                <h2 class="text-7xl md:text-9xl font-black mb-12 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Ready for Consistency?</h2>
+                <p class="text-xl md:text-3xl opacity-90 mb-16 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">
                     Our team in New Jersey and Ohio is ready to verify your insurance and begin the clinical assessment process.
                 </p>
-                <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white transition">Enroll Now</a>
-                    <a href="tel:8338235433" class="bg-white/10 border-2 border-white/20 text-white px-12 py-5 rounded-3xl font-bold text-xl hover:bg-white/20 transition">Call 833-823-5433</a>
+                <div class="flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-2">Enroll Now</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-2">Call 833-823-5433</a>
                 </div>
             </div>
         </section>
@@ -196,7 +276,12 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ 
+            duration: 1200, 
+            once: true, 
+            easing: 'ease-out-cubic',
+            offset: 100
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | New Bridges ABA - NJ & OH</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Modular JS Includes -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: { DEFAULT: '#804E9E', light: '#9D73B6', soft: '#F3EEF6' },
+                        brandYellow: { DEFAULT: '#FDBF0F', light: '#FDCB3F', soft: '#FFF9E7' },
+                        brandBlue: { DEFAULT: '#029CC0', light: '#35B0CD', soft: '#E6F5F9' },
+                        brandOrange: { DEFAULT: '#F37C20', light: '#F6964D', soft: '#FEF2E9' },
+                        brandBeige: '#FAF9F6',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] },
+                    borderRadius: { '4xl': '2rem', '5xl': '3rem' }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <!-- HERO -->
+        <section class="hero-pattern py-32 md:py-48 relative overflow-hidden text-center">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Join Our Team</h3>
+                <h1 class="text-7xl md:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Work <br> <span class="text-brandPurple">With Us.</span></h1>
+                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
+                    Empower children and families across NJ and OH. We are looking for passionate BCBAs and RBTs to join our clinical team.
+                </p>
+            </div>
+        </section>
+
+        <!-- POSITIONS SECTION -->
+        <section class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+                
+                <!-- Position 1 -->
+                <div class="p-12 rounded-5xl bg-brandBeige border border-gray-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-10">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-gray-100 group-hover:bg-brandPurple group-hover:text-white transition-all duration-500">🎓</div>
+                        <span class="px-4 py-2 rounded-full bg-brandPurple/10 text-brandPurple font-black text-[10px] uppercase tracking-widest">Full Time / Part Time</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Board Certified Behavior Analyst (BCBA)</h4>
+                    <p class="text-gray-500 font-medium mb-10">Conduct assessments, design treatment plans, and provide supervision for our clinical teams in NJ and OH.</p>
+                    <a href="mailto:info@newbridgesaba.net?subject=BCBA Position Application" class="text-brandPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandPurple pb-1 hover:text-brandBlue hover:border-brandBlue transition-all">Apply Now →</a>
+                </div>
+
+                <!-- Position 2 -->
+                <div class="p-12 rounded-5xl bg-brandBeige border border-gray-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-10">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-gray-100 group-hover:bg-brandBlue group-hover:text-white transition-all duration-500">🙌</div>
+                        <span class="px-4 py-2 rounded-full bg-brandBlue/10 text-brandBlue font-black text-[10px] uppercase tracking-widest">Entry Level Available</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Registered Behavior Technician (RBT)</h4>
+                    <p class="text-gray-500 font-medium mb-10">Provide 1:1 therapy sessions and directly support children's progress in school and at home.</p>
+                    <a href="mailto:info@newbridgesaba.net?subject=RBT Position Application" class="text-brandBlue font-black uppercase tracking-widest text-xs border-b-2 border-brandBlue pb-1 hover:text-brandPurple hover:border-brandPurple transition-all">Apply Now →</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-40 bg-brandPurple text-white text-center relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
+                <h2 class="text-7xl md:text-9xl font-black mb-12 italic leading-[0.85] text-brandYellow tracking-tighter" data-aos="zoom-out">A Career Built on Purpose.</h2>
+                <p class="text-xl md:text-3xl opacity-90 mb-16 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">
+                    Join a team where your expertise is valued and your work truly makes a difference.
+                </p>
+                <div class="flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <a href="mailto:info@newbridgesaba.net" class="bg-brandYellow text-brandPurple px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-2">Send Your Resume</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Locations | New Bridges ABA - NJ & OH</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Modular JS Includes -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: {
+                            DEFAULT: '#804E9E',
+                            light: '#9D73B6',
+                            soft: '#F3EEF6',
+                        },
+                        brandYellow: {
+                            DEFAULT: '#FDBF0F',
+                            light: '#FDCB3F',
+                            soft: '#FFF9E7',
+                        },
+                        brandBlue: {
+                            DEFAULT: '#029CC0',
+                            light: '#35B0CD',
+                            soft: '#E6F5F9',
+                        },
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
+                            light: '#F6964D',
+                            soft: '#FEF2E9',
+                        },
+                        brandBeige: '#FAF9F6',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .location-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+        .location-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px -12px rgba(128, 78, 158, 0.15); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <!-- HERO -->
+        <section class="hero-pattern py-32 md:py-48 relative overflow-hidden text-center">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Statewide Coverage</h3>
+                <h1 class="text-7xl md:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Across <br> <span class="text-brandPurple">NJ & OH.</span></h1>
+                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
+                    We are licensed to provide compassionate, home and school-based ABA therapy throughout the states of New Jersey and Ohio.
+                </p>
+            </div>
+        </section>
+
+        <!-- LOCATIONS GRID -->
+        <section class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+                
+                <!-- New Jersey -->
+                <div class="location-card bg-brandPurple/5 p-12 rounded-5xl border border-brandPurple/10" data-aos="fade-right">
+                    <div class="text-5xl mb-8">🗽</div>
+                    <h2 class="text-4xl font-black text-gray-900 mb-6 italic tracking-tight">New Jersey</h2>
+                    <p class="text-gray-500 text-lg leading-relaxed font-medium mb-10">
+                        Our clinical teams serve families across all 21 counties in New Jersey. We maintain strong partnerships with school districts from Newark to Cherry Hill, ensuring consistent support for your child wherever they go.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-gray-900 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
+                            In-Home ABA Therapy
+                        </div>
+                        <div class="flex items-center gap-4 text-gray-900 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
+                            School-Based Support
+                        </div>
+                        <div class="flex items-center gap-4 text-gray-900 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
+                            Community Skills Training
+                        </div>
+                    </div>
+                    <div class="mt-12 pt-12 border-t border-brandPurple/10">
+                         <p class="text-xs font-black uppercase tracking-[0.2em] text-brandPurple mb-2">Primary Contact</p>
+                         <a href="tel:9739440903" class="text-2xl font-black text-gray-900 hover:text-brandPurple transition-colors">(973) 944-0903</a>
+                    </div>
+                </div>
+
+                <!-- Ohio -->
+                <div class="location-card bg-brandBlue/5 p-12 rounded-5xl border border-brandBlue/10" data-aos="fade-left">
+                    <div class="text-5xl mb-8">🌰</div>
+                    <h2 class="text-4xl font-black text-gray-900 mb-6 italic tracking-tight">Ohio</h2>
+                    <p class="text-gray-500 text-lg leading-relaxed font-medium mb-10">
+                        Based out of Cleveland, we provide statewide home and community care. Our Ohio team is well-versed in state-specific insurance mandates and Medicaid Managed Care plans to get you the care you deserve.
+                    </p>
+                    <div class="bg-white p-6 rounded-3xl mb-10 shadow-sm border border-brandBlue/5">
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-brandBlue mb-2">Regional Hub</p>
+                        <p class="text-gray-900 font-bold">14055 Cedar Road<br>Cleveland, OH 44118</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-gray-900 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
+                            In-Home ABA Therapy
+                        </div>
+                        <div class="flex items-center gap-4 text-gray-900 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
+                            Statewide Tele-consultation
+                        </div>
+                    </div>
+                    <div class="mt-12 pt-12 border-t border-brandBlue/10">
+                         <p class="text-xs font-black uppercase tracking-[0.2em] text-brandBlue mb-2">Primary Contact</p>
+                         <a href="tel:9732067867" class="text-2xl font-black text-gray-900 hover:text-brandPurple transition-colors">(973) 206-7867</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-40 bg-brandPurple text-white text-center relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
+                <h2 class="text-7xl md:text-9xl font-black mb-12 italic leading-[0.85] text-brandYellow tracking-tighter" data-aos="zoom-out">Start Your Care Today.</h2>
+                <div class="flex flex-wrap justify-center gap-8" data-aos="fade-up">
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-2">Enroll Now</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-16 py-8 rounded-3xl font-black text-2xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-2">Call 833-823-5433</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+    </script>
+</body>
+</html>
