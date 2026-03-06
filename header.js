@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="services.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Services</a>
                 <a href="locations.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Locations</a>
                 <a href="careers.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Careers</a>
-                <a href="contact.html" class="px-3 py-2 rounded-full hover:text-brandPurple hover:bg-brandPurple/5 transition-all">Contact Us</a>
                 
                 <div class="h-8 w-px bg-gray-100 mx-4"></div>
                 
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                         </span>
-                        <span class="hidden xl:inline">833-823-5433</span>
+                        <span class="font-black text-sm tracking-widest">833-823-5433</span>
                     </a>
                     <a href="contact.html" class="bg-brandPurple text-white px-8 py-3.5 rounded-2xl hover:bg-brandBlue hover:shadow-2xl hover:shadow-brandBlue/30 transition-all duration-500 transform hover:-translate-y-0.5 active:scale-95">
                         Enroll Now
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="services.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Services</a>
                 <a href="locations.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Locations</a>
                 <a href="careers.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Careers</a>
-                <a href="contact.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Contact Us</a>
                 
                 <div class="pt-12 space-y-8">
                     <div class="bg-brandBlue/5 p-8 rounded-[2.5rem] flex items-center justify-between group">
