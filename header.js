@@ -32,8 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </span>
                         <span class="font-black text-sm tracking-widest">833-823-5433</span>
                     </a>
-                    <a href="contact.html" class="bg-brandPurple text-white px-8 py-3.5 rounded-2xl hover:bg-brandBlue hover:shadow-2xl hover:shadow-brandBlue/30 transition-all duration-500 transform hover:-translate-y-0.5 active:scale-95">
-                        Enroll Now
+                    <a href="contact.html" class="group relative flex items-center gap-2 bg-gradient-to-r from-brandPurple to-brandBlue text-white px-8 py-3.5 rounded-2xl font-black shadow-xl shadow-brandPurple/40 hover:shadow-2xl hover:shadow-brandBlue/50 transition-all duration-500 hover:-translate-y-1 active:scale-95 overflow-hidden">
+                        <div class="absolute inset-0 w-full h-full bg-white/20 group-hover:translate-x-full transition-transform duration-700 -translate-x-full skew-x-12"></div>
+                        <span class="relative z-10 tracking-wide">Enroll Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-10 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -79,8 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                     
-                    <a href="contact.html" @click="mobileMenu = false" class="block w-full bg-brandPurple text-white text-center py-6 rounded-[2rem] font-black text-xl shadow-2xl shadow-brandPurple/30 active:scale-95 transition-all duration-300">
-                        Start Enrollment
+                    <a href="contact.html" @click="mobileMenu = false" class="group relative flex items-center justify-center gap-3 w-full bg-gradient-to-r from-brandPurple to-brandBlue text-white py-6 rounded-[2rem] font-black text-xl shadow-2xl shadow-brandPurple/30 hover:shadow-brandBlue/50 active:scale-95 transition-all duration-500 overflow-hidden">
+                        <div class="absolute inset-0 w-full h-full bg-white/20 group-hover:translate-x-full transition-transform duration-700 -translate-x-full skew-x-12"></div>
+                        <span class="relative z-10 tracking-wide">Start Enrollment</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 relative z-10 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
                     </a>
                 </div>
             </div>
