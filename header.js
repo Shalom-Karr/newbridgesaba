@@ -203,8 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('header-placeholder').innerHTML = headerHTML;
     if (window.Alpine) {
         // Alpine 3: Force initialization if MutationObserver missed it
-        if (typeof window.Alpine.start === 'function') { 
-            try { window.Alpine.start(); } catch (e) {} 
-        }
+        
     }
 });
