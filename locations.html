@@ -21,12 +21,12 @@
                 extend: {
                     colors: {
                         brandPurple: {
-                            DEFAULT: '#804E9E',
+                            DEFAULT: '#4A2B7A',
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
                         brandYellow: {
-                            DEFAULT: '#FDBF0F',
+                            DEFAULT: '#C9982A',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
@@ -40,7 +40,7 @@
                             light: '#F6964D',
                             soft: '#FEF2E9',
                         },
-                        brandBeige: '#FAF9F6',
+                        brandBeige: '#FDF8F0',
                     },
                     fontFamily: { sans: ['Onest', 'sans-serif'] },
                     borderRadius: {
@@ -53,7 +53,7 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
         .location-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
         .location-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px -12px rgba(128, 78, 158, 0.15); }
     </style>
@@ -67,72 +67,68 @@
         <!-- HERO -->
         <section class="hero-pattern py-32 md:py-48 relative overflow-hidden text-center">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Statewide Coverage</h3>
-                <h1 class="text-7xl md:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Across <br> <span class="text-brandPurple">NJ & OH.</span></h1>
-                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
-                    We are licensed to provide compassionate, home and school-based ABA therapy throughout the states of New Jersey and Ohio.
+                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">LOCATIONS</h3>
+                <h1 class="text-6xl md:text-8xl font-black text-gray-900 mb-6 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Currently Servicing <br> <span class="text-brandPurple">New Jersey & Ohio.</span></h1>
+                <p class="text-xl md:text-2xl text-gray-500 max-w-4xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
+                    Our clinical teams serve families across all counties in New Jersey and Ohio. We maintain strong partnerships with school districts, ensuring consistent support for your child wherever they go. Our teams are well-versed in state-specific insurance mandates and Medicaid Managed Care plans to get you the care you deserve.
                 </p>
             </div>
         </section>
 
-        <!-- LOCATIONS GRID -->
-        <section class="py-32 bg-white">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+        <!-- SERVICES & CLINICS -->
+        <section class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
                 
-                <!-- New Jersey -->
-                <div class="location-card bg-brandPurple/5 p-12 rounded-5xl border border-brandPurple/10" data-aos="fade-right">
-                    <div class="text-5xl mb-8">🗽</div>
-                    <h2 class="text-4xl font-black text-gray-900 mb-6 italic tracking-tight">New Jersey</h2>
-                    <p class="text-gray-500 text-lg leading-relaxed font-medium mb-10">
-                        Our clinical teams serve families across all 21 counties in New Jersey. We maintain strong partnerships with school districts from Newark to Cherry Hill, ensuring consistent support for your child wherever they go.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 text-gray-900 font-bold">
-                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
-                            In-Home ABA Therapy
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service 1 -->
+                    <div class="location-card bg-brandPurple/5 p-10 rounded-4xl border border-brandPurple/10" data-aos="fade-up">
+                        <div class="w-16 h-16 rounded-2xl bg-brandPurple text-white flex items-center justify-center text-3xl mb-8 shadow-lg shadow-brandPurple/30">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         </div>
-                        <div class="flex items-center gap-4 text-gray-900 font-bold">
-                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
-                            School-Based Support
-                        </div>
-                        <div class="flex items-center gap-4 text-gray-900 font-bold">
-                            <span class="w-2 h-2 rounded-full bg-brandPurple"></span>
-                            Community Skills Training
-                        </div>
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">In-Home ABA Therapy</h3>
+                        <p class="text-gray-500 font-medium">Providing compassionate care directly in the comfort of your own home, tailored to your family's needs.</p>
                     </div>
-                    <div class="mt-12 pt-12 border-t border-brandPurple/10">
-                         <p class="text-xs font-black uppercase tracking-[0.2em] text-brandPurple mb-2">Primary Contact</p>
-                         <a href="tel:9739440903" class="text-2xl font-black text-gray-900 hover:text-brandPurple transition-colors">(973) 944-0903</a>
-                    </div>
-                </div>
 
-                <!-- Ohio -->
-                <div class="location-card bg-brandBlue/5 p-12 rounded-5xl border border-brandBlue/10" data-aos="fade-left">
-                    <div class="text-5xl mb-8">🌰</div>
-                    <h2 class="text-4xl font-black text-gray-900 mb-6 italic tracking-tight">Ohio</h2>
-                    <p class="text-gray-500 text-lg leading-relaxed font-medium mb-10">
-                        Based out of Cleveland, we provide statewide home and community care. Our Ohio team is well-versed in state-specific insurance mandates and Medicaid Managed Care plans to get you the care you deserve.
-                    </p>
-                    <div class="bg-white p-6 rounded-3xl mb-10 shadow-sm border border-brandBlue/5">
-                        <p class="text-xs font-black uppercase tracking-[0.2em] text-brandBlue mb-2">Regional Hub</p>
-                        <p class="text-gray-900 font-bold">14055 Cedar Road<br>Cleveland, OH 44118</p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 text-gray-900 font-bold">
-                            <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
-                            In-Home ABA Therapy
+                    <!-- Service 2 -->
+                    <div class="location-card bg-brandBlue/5 p-10 rounded-4xl border border-brandBlue/10" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-2xl bg-brandBlue text-white flex items-center justify-center text-3xl mb-8 shadow-lg shadow-brandBlue/30">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
                         </div>
-                        <div class="flex items-center gap-4 text-gray-900 font-bold">
-                            <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
-                            Statewide Tele-consultation
-                        </div>
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">School-Based Support</h3>
+                        <p class="text-gray-500 font-medium">Collaborating with school districts to ensure consistent, effective support for your child's educational journey.</p>
                     </div>
-                    <div class="mt-12 pt-12 border-t border-brandBlue/10">
-                         <p class="text-xs font-black uppercase tracking-[0.2em] text-brandBlue mb-2">Primary Contact</p>
-                         <a href="tel:9732067867" class="text-2xl font-black text-gray-900 hover:text-brandPurple transition-colors">(973) 206-7867</a>
-                    </div>
-                </div>
 
+                    <!-- Service 3 -->
+                    <div class="location-card bg-brandOrange/5 p-10 rounded-4xl border border-brandOrange/10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-2xl bg-brandOrange text-white flex items-center justify-center text-3xl mb-8 shadow-lg shadow-brandOrange/30">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">Statewide Tele-consultation</h3>
+                        <p class="text-gray-500 font-medium">Access expert guidance and consultation remotely from anywhere in our coverage areas.</p>
+                    </div>
+
+                    <!-- Clinic 1 -->
+                    <div class="location-card bg-gray-50 p-10 rounded-4xl border border-gray-100 relative overflow-hidden" data-aos="fade-up">
+                        <div class="absolute top-4 right-4 bg-brandYellow text-brandPurple text-[10px] font-black uppercase tracking-wider py-1 px-3 rounded-full">Coming Soon</div>
+                        <div class="w-16 h-16 rounded-2xl bg-gray-200 text-gray-500 flex items-center justify-center text-3xl mb-8">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">Mentor, Ohio - Clinic</h3>
+                        <p class="text-gray-500 font-medium">A state-of-the-art ABA therapy clinic coming soon to Mentor, Ohio.</p>
+                    </div>
+
+                    <!-- Clinic 2 -->
+                    <div class="location-card bg-gray-50 p-10 rounded-4xl border border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-4 right-4 bg-brandYellow text-brandPurple text-[10px] font-black uppercase tracking-wider py-1 px-3 rounded-full">Coming Soon</div>
+                        <div class="w-16 h-16 rounded-2xl bg-gray-200 text-gray-500 flex items-center justify-center text-3xl mb-8">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">Shaker, Ohio - Clinic</h3>
+                        <p class="text-gray-500 font-medium">A state-of-the-art ABA therapy clinic coming soon to Shaker, Ohio.</p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -142,7 +138,7 @@
                 <h2 class="text-5xl md:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Start Your Care Today.</h2>
                 <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up">
                     <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
-                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call 833-823-5433</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call 8338235433</a>
                 </div>
             </div>
         </section>

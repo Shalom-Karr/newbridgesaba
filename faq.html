@@ -11,10 +11,10 @@
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
       "name": "New Bridges ABA",
-      "image": "https://newbridgesaba.net/wp-content/uploads/2025/02/new-bridges-aba-logo.png",
+      "image": "images/new-bridges-aba-logo.png",
       "@id": "https://newbridgesaba.net",
       "url": "https://newbridgesaba.net",
-      "telephone": "833-823-5433",
+      "telephone": "8338235433",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -61,12 +61,12 @@
                 extend: {
                     colors: {
                         brandPurple: {
-                            DEFAULT: '#804E9E',
+                            DEFAULT: '#4A2B7A',
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
                         brandYellow: {
-                            DEFAULT: '#FDBF0F',
+                            DEFAULT: '#C9982A',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
@@ -80,7 +80,7 @@
                             light: '#F6964D',
                             soft: '#FEF2E9',
                         },
-                        brandBeige: '#FAF9F6',
+                        brandBeige: '#FDF8F0',
                     },
                     fontFamily: { sans: ['Onest', 'sans-serif'] },
                     borderRadius: {
@@ -93,7 +93,7 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
         .faq-tab-btn { @apply px-8 py-3 rounded-full font-bold transition-all duration-300 border-2; }
     </style>
 
@@ -137,13 +137,19 @@
 
     <main class="pt-20">
         <!-- HERO -->
-        <section class="hero-pattern py-32 md:py-48 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Resources for Families</h3>
-                <h1 class="text-7xl md:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Help <span class="text-brandPurple">Center.</span></h1>
-                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
-                    Comprehensive answers for families in <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandBlue font-bold italic">Ohio</span>.
-                </p>
+        <section class="hero-pattern py-24 md:py-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6">Resources for Families</h3>
+                    <h1 class="text-6xl md:text-8xl font-black text-gray-900 mb-8 italic tracking-tighter leading-none">Help <span class="text-brandPurple">Center.</span></h1>
+                    <p class="text-xl md:text-2xl text-gray-500 leading-relaxed font-medium">
+                        Comprehensive answers for families in <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandBlue font-bold italic">Ohio</span>.
+                    </p>
+                </div>
+                <div class="relative" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-brandPurple/20 rounded-[3rem] transform translate-x-4 translate-y-4"></div>
+                    <img src="images/stock-photo-costume-call-center-girl-office-headset-2699551181.jpg" alt="Support Team Member" class="rounded-[3rem] shadow-2xl relative z-10 object-cover w-full h-[400px] border-4 border-white">
+                </div>
             </div>
             <!-- Decorative Blobs -->
             <div class="absolute -top-24 -left-24 w-96 h-96 bg-brandPurple/10 rounded-full blur-3xl animate-pulse"></div>
@@ -162,7 +168,8 @@
                     <button @click="faqTab = 'staff'; activeFaq = null" :class="faqTab === 'staff' ? 'bg-brandYellow text-brandPurple border-brandYellow shadow-xl shadow-brandYellow/20 scale-105' : 'bg-white text-gray-400 border-gray-100 hover:border-brandYellow/30 hover:text-brandYellow'" class="faq-tab-btn">Staff & Safety</button>
                 </div>
 
-                <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-7xl mx-auto">
+                    <div class="lg:col-span-7">
                     <!-- CATEGORY: GENERAL -->
                     <div x-show="faqTab === 'general'" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-6">
                         <template x-for="(faq, i) in [
@@ -260,6 +267,17 @@
                     </div>
                 </div>
 
+                <!-- Sidebar Image -->
+                <div class="lg:col-span-5 relative sticky top-32 mt-12 lg:mt-0" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-brandBlue/20 rounded-[3rem] transform -translate-x-4 translate-y-4"></div>
+                    <img src="images/kid-girl-playing-logical-toy-desk-nursery-room-kindergarten-child-arranging-sorting-colors-sizes-92394869.jpg" alt="Child learning and playing" class="rounded-[3rem] shadow-2xl relative z-10 object-cover w-full h-[500px] lg:h-[600px] border-4 border-white">
+                    
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-brandYellow rounded-full blur-2xl opacity-40 z-0"></div>
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-brandPurple rounded-full blur-2xl opacity-30 z-0"></div>
+                </div>
+            </div>
+
             </div>
         </section>
 
@@ -273,7 +291,7 @@
                 <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">Our clinical intake team is available Monday–Friday to walk you through the specifics of your case.</p>
                 <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
                     <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
-                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">833-823-5433</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">8338235433</a>
                 </div>
             </div>
         </section>

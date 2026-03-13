@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Brand Bio -->
                 <div class="space-y-8">
-                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/new-bridges-aba-logo.png" alt="Logo" class="h-12 w-auto transition-all hover:scale-105">
+                    <img src="images/new-bridges-aba-logo.png" alt="Logo" class="h-12 w-auto transition-all hover:scale-105">
                     <p class="text-gray-500 text-base leading-relaxed font-medium max-w-xs">
-                        Building bridges between school and home through consistent, evidence-based ABA therapy that empowers families across New Jersey and Ohio. 
+                        Providing the support, tools, and guidance necessary to help children with autism bridge the gap between their current skills and their highest potential. 
                     </p>
                     <div class="flex gap-4">
                         <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center text-brandPurple hover:bg-brandPurple hover:text-white transition-all cursor-pointer">
@@ -30,49 +30,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4 class="font-black text-gray-900 mb-8 uppercase tracking-[0.2em] text-[11px]">Explore</h4>
                     <ul class="space-y-4">
                         <li><a href="index.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Home</a></li>
-                        <li><a href="about.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> About Us</a></li>
+                        <li><a href="about.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Our Approach</a></li>
                         <li><a href="services.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Our Services</a></li>
                         <li><a href="locations.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Locations</a></li>
-                        <li><a href="careers.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="lg:pl-12">
+                    <h4 class="font-black text-gray-900 mb-8 uppercase tracking-[0.2em] text-[11px]">Resources</h4>
+                    <ul class="space-y-4">
+                        <li><a href="faq.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Help Center</a></li>
+                        <li><a href="careers.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Join Our Team</a></li>
                         <li><a href="blog.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Blog</a></li>
                         <li><a href="contact.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Contact Us</a></li>
                     </ul>
                 </div>
 
-                <!-- Enrollment -->
+                <!-- Contact Us -->
                 <div>
-                    <h4 class="font-black text-gray-900 mb-8 uppercase tracking-[0.2em] text-[11px]">Intake Lines</h4>
+                    <h4 class="font-black text-gray-900 mb-8 uppercase tracking-[0.2em] text-[11px]">Reach Out</h4>
                     <div class="space-y-8">
                         <div class="group">
-                            <p class="text-[10px] text-brandBlue font-black uppercase tracking-[0.2em] mb-2">New Jersey</p>
-                            <a href="tel:9739440903" class="text-xl font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300">
-                                (973) 944-0903
-                            </a>
+                             <p class="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] mb-2">Phone</p>
+                             <a href="tel:8338235433" class="text-xl font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300">
+                                8338235433
+                             </a>
                         </div>
                         <div class="group">
-                            <p class="text-[10px] text-brandOrange font-black uppercase tracking-[0.2em] mb-2">Ohio</p>
-                            <a href="tel:9732067867" class="text-xl font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300">
-                                (973) 206-7867
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Support -->
-                <div>
-                    <h4 class="font-black text-gray-900 mb-8 uppercase tracking-[0.2em] text-[11px]">Connect</h4>
-                    <div class="space-y-8">
-                        <div class="group">
-                            <p class="text-[10px] text-brandPurple font-black uppercase tracking-[0.2em] mb-2">Email Support</p>
+                            <p class="text-[10px] text-brandPurple font-black uppercase tracking-[0.2em] mb-2">Email</p>
                             <a href="mailto:info@newbridgesaba.net" class="text-base font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300 break-all">
                                 info@newbridgesaba.net
                             </a>
-                        </div>
-                        <div class="group">
-                             <p class="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] mb-2">General Line</p>
-                             <a href="tel:8338235433" class="text-base font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300">
-                                833-823-5433
-                             </a>
                         </div>
                     </div>
                 </div>

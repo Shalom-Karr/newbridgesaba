@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | New Bridges ABA - NJ & OH</title>
+    <title>Our Approach | New Bridges ABA - NJ & OH</title>
     
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Added Alpine.js collapse plugin for smooth FAQ toggles -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -21,12 +23,12 @@
                 extend: {
                     colors: {
                         brandPurple: {
-                            DEFAULT: '#804E9E',
+                            DEFAULT: '#4A2B7A',
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
                         brandYellow: {
-                            DEFAULT: '#FDBF0F',
+                            DEFAULT: '#C9982A',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
@@ -40,7 +42,7 @@
                             light: '#F6964D',
                             soft: '#FEF2E9',
                         },
-                        brandBeige: '#FAF9F6',
+                        brandBeige: '#FDF8F0',
                     },
                     fontFamily: { sans: ['Onest', 'sans-serif'] },
                     borderRadius: {
@@ -53,9 +55,9 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(128, 78, 158, 0.05); }
-        .text-gradient { background: linear-gradient(135deg, #804E9E 0%, #029CC0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient { background: linear-gradient(135deg, #4A2B7A 0%, #029CC0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .blob { position: absolute; filter: blur(60px); opacity: 0.15; z-index: -1; animation: blob-float 20s infinite alternate; }
         @keyframes blob-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(20px, -30px) scale(1.1); } }
     </style>
@@ -73,59 +75,131 @@
             
             <div class="max-w-7xl mx-auto px-6">
                 <div data-aos="fade-up" data-aos-duration="1200">
-                    <h4 class="text-brandBlue font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Our Story & Mission</h4>
-                    <h1 class="text-7xl md:text-9xl font-black leading-[0.85] text-gray-900 mb-10 tracking-tighter">
-                        Who We <br> <span class="text-gradient italic">Are.</span>
+                    <h4 class="text-brandBlue font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Our Approach</h4>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] text-gray-900 mb-10 tracking-tighter">
+                        Building a Foundation of <br> <span class="text-gradient italic">Trust, Play, and Progress.</span>
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-                        New Bridges ABA is a dedicated team of clinical professionals committed to providing consistent, high-quality care for children with Autism Spectrum Disorder across New Jersey and Ohio.
-                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- WHO WE ARE SECTION -->
-        <section class="py-32 bg-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-center">
+        <!-- COLLABORATIVE CARE SECTION -->
+        <section class="py-24 bg-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 md:gap-24 items-center">
                 <div data-aos="fade-right">
-                    <h2 class="text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Dedicated to Your Child's Success.</h2>
-                    <p class="text-lg text-gray-500 leading-relaxed mb-6 font-medium">
-                        At New Bridges ABA, we view each child as an individual with unique strengths and potential. Our mission is to provide the "bridge" between different environments—school, home, and community—ensuring that progress is never interrupted.
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Collaborative Care & Parent Training</h2>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-8 font-medium">
+                        We believe that the most significant progress doesn’t happen in a vacuum—it happens in the living room, at the dinner table, and during bedtime stories. At New Bridges ABA, we don't just work with your child; we work alongside you.
                     </p>
-                    <p class="text-lg text-gray-500 leading-relaxed font-medium">
-                        We are more than just service providers; we are partners in your child's journey. Our empathetic BCBAs and skilled RBTs work tirelessly to create customized interventions that empower children to communicate, interact, and thrive.
-                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <span class="text-brandBlue text-2xl mr-4 mt-1">✓</span>
+                            <div>
+                                <strong class="text-gray-900 font-bold block mb-1">Empowering the Family Unit:</strong>
+                                <span class="text-gray-500 font-medium leading-relaxed">Our "Parent Training" isn't a classroom lecture. It is a hands-on partnership designed to give you the confidence and the tools to support your child’s growth long after our sessions end.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brandBlue text-2xl mr-4 mt-1">✓</span>
+                            <div>
+                                <strong class="text-gray-900 font-bold block mb-1">Consistency Across Environments:</strong>
+                                <span class="text-gray-500 font-medium leading-relaxed">We help you translate the skills your child learns in therapy into real-world routines. Whether it’s navigating a trip to the grocery store or managing a difficult transition at home, we are there to provide strategies that actually work for your family’s life.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brandBlue text-2xl mr-4 mt-1">✓</span>
+                            <div>
+                                <strong class="text-gray-900 font-bold block mb-1">Shared Milestones:</strong>
+                                <span class="text-gray-500 font-medium leading-relaxed">You are the expert on your child. We combine your heart and history with our clinical expertise to set goals that matter most to your daily life. When your child reaches a new milestone, it’s a victory we’ve built toward together.</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="relative" data-aos="fade-left">
-                    <img src="https://newbridgesaba.net/wp-content/uploads/2025/02/AdobeStock_563757582-1.png" alt="About Us Team" class="rounded-5xl shadow-2xl shadow-brandPurple/20 transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                    <img src="new/Collaborative%20Care%20&%20Parent%20Training%20(2).png" alt="Collaborative Care & Parent Training" class="rounded-5xl shadow-2xl shadow-brandPurple/20 transform rotate-2 hover:rotate-0 transition-transform duration-700 w-full object-cover">
                 </div>
             </div>
         </section>
 
-        <!-- WHAT WE OFFER SECTION -->
-        <section class="py-32 bg-brandBeige relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24" data-aos="fade-up">
-                    <h3 class="text-brandPurple font-black uppercase tracking-[0.3em] text-[11px] mb-4">Our Services</h3>
-                    <h2 class="text-5xl md:text-6xl font-black text-gray-900 italic tracking-tight mb-6">What We Offer.</h2>
+        <!-- WHY THIS MATTERS SECTION -->
+        <section class="py-24 bg-brandBeige relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+                <div class="relative order-2 md:order-1" data-aos="fade-right">
+                    <a href="https://www.shutterstock.com/image-photo/ok-gesture-thumb-gunny-happy-kid-1220208613?trackingId=77d371bc-98da-447b-9eb9-76fb438a6617&listId=searchResults" target="_blank">
+                        <img src="images/ok-gesture-thumb-gunny-happy-kid-600nw-1220208613.jpg" alt="Why This Matters" class="rounded-5xl shadow-2xl shadow-brandPurple/20 transform -rotate-2 hover:rotate-0 transition-transform duration-700 w-full object-cover">
+                    </a>
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-left">
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Why This Matters for Your Child</h2>
+                    <p class="text-xl text-gray-500 leading-relaxed font-medium">
+                        When therapy and home life are in sync, children feel more secure and learn faster. By building this collaborative foundation, we ensure that the progress your child makes today becomes a permanent part of their future.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="py-24 bg-white relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h3 class="text-brandPurple font-black uppercase tracking-[0.3em] text-[11px] mb-4">FAQ</h3>
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 italic tracking-tight mb-6">Parent Training: Frequently Asked Questions</h2>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-10">
-                    <div class="bg-white p-12 rounded-5xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 bg-brandPurple-soft text-brandPurple rounded-2xl flex items-center justify-center text-3xl mb-8">🏠</div>
-                        <h4 class="text-2xl font-black text-gray-900 mb-4">In-Home Therapy</h4>
-                        <p class="text-gray-500 leading-relaxed font-medium">We bring evidence-based ABA therapy to the comfort of your home, focusing on daily living skills and family integration.</p>
+                <div class="space-y-6" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- FAQ 1 -->
+                    <div x-data="{ open: false }" class="bg-brandBeige rounded-3xl border border-gray-100 overflow-hidden">
+                        <button @click="open = !open" class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none">
+                            <h4 class="text-xl font-bold text-gray-900 pr-4">How much time will I need to commit each week?</h4>
+                            <span class="text-brandPurple text-2xl font-bold" x-text="open ? '−' : '+'"></span>
+                        </button>
+                        <div x-show="open" x-collapse x-cloak>
+                            <div class="px-8 pb-6 text-gray-500 font-medium leading-relaxed border-t border-gray-200 pt-4">
+                                We understand your schedule is busy. Most families participate in 1–2 hours of collaborative training per month or bi-weekly, depending on your child’s specific plan. Our goal is to integrate these strategies into the things you’re already doing—like mealtime or play—so it doesn't feel like "extra" work.
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white p-12 rounded-5xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-16 h-16 bg-brandBlue-soft text-brandBlue rounded-2xl flex items-center justify-center text-3xl mb-8">🏫</div>
-                        <h4 class="text-2xl font-black text-gray-900 mb-4">School Support</h4>
-                        <p class="text-gray-500 leading-relaxed font-medium">Our therapists accompany your child to school, providing 1:1 behavioral coaching and social skills training in the classroom.</p>
+
+                    <!-- FAQ 2 -->
+                    <div x-data="{ open: false }" class="bg-brandBeige rounded-3xl border border-gray-100 overflow-hidden">
+                        <button @click="open = !open" class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none">
+                            <h4 class="text-xl font-bold text-gray-900 pr-4">Do I need to be a "teacher" for this to work?</h4>
+                            <span class="text-brandPurple text-2xl font-bold" x-text="open ? '−' : '+'"></span>
+                        </button>
+                        <div x-show="open" x-collapse x-cloak>
+                            <div class="px-8 pb-6 text-gray-500 font-medium leading-relaxed border-t border-gray-200 pt-4">
+                                Not at all. You are the parent, and that is your most important role. We don't expect you to become a therapist; we simply provide you with a "toolbox" of small, effective strategies to help manage behaviors and encourage communication in your natural daily routines.
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white p-12 rounded-5xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-16 h-16 bg-brandYellow-soft text-brandPurple rounded-2xl flex items-center justify-center text-3xl mb-8">👪</div>
-                        <h4 class="text-2xl font-black text-gray-900 mb-4">Parent Training</h4>
-                        <p class="text-gray-500 leading-relaxed font-medium">We empower parents with the tools and strategies they need to support their child's progress when our therapists aren't present.</p>
+
+                    <!-- FAQ 3 -->
+                    <div x-data="{ open: false }" class="bg-brandBeige rounded-3xl border border-gray-100 overflow-hidden">
+                        <button @click="open = !open" class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none">
+                            <h4 class="text-xl font-bold text-gray-900 pr-4">Can both parents or caregivers participate?</h4>
+                            <span class="text-brandPurple text-2xl font-bold" x-text="open ? '−' : '+'"></span>
+                        </button>
+                        <div x-show="open" x-collapse x-cloak>
+                            <div class="px-8 pb-6 text-gray-500 font-medium leading-relaxed border-t border-gray-200 pt-4">
+                                Absolutely. In fact, we encourage it! Consistency is the "bridge" to success. We welcome moms, dads, grandparents, or any primary caregivers to join our sessions so that everyone in the child’s world is on the same page.
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- FAQ 4 -->
+                    <div x-data="{ open: false }" class="bg-brandBeige rounded-3xl border border-gray-100 overflow-hidden">
+                        <button @click="open = !open" class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none">
+                            <h4 class="text-xl font-bold text-gray-900 pr-4">Is this covered by my insurance?</h4>
+                            <span class="text-brandPurple text-2xl font-bold" x-text="open ? '−' : '+'"></span>
+                        </button>
+                        <div x-show="open" x-collapse x-cloak>
+                            <div class="px-8 pb-6 text-gray-500 font-medium leading-relaxed border-t border-gray-200 pt-4">
+                                In most cases, yes. In Ohio and New Jersey, many insurance providers recognize that parent training is a vital component of successful ABA therapy and include it in their coverage. We will verify this for you during the intake process so there are no surprises.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -139,7 +213,7 @@
                 </p>
                 <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
                     <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
-                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call 833-823-5433</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call 8338235433</a>
                 </div>
             </div>
         </section>

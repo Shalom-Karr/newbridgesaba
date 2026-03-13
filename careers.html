@@ -20,11 +20,11 @@
             theme: {
                 extend: {
                     colors: {
-                        brandPurple: { DEFAULT: '#804E9E', light: '#9D73B6', soft: '#F3EEF6' },
-                        brandYellow: { DEFAULT: '#FDBF0F', light: '#FDCB3F', soft: '#FFF9E7' },
+                        brandPurple: { DEFAULT: '#4A2B7A', light: '#9D73B6', soft: '#F3EEF6' },
+                        brandYellow: { DEFAULT: '#C9982A', light: '#FDCB3F', soft: '#FFF9E7' },
                         brandBlue: { DEFAULT: '#029CC0', light: '#35B0CD', soft: '#E6F5F9' },
                         brandOrange: { DEFAULT: '#F37C20', light: '#F6964D', soft: '#FEF2E9' },
-                        brandBeige: '#FAF9F6',
+                        brandBeige: '#FDF8F0',
                     },
                     fontFamily: { sans: ['Onest', 'sans-serif'] },
                     borderRadius: { '4xl': '2rem', '5xl': '3rem' }
@@ -34,7 +34,7 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-pattern { background-color: #FAF9F6; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
+        .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-white">
@@ -66,7 +66,7 @@
                     </div>
                     <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Board Certified Behavior Analyst (BCBA)</h4>
                     <p class="text-gray-500 font-medium mb-10">Conduct assessments, design treatment plans, and provide supervision for our clinical teams in NJ and OH.</p>
-                    <a href="mailto:info@newbridgesaba.net?subject=BCBA Position Application" class="text-brandPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandPurple pb-1 hover:text-brandBlue hover:border-brandBlue transition-all">Apply Now →</a>
+                    <a href="#apply" class="text-brandPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandPurple pb-1 hover:text-brandBlue hover:border-brandBlue transition-all">Apply Now →</a>
                 </div>
 
                 <!-- Position 2 -->
@@ -77,7 +77,7 @@
                     </div>
                     <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Registered Behavior Technician (RBT)</h4>
                     <p class="text-gray-500 font-medium mb-10">Provide 1:1 therapy sessions and directly support children's progress in school and at home.</p>
-                    <a href="mailto:info@newbridgesaba.net?subject=RBT Position Application" class="text-brandBlue font-black uppercase tracking-widest text-xs border-b-2 border-brandBlue pb-1 hover:text-brandPurple hover:border-brandPurple transition-all">Apply Now →</a>
+                    <a href="#apply" class="text-brandBlue font-black uppercase tracking-widest text-xs border-b-2 border-brandBlue pb-1 hover:text-brandPurple hover:border-brandPurple transition-all">Apply Now →</a>
                 </div>
 
             </div>
@@ -91,11 +91,75 @@
                     Join a team where your expertise is valued and your work truly makes a difference.
                 </p>
                 <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="mailto:info@newbridgesaba.net" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Send Your Resume</a>
+                    <a href="#apply" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Send Your Resume</a>
                 </div>
             </div>
         </section>
-    </main>
+
+        <!-- APPLY FORM SECTION -->
+        <section id="apply" class="py-24 bg-brandBeige border-t border-gray-200">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="bg-white rounded-5xl shadow-2xl p-10 md:p-16 border border-gray-100" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 italic tracking-tight text-center">Apply to <span class="text-brandPurple">Join Our Team</span></h2>
+                    <p class="text-center text-gray-500 mb-10 font-medium">Please fill out the form below and attach your resume. We will get back to you shortly.</p>
+
+                    <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-black text-gray-700 uppercase tracking-widest mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent transition-all font-medium">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-black text-gray-700 uppercase tracking-widest mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent transition-all font-medium">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-black text-gray-700 uppercase tracking-widest mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent transition-all font-medium">
+                            </div>
+                            <div>
+                                <label for="position" class="block text-sm font-black text-gray-700 uppercase tracking-widest mb-2">Position Applying For *</label>
+                                <select id="position" name="position" required class="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent transition-all font-medium text-gray-700 appearance-none">
+                                    <option value="" disabled selected>Select a position</option>
+                                    <option value="bcba">Board Certified Behavior Analyst (BCBA)</option>
+                                    <option value="rbt">Registered Behavior Technician (RBT)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="resume" class="block text-sm font-black text-gray-700 uppercase tracking-widest mb-2">Upload Resume / CV *</label>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-2xl bg-gray-50 hover:bg-gray-100 transition-all cursor-pointer relative">
+                                <div class="space-y-1 text-center">
+                                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <div class="flex text-sm text-gray-600 justify-center">
+                                        <label for="resume" class="relative cursor-pointer bg-transparent rounded-md font-black text-brandPurple hover:text-brandBlue focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brandPurple">
+                                            <span>Upload a file</span>
+                                            <input id="resume" name="resume" type="file" class="sr-only" accept=".pdf,.doc,.docx" required>
+                                        </label>
+                                        <p class="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500 font-medium">PDF, DOC, DOCX up to 10MB</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 text-center">
+                            <button type="submit" class="w-full md:w-auto px-12 py-5 bg-brandPurple text-white rounded-2xl font-black text-xl hover:bg-brandBlue transition-all duration-500 shadow-xl shadow-brandPurple/20 active:scale-95 transform">
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
