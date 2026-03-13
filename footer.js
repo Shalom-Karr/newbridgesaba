@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="group">
                              <p class="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] mb-2">Phone</p>
                              <a href="tel:8338235433" class="text-xl font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300">
-                                8338235433
+                                (833) 823-5433
                              </a>
                         </div>
                         <div class="group">
