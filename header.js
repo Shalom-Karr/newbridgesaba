@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const headerHTML = `
-    <nav class="fixed top-0 left-0 w-full max-w-[100vw] z-[100] bg-white/80 backdrop-blur-2xl border-b border-gray-100/50" x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
+    <nav class="fixed top-0 left-0 w-full max-w-[100vw] z-[100] bg-white/80 backdrop-blur-2xl border-b border-gray-100/50 transition-all duration-300" :class="{ 'h-screen !bg-white': mobileMenu }" x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
         <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 md:h-24 flex justify-between items-center transition-all duration-500" :class="scrolled ? 'h-20' : 'h-20 md:h-24'">
             
             <!-- Logo -->
