@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <!-- Mobile Menu Overlay -->
         <div x-show="mobileMenu" 
-             x-cloak 
+              
              x-transition:enter="transition ease-out duration-500"
              x-transition:enter-start="opacity-0 translate-y-[-20px]"
              x-transition:enter-end="opacity-100 translate-y-0"
@@ -200,5 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </nav>
     `;
-    document.getElementById('header-placeholder').innerHTML = headerHTML;
+            document.getElementById('header-placeholder').innerHTML = headerHTML;
+    if (window.Alpine) {
+        // Alpine 3: Force initialization if MutationObserver missed it
+        if (typeof window.Alpine.start === 'function') { 
+            try { window.Alpine.start(); } catch (e) {} 
+        }
+    }
 });
