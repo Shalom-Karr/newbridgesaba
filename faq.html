@@ -137,11 +137,11 @@
 
     <main class="pt-20">
         <!-- HERO -->
-        <section class="hero-pattern py-24 md:py-32 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section class="hero-pattern py-12 lg:py-24 md:py-16 lg:py-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 lg:p-12 items-center">
                 <div data-aos="fade-right">
                     <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6">Resources for Families</h3>
-                    <h1 class="text-6xl md:text-8xl font-black text-gray-900 mb-8 italic tracking-tighter leading-none">Help <span class="text-brandPurple">Center.</span></h1>
+                    <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-gray-900 mb-8 italic tracking-tighter leading-none">Help <span class="text-brandPurple">Center.</span></h1>
                     <p class="text-xl md:text-2xl text-gray-500 leading-relaxed font-medium">
                         Comprehensive answers for families in <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandBlue font-bold italic">Ohio</span>.
                     </p>
@@ -152,23 +152,23 @@
                 </div>
             </div>
             <!-- Decorative Blobs -->
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-brandPurple/10 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brandBlue/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -top-24 -left-24 w-64 h-64 md:w-96 md:h-96 bg-brandPurple/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-brandBlue/10 rounded-full blur-3xl animate-pulse"></div>
         </section>
 
         <!-- FAQ INTERACTIVE HUB -->
-        <section class="py-32 bg-white min-h-screen">
+        <section class="py-16 lg:py-32 bg-white min-h-screen">
             <div class="max-w-5xl mx-auto px-6">
                 
                 <!-- Category Switcher -->
-                <div class="flex flex-wrap justify-center gap-4 mb-24" data-aos="fade-up">
+                <div class="flex flex-wrap justify-center gap-4 mb-8 lg:mb-12 lg:mb-24" data-aos="fade-up">
                     <button @click="faqTab = 'general'; activeFaq = null" :class="faqTab === 'general' ? 'bg-brandPurple text-white border-brandPurple shadow-xl shadow-brandPurple/20 scale-105' : 'bg-white text-gray-400 border-gray-100 hover:border-brandPurple/30 hover:text-brandPurple'" class="faq-tab-btn">The Basics</button>
                     <button @click="faqTab = 'model'; activeFaq = null" :class="faqTab === 'model' ? 'bg-brandBlue text-white border-brandBlue shadow-xl shadow-brandBlue/20 scale-105' : 'bg-white text-gray-400 border-gray-100 hover:border-brandBlue/30 hover:text-brandBlue'" class="faq-tab-btn">Our Consistency Model</button>
                     <button @click="faqTab = 'insurance'; activeFaq = null" :class="faqTab === 'insurance' ? 'bg-brandOrange text-white border-brandOrange shadow-xl shadow-brandOrange/20 scale-105' : 'bg-white text-gray-400 border-gray-100 hover:border-brandOrange/30 hover:text-brandOrange'" class="faq-tab-btn">Insurance & Laws</button>
                     <button @click="faqTab = 'staff'; activeFaq = null" :class="faqTab === 'staff' ? 'bg-brandYellow text-brandPurple border-brandYellow shadow-xl shadow-brandYellow/20 scale-105' : 'bg-white text-gray-400 border-gray-100 hover:border-brandYellow/30 hover:text-brandYellow'" class="faq-tab-btn">Staff & Safety</button>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 lg:p-12 items-start max-w-7xl mx-auto">
                     <div class="lg:col-span-7">
                     <!-- CATEGORY: GENERAL -->
                     <div x-show="faqTab === 'general'" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-6">
@@ -179,7 +179,7 @@
                             {q: 'Is ABA therapy forever?', a: 'No. Our goal is independence. We constantly monitor data to fade out support as your child masters their goals and generalizes their skills to everyday life.'}
                         ]">
                             <div class="border border-gray-100 rounded-4xl overflow-hidden bg-brandBeige group transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-brandPurple/5">
-                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-10 text-left flex justify-between items-center group">
+                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-6 lg:p-10 text-left flex justify-between items-center group">
                                     <span class="text-2xl font-black text-gray-900 group-hover:text-brandPurple transition-colors italic tracking-tight" x-text="faq.q"></span>
                                     <span class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandPurple shadow-sm transition-transform duration-500" :class="activeFaq === i ? 'rotate-45' : ''">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -203,7 +203,7 @@
                             {q: 'How often will I see the BCBA?', a: 'Your Board Certified Behavior Analyst (BCBA) will provide direct supervision for about 10-20% of the total therapy hours. They also meet with parents at least once a month for Parent Training.'}
                         ]">
                             <div class="border border-brandBlue/10 rounded-4xl overflow-hidden bg-brandBlue/5 group transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-brandBlue/5">
-                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-10 text-left flex justify-between items-center group">
+                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-6 lg:p-10 text-left flex justify-between items-center group">
                                     <span class="text-2xl font-black text-gray-900 group-hover:text-brandBlue transition-colors italic tracking-tight" x-text="faq.q"></span>
                                     <span class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandBlue shadow-sm transition-transform duration-500" :class="activeFaq === i ? 'rotate-45' : ''">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -227,7 +227,7 @@
                             {q: 'What is a Benefits Verification?', a: 'It is the first step of our process. We call your insurance company to confirm that your plan covers ABA, and we provide you with a written breakdown of any co-pays or deductibles.'}
                         ]">
                             <div class="border border-brandOrange/10 rounded-4xl overflow-hidden bg-brandOrange/5 group transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-brandOrange/5">
-                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-10 text-left flex justify-between items-center group">
+                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-6 lg:p-10 text-left flex justify-between items-center group">
                                     <span class="text-2xl font-black text-gray-900 group-hover:text-brandOrange transition-colors italic tracking-tight" x-text="faq.q"></span>
                                     <span class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandOrange shadow-sm transition-transform duration-500" :class="activeFaq === i ? 'rotate-45' : ''">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -251,7 +251,7 @@
                             {q: 'What is the role of the parent?', a: 'Parents are the most important part of the team. While we provide the therapy, we require parent participation in Parent Training sessions to ensure you have the tools to manage behaviors when we aren’t there.'}
                         ]">
                             <div class="border border-brandYellow/10 rounded-4xl overflow-hidden bg-brandYellow/5 group transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-brandYellow/5">
-                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-10 text-left flex justify-between items-center group">
+                                <button @click="activeFaq = (activeFaq === i ? null : i)" class="w-full p-6 lg:p-10 text-left flex justify-between items-center group">
                                     <span class="text-2xl font-black text-gray-900 group-hover:text-brandPurple transition-colors italic tracking-tight" x-text="faq.q"></span>
                                     <span class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandPurple shadow-sm transition-transform duration-500" :class="activeFaq === i ? 'rotate-45' : ''">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -274,7 +274,7 @@
                     
                     <!-- Decorative element -->
                     <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-brandYellow rounded-full blur-2xl opacity-40 z-0"></div>
-                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-brandPurple rounded-full blur-2xl opacity-30 z-0"></div>
+                    <div class="absolute -top-6 lg:p-10 -left-10 w-32 h-32 bg-brandPurple rounded-full blur-2xl opacity-30 z-0"></div>
                 </div>
             </div>
 
@@ -283,15 +283,15 @@
 
         <!-- CTA -->
         <section class="py-16 bg-brandPurple text-white text-center relative overflow-hidden">
-            <div class="absolute blob w-[600px] h-[600px] bg-brandBlue/20 -top-64 -right-64"></div>
-            <div class="absolute blob w-[600px] h-[600px] bg-brandYellow/10 -bottom-64 -left-64"></div>
+            <div class="absolute blob w-72 h-72 md:w-[600px] md:h-[600px] bg-brandBlue/20 -top-64 -right-64"></div>
+            <div class="absolute blob w-72 h-72 md:w-[600px] md:h-[600px] bg-brandYellow/10 -bottom-64 -left-64"></div>
 
             <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <h2 class="text-5xl md:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Still have questions?</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Still have questions?</h2>
                 <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">Our clinical intake team is available Monday–Friday to walk you through the specifics of your case.</p>
-                <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
-                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">(833) 823-5433</a>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
+                    <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">(833) 823-5433</a>
                 </div>
             </div>
         </section>

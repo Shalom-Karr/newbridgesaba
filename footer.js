@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     <footer class="bg-brandBeige pt-32 pb-16 relative overflow-hidden">
         <!-- Background Accents -->
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brandPurple/20 to-transparent"></div>
-        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brandPurple/5 rounded-full blur-3xl"></div>
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brandBlue/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 md:w-96 md:h-96 bg-brandPurple/5 rounded-full blur-3xl"></div>
+        <div class="absolute -top-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-brandBlue/5 rounded-full blur-3xl"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 mb-8 lg:mb-12 lg:mb-24">
                 
                 <!-- Brand Bio -->
                 <div class="space-y-8">
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             </style>
 
-            <div class="flex justify-center items-center w-full mb-12">
+            <div class="flex justify-center items-center w-full mb-8 lg:mb-12">
                 <a href="https://shalomkarr.pages.dev" target="_blank" class="group relative flex items-center justify-center gap-3 px-6 py-2.5 w-full max-w-[300px] md:w-auto bg-[#1a2c3b] hover:bg-[#233545] rounded-full border border-white/5 hover:border-gold/60 transition-all duration-500 hover:shadow-[0_0_25px_rgba(212,175,55,0.15)] active:scale-95">
                     <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 via-gold/10"></span>
                     <span class="relative text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-500 group-hover:text-gold transition-colors font-bold">Built By</span>

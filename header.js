@@ -124,11 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
              class="lg:hidden fixed inset-0 z-[100] bg-white pt-24 px-6 overflow-y-auto">
             
             <div class="flex flex-col space-y-1">
-                <a href="index.html" @click="mobileMenu = false" class="text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Home</a>
+                <a href="index.html" @click="mobileMenu = false" class="text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Home</a>
                 
                 <!-- About Us Accordion -->
                 <div x-data="{ open: false }" class="border-b border-gray-50">
-                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
+                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
                         <span>About Us</span>
                         <svg class="w-6 h-6 transition-transform duration-300 text-brandPurple" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Care & Services Accordion -->
                 <div x-data="{ open: false }" class="border-b border-gray-50">
-                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
+                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
                         <span>Care & Services</span>
                         <svg class="w-6 h-6 transition-transform duration-300 text-brandPurple" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Resources Accordion -->
                 <div x-data="{ open: false }" class="border-b border-gray-50">
-                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
+                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
                         <span>Resources</span>
                         <svg class="w-6 h-6 transition-transform duration-300 text-brandPurple" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
