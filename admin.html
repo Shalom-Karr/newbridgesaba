@@ -91,22 +91,68 @@
         <!-- ANALYTICS TAB -->
         <div x-show="tab === 'analytics'" x-cloak>
             <h2 class="text-2xl font-black text-gray-900 mb-6">Tracking Analytics</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm text-center">
-                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Page Views</p>
-                    <p class="text-5xl font-black text-brandPurple" x-text="analytics.pageViews">0</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Page Views</p>
+                    <p class="text-4xl font-black text-brandPurple" x-text="analytics.pageViews">0</p>
                 </div>
-                <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                <div class="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm text-center">
                     <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Clicks</p>
-                    <p class="text-5xl font-black text-brandOrange" x-text="analytics.clicks">0</p>
+                    <p class="text-4xl font-black text-brandOrange" x-text="analytics.clicks">0</p>
                 </div>
-                <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm text-center">
-                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Unique Sessions</p>
-                    <p class="text-5xl font-black text-brandLightPurple" x-text="analytics.uniqueSessions">0</p>
+                <div class="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Sessions</p>
+                    <p class="text-4xl font-black text-brandLightPurple" x-text="analytics.uniqueSessions">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Unique Users</p>
+                    <p class="text-4xl font-black text-green-500" x-text="analytics.uniqueUsers">0</p>
                 </div>
             </div>
-            <div class="bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm p-8">
-                <p class="text-gray-500 italic">Advanced analytics dashboards can be built here or directly within your Supabase SQL editor using the 'newbridges_tracking' table.</p>
+            <div class="card table-wrapper bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm">
+                <div class="flex justify-between items-center bg-white p-6 pb-2" style="margin-bottom:1rem; padding: 1.5rem 1.5rem 0.5rem;">
+                    <h3 class="text-xl font-bold">Detailed Logs</h3>
+                    <div style="font-size:0.8rem; color:var(--text-muted);" id="table-status" class="text-gray-500" x-text="`Showing ${logs.length} records`">Showing 0 records</div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table id="log-table" class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200">
+                                <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">Time</th>
+                                <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">IP Address</th>
+                                <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">Browser</th>
+                                <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">OS</th>
+                                <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">Referrer</th>
+                                <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider text-right" style="text-align:right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="log-tbody">
+                            <template x-for="log in logs" :key="log.id">
+                                <tr :id="'row-' + log.id" class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap" style="color:var(--text-muted); white-space:nowrap;" x-text="new Date(log.created_at).toLocaleString()"></td>
+                                    <td class="py-4 px-6 font-mono font-medium text-sm" style="font-family:monospace; font-weight:500;" x-text="log.ip_address || 'Unknown'"></td>
+                                    <td class="py-4 px-6 text-sm">
+                                        <span x-text="log.meta_browser || 'Unknown'"></span>
+                                    </td>
+                                    <td class="py-4 px-6 text-sm">
+                                        <span x-text="log.meta_os || 'Unknown'"></span>
+                                    </td>
+                                    <td class="py-4 px-6 text-sm break-all min-w-[200px]" :title="log.meta_referrer || 'Direct'" x-text="log.meta_referrer || 'Direct'"></td>
+                                    <td class="py-4 px-6 text-right" style="text-align:right;">
+                                        <button class="btn btn-danger-soft text-red-500 font-bold hover:underline" @click="deleteLog(log.id)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </template>
+                            <tr x-show="logs.length === 0">
+                                <td colspan="6" class="py-8 px-6 text-center text-gray-400 font-bold">No logs available.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
@@ -225,30 +271,55 @@
                 loginError: false,
                 tab: 'posts',
                 posts: [],
+                logs: [],
                 analytics: { pageViews: 0, clicks: 0, uniqueSessions: 0 },
                 showModal: false,
                 isSaving: false,
                                 form: { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '', postMonth: '01', postYear: '2026' },
                 
-                async init() {
-                    if (this.isConfigured) {
-                        // Check active session
-                        const { data: { session } } = await window.supabaseAuth.getSession();
-                        this.isLoggedIn = !!session;
+                                async checkAdmin(email) {
+                    try {
+                        const { data, error } = await window.supabaseClient
+                            .from('newbridges_admin')
+                            .select('email')
+                            .eq('email', email);
+                        return data && data.length > 0;
+                    } catch(e) {
+                        return false;
+                    }
+                },
 
-                        // Listen for auth changes (like returning from magic link)
-                        window.supabaseAuth.onAuthStateChange((event, session) => {
-                            this.isLoggedIn = !!session;
-                            if (this.isLoggedIn) {
-                                this.fetchPosts();
-                                this.fetchAnalytics();
-                            }
-                        });
-
-                        if (this.isLoggedIn) {
+                async verifySession(session) {
+                    if (session && session.user && session.user.email) {
+                        const isAdmin = await this.checkAdmin(session.user.email);
+                        if (isAdmin) {
+                            this.isLoggedIn = true;
+                            this.loginMessage = '';
                             await this.fetchPosts();
                             await this.fetchAnalytics();
+                        } else {
+                            await window.supabaseAuth.signOut();
+                            this.isLoggedIn = false;
+                            this.loginError = true;
+                            this.loginMessage = 'Unauthorized: Your email is not an administrator.';
                         }
+                    } else {
+                        this.isLoggedIn = false;
+                    }
+                },
+
+                async init() {
+                    if (this.isConfigured) {
+                        const { data: { session } } = await window.supabaseAuth.getSession();
+                        await this.verifySession(session);
+
+                        window.supabaseAuth.onAuthStateChange(async (event, session) => {
+                            if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
+                                await this.verifySession(session);
+                            } else if (event === 'SIGNED_OUT') {
+                                this.isLoggedIn = false;
+                            }
+                        });
                     }
                 },
 
@@ -257,11 +328,18 @@
                     this.loginMessage = '';
                     this.loginError = false;
                     try {
-                        const { error } = await window.supabaseAuth.signInWithPassword({
+                        const { data, error } = await window.supabaseAuth.signInWithPassword({
                             email: this.loginEmail,
                             password: this.loginPassword
                         });
                         if (error) throw error;
+                        
+                        const isAdmin = await this.checkAdmin(data.user.email);
+                        if (!isAdmin) {
+                            await window.supabaseAuth.signOut();
+                            throw new Error('Unauthorized: Your email is not an administrator.');
+                        }
+
                         this.loginEmail = '';
                         this.loginPassword = '';
                     } catch (e) {
@@ -271,7 +349,6 @@
                         this.isLoggingIn = false;
                     }
                 },
-
                 async handleLogout() {
                     await window.supabaseAuth.signOut();
                     this.isLoggedIn = false;
@@ -284,12 +361,26 @@
 
                 async fetchAnalytics() {
                     // Very basic aggregation demo from the tracking table
-                    const { data, error } = await window.supabaseClient.from('newbridges_tracking').select('event_type, session_id');
+                    const { data, error } = await window.supabaseClient.from('newbridges_tracking').select('*').order('created_at', { ascending: false });
                     if (!error && data) {
                         this.analytics.pageViews = data.filter(e => e.event_type === 'page_view').length;
                         this.analytics.clicks = data.filter(e => e.event_type === 'click').length;
                         const sessions = new Set(data.map(e => e.session_id));
                         this.analytics.uniqueSessions = sessions.size;
+                        const ips = new Set(data.map(e => e.ip_address).filter(Boolean));
+                        this.analytics.uniqueUsers = ips.size;
+                        this.logs = data;
+                    }
+                },
+
+                async deleteLog(id) {
+                    if (!confirm("Are you sure you want to delete this log?")) return;
+                    try {
+                        const { error } = await window.supabaseClient.from('newbridges_tracking').delete().eq('id', id);
+                        if (error) throw error;
+                        await this.fetchAnalytics();
+                    } catch (e) {
+                        alert("Error deleting log: " + e.message);
                     }
                 },
 
@@ -356,6 +447,7 @@
     </script>
 </body>
 </html>
+
 
 
 
