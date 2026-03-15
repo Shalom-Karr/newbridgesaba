@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -27,13 +27,13 @@
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
-                        brandYellow: {
-                            DEFAULT: '#C9982A',
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
-                        brandBlue: {
-                            DEFAULT: '#029CC0',
+                        brandLightPurple: {
+                            DEFAULT: '#926BBE',
                             light: '#35B0CD',
                             soft: '#E6F5F9',
                         },
@@ -57,10 +57,14 @@
         [x-cloak] { display: none !important; }
         .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(128, 78, 158, 0.05); }
-        .text-gradient { background: linear-gradient(135deg, #4A2B7A 0%, #029CC0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient { background: linear-gradient(135deg, #4A2B7A 0%, #926BBE 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .blob { position: absolute; filter: blur(60px); opacity: 0.15; z-index: -1; animation: blob-float 20s infinite alternate; }
         @keyframes blob-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(20px, -30px) scale(1.1); } }
     </style>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white">
 
@@ -71,13 +75,13 @@
         <!-- HERO SECTION -->
         <section class="hero-pattern pt-24 pb-16 lg:pt-32 lg:pb-24 md:pt-32 pb-20 md:pt-48 md:pb-40 relative overflow-hidden text-center">
             <div class="absolute blob w-64 h-64 md:w-96 md:h-96 bg-brandPurple/20 -top-24 -left-24"></div>
-            <div class="absolute blob w-64 h-64 md:w-96 md:h-96 bg-brandBlue/20 -bottom-24 -right-24"></div>
+            <div class="absolute blob w-64 h-64 md:w-96 md:h-96 bg-brandLightPurple/20 -bottom-24 -right-24"></div>
             
             <div class="max-w-7xl mx-auto px-6">
                 <div data-aos="fade-up" data-aos-duration="1200">
-                    <h4 class="text-brandBlue font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Our Approach</h4>
+                    <h4 class="text-brandLightPurple font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Our Approach</h4>
                     <h1 class="text-3xl md:text-5xl lg:text-7xl lg:text-8xl font-black leading-[0.85] text-gray-900 mb-10 tracking-tighter">
-                        Building a Foundation of <br> <span class="text-gradient italic">Trust, Play, and Progress.</span>
+                        Building a Foundation of <br> <span class="text-brandPurple italic">Trust,</span> <span class="text-black italic">Play,</span> <span class="text-brandPurple italic">and Progress.</span>
                     </h1>
                 </div>
             </div>
@@ -93,21 +97,21 @@
                     </p>
                     <ul class="space-y-6">
                         <li class="flex items-start">
-                            <span class="text-brandBlue text-2xl mr-4 mt-1">✓</span>
+                            <span class="text-brandLightPurple text-2xl mr-4 mt-1">✓</span>
                             <div>
                                 <strong class="text-gray-900 font-bold block mb-1">Empowering the Family Unit:</strong>
                                 <span class="text-gray-500 font-medium leading-relaxed">Our "Parent Training" isn't a classroom lecture. It is a hands-on partnership designed to give you the confidence and the tools to support your child’s growth long after our sessions end.</span>
                             </div>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-brandBlue text-2xl mr-4 mt-1">✓</span>
+                            <span class="text-brandLightPurple text-2xl mr-4 mt-1">✓</span>
                             <div>
                                 <strong class="text-gray-900 font-bold block mb-1">Consistency Across Environments:</strong>
                                 <span class="text-gray-500 font-medium leading-relaxed">We help you translate the skills your child learns in therapy into real-world routines. Whether it’s navigating a trip to the grocery store or managing a difficult transition at home, we are there to provide strategies that actually work for your family’s life.</span>
                             </div>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-brandBlue text-2xl mr-4 mt-1">✓</span>
+                            <span class="text-brandLightPurple text-2xl mr-4 mt-1">✓</span>
                             <div>
                                 <strong class="text-gray-900 font-bold block mb-1">Shared Milestones:</strong>
                                 <span class="text-gray-500 font-medium leading-relaxed">You are the expert on your child. We combine your heart and history with our clinical expertise to set goals that matter most to your daily life. When your child reaches a new milestone, it’s a victory we’ve built toward together.</span>
@@ -207,12 +211,12 @@
         <!-- CTA SECTION -->
         <section class="py-16 bg-brandPurple text-white text-center relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Join Our Community.</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandOrange" data-aos="zoom-out">Join Our Community.</h2>
                 <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">
                     Ready to start your child's journey with a team that truly cares?
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
+                    <a href="contact.html" class="bg-brandOrange text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
                     <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call (833) 823-5433</a>
                 </div>
             </div>

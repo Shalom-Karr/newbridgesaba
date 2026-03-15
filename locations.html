@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -26,13 +26,13 @@
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
-                        brandYellow: {
-                            DEFAULT: '#C9982A',
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
-                        brandBlue: {
-                            DEFAULT: '#029CC0',
+                        brandLightPurple: {
+                            DEFAULT: '#926BBE',
                             light: '#35B0CD',
                             soft: '#E6F5F9',
                         },
@@ -58,6 +58,10 @@
         .location-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
         .location-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px -12px rgba(128, 78, 158, 0.15); }
     </style>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white">
 
@@ -68,7 +72,7 @@
         <!-- HERO -->
         <section class="hero-pattern py-16 lg:py-32 md:py-48 relative overflow-hidden text-center">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">LOCATIONS</h3>
+                <h3 class="text-brandLightPurple font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">LOCATIONS</h3>
                 <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-gray-900 mb-6 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Currently Servicing <br> <span class="text-brandPurple">New Jersey & Ohio.</span></h1>
                 <p class="text-xl md:text-2xl text-gray-500 max-w-4xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
                     Our clinical teams serve families across all counties in New Jersey and Ohio. We maintain strong partnerships with school districts, ensuring consistent support for your child wherever they go. Our teams are well-versed in state-specific insurance mandates and Medicaid Managed Care plans to get you the care you deserve.
@@ -92,8 +96,8 @@
                     </div>
 
                     <!-- Service 2 -->
-                    <div class="location-card bg-brandBlue/5 p-6 lg:p-10 rounded-4xl border border-brandBlue/10" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 rounded-2xl bg-brandBlue text-white flex items-center justify-center text-3xl mb-8 shadow-lg shadow-brandBlue/30">
+                    <div class="location-card bg-brandLightPurple/5 p-6 lg:p-10 rounded-4xl border border-brandLightPurple/10" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-2xl bg-brandLightPurple text-white flex items-center justify-center text-3xl mb-8 shadow-lg shadow-brandLightPurple/30">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
                         </div>
                         <h3 class="text-2xl font-black text-gray-900 mb-4">School-Based Support</h3>
@@ -111,7 +115,7 @@
 
                     <!-- Clinic 1 -->
                     <div class="location-card bg-gray-50 p-6 lg:p-10 rounded-4xl border border-gray-100 relative overflow-hidden" data-aos="fade-up">
-                        <div class="absolute top-4 right-4 bg-brandYellow text-brandPurple text-[10px] font-black uppercase tracking-wider py-1 px-3 rounded-full">Coming Soon</div>
+                        <div class="absolute top-4 right-4 bg-brandOrange text-brandPurple text-[10px] font-black uppercase tracking-wider py-1 px-3 rounded-full">Coming Soon</div>
                         <div class="w-16 h-16 rounded-2xl bg-gray-200 text-gray-500 flex items-center justify-center text-3xl mb-8">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                         </div>
@@ -121,7 +125,7 @@
 
                     <!-- Clinic 2 -->
                     <div class="location-card bg-gray-50 p-6 lg:p-10 rounded-4xl border border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute top-4 right-4 bg-brandYellow text-brandPurple text-[10px] font-black uppercase tracking-wider py-1 px-3 rounded-full">Coming Soon</div>
+                        <div class="absolute top-4 right-4 bg-brandOrange text-brandPurple text-[10px] font-black uppercase tracking-wider py-1 px-3 rounded-full">Coming Soon</div>
                         <div class="w-16 h-16 rounded-2xl bg-gray-200 text-gray-500 flex items-center justify-center text-3xl mb-8">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                         </div>
@@ -136,9 +140,9 @@
         <!-- CTA -->
         <section class="py-16 bg-brandPurple text-white text-center relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Start Your Care Today.</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandOrange" data-aos="zoom-out">Start Your Care Today.</h2>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" data-aos="fade-up">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
+                    <a href="contact.html" class="bg-brandOrange text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Enroll Now</a>
                     <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call (833) 823-5433</a>
                 </div>
             </div>
@@ -155,3 +159,4 @@
     </script>
 </body>
 </html>
+

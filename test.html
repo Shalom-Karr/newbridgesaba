@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -26,13 +26,13 @@
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
-                        brandYellow: {
-                            DEFAULT: '#C9982A',
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
-                        brandBlue: {
-                            DEFAULT: '#029CC0',
+                        brandLightPurple: {
+                            DEFAULT: '#926BBE',
                             light: '#35B0CD',
                             soft: '#E6F5F9',
                         },
@@ -58,10 +58,14 @@
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(128, 78, 158, 0.05); }
         .card-hover { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
         .card-hover:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px -12px rgba(128, 78, 158, 0.15); }
-        .text-gradient { background: linear-gradient(135deg, #4A2B7A 0%, #029CC0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient { background: linear-gradient(135deg, #4A2B7A 0%, #926BBE 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .blob { position: absolute; filter: blur(60px); opacity: 0.15; z-index: -1; animation: blob-float 20s infinite alternate; }
         @keyframes blob-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(20px, -30px) scale(1.1); } }
     </style>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white" x-data="{ activeFaq: null }">
 
@@ -72,15 +76,15 @@
         <!-- HERO SECTION -->
         <section class="hero-pattern pt-24 pb-16 lg:pt-32 lg:pb-24 md:pt-32 pb-20 md:pt-48 md:pb-40 relative overflow-hidden">
             <div class="absolute blob w-64 h-64 md:w-96 md:h-96 bg-brandPurple/20 -top-24 -left-24"></div>
-            <div class="absolute blob w-64 h-64 md:w-96 md:h-96 bg-brandBlue/20 -bottom-24 -right-24"></div>
+            <div class="absolute blob w-64 h-64 md:w-96 md:h-96 bg-brandLightPurple/20 -bottom-24 -right-24"></div>
             
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div data-aos="fade-right" data-aos-duration="1200">
                     <div class="inline-flex items-center gap-3 bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-brandPurple/10 mb-8 shadow-sm">
-                        <span class="flex h-2 w-2 rounded-full bg-brandYellow animate-pulse"></span>
+                        <span class="flex h-2 w-2 rounded-full bg-brandOrange animate-pulse"></span>
                         <span class="text-[10px] font-black uppercase tracking-[0.2em] text-brandPurple">Now Accepting Clients in NJ & OH</span>
                     </div>
-                    <h4 class="text-brandBlue font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Consistent. Convenient. Compassionate.</h4>
+                    <h4 class="text-brandLightPurple font-black uppercase tracking-[0.3em] mb-4 text-[11px]">Consistent. Convenient. Compassionate.</h4>
                     <h1 class="text-3xl md:text-5xl lg:text-7xl lg:text-9xl font-black leading-[0.85] text-gray-900 mb-10 tracking-tighter">
                         Your Child’s <br> Bridge to <br> <span class="text-gradient italic">Independence.</span>
                     </h1>
@@ -88,7 +92,7 @@
                         We bridge the gap between school and home. Our therapists provide stable, 1:1 ABA support that stays with your child across all settings in New Jersey and Ohio.
                     </p>
                     <div class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
-                        <a href="contact.html" class="bg-brandPurple text-white px-8 md:px-12 py-4 md:py-6 rounded-2xl text-center flex items-center justify-center font-black text-lg hover:bg-brandBlue hover:shadow-2xl hover:shadow-brandBlue/30 transition-all duration-500 transform hover:-translate-y-1">Enroll Your Child</a>
+                        <a href="contact.html" class="bg-brandPurple text-white px-8 md:px-12 py-4 md:py-6 rounded-2xl text-center flex items-center justify-center font-black text-lg hover:bg-brandLightPurple hover:shadow-2xl hover:shadow-brandLightPurple/30 transition-all duration-500 transform hover:-translate-y-1">Enroll Your Child</a>
                         <a href="services.html" class="bg-white border-2 border-brandPurple/10 text-brandPurple px-8 md:px-12 py-4 md:py-6 rounded-2xl text-center flex items-center justify-center font-black text-lg hover:bg-brandPurple hover:text-white transition-all duration-500 transform hover:-translate-y-1">Explore Our Care</a>
                     </div>
                 </div>
@@ -97,8 +101,8 @@
                         <img src="images/new-bridges-hero-image.png" alt="Child Hero" class="w-full drop-shadow-[0_35px_35px_rgba(128,78,158,0.25)] transition-transform duration-700 group-hover:scale-[1.02]">
                     </div>
                     <!-- Decorative Elements -->
-                    <div class="absolute -top-6 lg:p-10 -right-10 w-48 h-48 bg-brandYellow/10 rounded-full blur-3xl animate-pulse"></div>
-                    <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-brandBlue/10 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="absolute -top-6 lg:p-10 -right-10 w-48 h-48 bg-brandOrange/10 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-brandLightPurple/10 rounded-full blur-3xl animate-pulse"></div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-brandPurple/5 rounded-full -z-10 animate-[spin_60s_linear_infinite]"></div>
                 </div>
             </div>
@@ -184,8 +188,8 @@
                         <h4 class="text-2xl font-black text-gray-900 mb-4">Strengthen Skills</h4>
                         <p class="text-gray-500 leading-relaxed font-medium">Reinforcing what your child has learned and making it easier to apply across different settings.</p>
                     </div>
-                    <div class="bg-brandBlue/5 p-6 lg:p-10 rounded-5xl border border-brandBlue/10 card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-14 h-14 bg-brandBlue text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brandBlue/20">
+                    <div class="bg-brandLightPurple/5 p-6 lg:p-10 rounded-5xl border border-brandLightPurple/10 card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-brandLightPurple text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brandLightPurple/20">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
@@ -216,11 +220,11 @@
                     </div>
                     <div class="bg-brandPurple p-8 lg:p-12 rounded-5xl shadow-2xl shadow-brandPurple/30 text-white relative overflow-hidden" data-aos="fade-left">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
-                        <h3 class="text-sm font-black mb-8 uppercase tracking-[0.3em] text-brandYellow">The New Bridges Advantage</h3>
+                        <h3 class="text-sm font-black mb-8 uppercase tracking-[0.3em] text-brandOrange">The New Bridges Advantage</h3>
                         <ul class="space-y-6 font-bold">
-                            <li class="flex items-center gap-4 text-lg"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-brandYellow flex items-center justify-center text-xs">✔</span> The same therapist follows your child home</li>
-                            <li class="flex items-center gap-4 text-lg"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-brandYellow flex items-center justify-center text-xs">✔</span> 100% Consistency ensures faster progress</li>
-                            <li class="flex items-center gap-4 text-lg"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-brandYellow flex items-center justify-center text-xs">✔</span> Seamless team coordination across NJ & OH</li>
+                            <li class="flex items-center gap-4 text-lg"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-brandOrange flex items-center justify-center text-xs">✔</span> The same therapist follows your child home</li>
+                            <li class="flex items-center gap-4 text-lg"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-brandOrange flex items-center justify-center text-xs">✔</span> 100% Consistency ensures faster progress</li>
+                            <li class="flex items-center gap-4 text-lg"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-brandOrange flex items-center justify-center text-xs">✔</span> Seamless team coordination across NJ & OH</li>
                         </ul>
                     </div>
                 </div>
@@ -244,10 +248,10 @@
                         <p class="text-gray-600 leading-relaxed font-medium">Developing functional speech and social cuing across school and home environments.</p>
                     </div>
                     <!-- Behavior -->
-                    <div class="bg-brandYellow-soft p-8 lg:p-12 rounded-5xl card-hover transition relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-brandYellow/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                    <div class="bg-brandOrange-soft p-8 lg:p-12 rounded-5xl card-hover transition relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brandOrange/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
                         <img src="images/behavious-management.png" class="h-16 mb-10 relative z-10" alt="">
-                        <h4 class="text-2xl font-black text-brandYellow mb-6 uppercase tracking-tighter">Behavior</h4>
+                        <h4 class="text-2xl font-black text-brandOrange mb-6 uppercase tracking-tighter">Behavior</h4>
                         <p class="text-gray-600 leading-relaxed font-medium">Reducing frustration by applying consistent reinforcement strategies throughout the day.</p>
                     </div>
                     <!-- Daily Living -->
@@ -262,16 +266,16 @@
         </section>
 
         <!-- THE ROADMAP (Journey Section) -->
-        <section class="py-16 lg:py-32 bg-brandBlue text-white relative overflow-hidden">
+        <section class="py-16 lg:py-32 bg-brandLightPurple text-white relative overflow-hidden">
             <div class="absolute blob w-64 h-64 md:w-[500px] md:h-[500px] bg-white/10 -top-64 -left-64"></div>
             
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-8 lg:mb-12 lg:mb-24 gap-8">
                     <div data-aos="fade-right">
-                        <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6 italic text-brandYellow tracking-tighter leading-none">The Journey to <br>Stability.</h2>
-                        <p class="text-brandBlue-soft text-xl max-w-xl font-medium">Getting started is simple, transparent, and fast. We guide you through every step.</p>
+                        <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6 italic text-brandOrange tracking-tighter leading-none">The Journey to <br>Stability.</h2>
+                        <p class="text-brandLightPurple-soft text-xl max-w-xl font-medium">Getting started is simple, transparent, and fast. We guide you through every step.</p>
                     </div>
-                    <a href="contact.html" class="bg-white text-brandBlue px-6 md:px-10 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-lg hover:bg-brandYellow hover:text-brandPurple transition-all duration-300 shadow-xl shadow-black/10 active:scale-95">Get Started Today</a>
+                    <a href="contact.html" class="bg-white text-brandLightPurple px-6 md:px-10 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-lg hover:bg-brandOrange hover:text-brandPurple transition-all duration-300 shadow-xl shadow-black/10 active:scale-95">Get Started Today</a>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 lg:p-12 relative">
@@ -279,24 +283,24 @@
                     <div class="hidden lg:block absolute top-8 lg:p-12 left-0 w-full h-0.5 bg-white/10 -z-10"></div>
                     
                     <div class="group" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-24 h-24 bg-brandBlue-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandYellow group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">01</div>
-                        <h4 class="text-2xl font-black mb-4 text-brandYellow">Verification</h4>
-                        <p class="text-brandBlue-soft leading-relaxed font-medium">We verify your insurance benefits in NJ or OH within 24 hours.</p>
+                        <div class="w-24 h-24 bg-brandLightPurple-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandOrange group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">01</div>
+                        <h4 class="text-2xl font-black mb-4 text-brandOrange">Verification</h4>
+                        <p class="text-brandLightPurple-soft leading-relaxed font-medium">We verify your insurance benefits in NJ or OH within 24 hours.</p>
                     </div>
                     <div class="group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-24 h-24 bg-brandBlue-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandYellow group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">02</div>
-                        <h4 class="text-2xl font-black mb-4 text-brandYellow">Assessment</h4>
-                        <p class="text-brandBlue-soft leading-relaxed font-medium">A BCBA meets your child to identify strengths and clinical goals.</p>
+                        <div class="w-24 h-24 bg-brandLightPurple-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandOrange group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">02</div>
+                        <h4 class="text-2xl font-black mb-4 text-brandOrange">Assessment</h4>
+                        <p class="text-brandLightPurple-soft leading-relaxed font-medium">A BCBA meets your child to identify strengths and clinical goals.</p>
                     </div>
                     <div class="group" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-24 h-24 bg-brandBlue-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandYellow group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">03</div>
-                        <h4 class="text-2xl font-black mb-4 text-brandYellow">Matching</h4>
-                        <p class="text-brandBlue-soft leading-relaxed font-medium">We hand-select a therapist to support your child at school and home.</p>
+                        <div class="w-24 h-24 bg-brandLightPurple-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandOrange group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">03</div>
+                        <h4 class="text-2xl font-black mb-4 text-brandOrange">Matching</h4>
+                        <p class="text-brandLightPurple-soft leading-relaxed font-medium">We hand-select a therapist to support your child at school and home.</p>
                     </div>
                     <div class="group" data-aos="fade-up" data-aos-delay="400">
-                        <div class="w-24 h-24 bg-brandBlue-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandYellow group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">04</div>
-                        <h4 class="text-2xl font-black mb-4 text-brandYellow">Care Begins</h4>
-                        <p class="text-brandBlue-soft leading-relaxed font-medium">Consistent, daily therapy starts, focused on joy and mastery.</p>
+                        <div class="w-24 h-24 bg-brandLightPurple-light rounded-[2.5rem] flex items-center justify-center text-4xl font-black mb-8 border-4 border-white/20 shadow-2xl group-hover:bg-brandOrange group-hover:text-brandPurple transition-all duration-500 group-hover:rotate-6">04</div>
+                        <h4 class="text-2xl font-black mb-4 text-brandOrange">Care Begins</h4>
+                        <p class="text-brandLightPurple-soft leading-relaxed font-medium">Consistent, daily therapy starts, focused on joy and mastery.</p>
                     </div>
                 </div>
             </div>
@@ -306,7 +310,7 @@
         <section class="py-16 lg:py-32 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-6 lg:gap-8 lg:p-12 lg:gap-24 items-center">
                 <div data-aos="fade-right">
-                    <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-4">Statewide Support</h3>
+                    <h3 class="text-brandLightPurple font-black uppercase tracking-[0.3em] text-[11px] mb-4">Statewide Support</h3>
                     <h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 lg:mb-12 italic text-gray-900 tracking-tight leading-none">Licensed <br>Coverage.</h2>
                     <div class="space-y-12">
                         <div class="flex gap-8 group">
@@ -317,10 +321,10 @@
                             </div>
                         </div>
                         <div class="flex gap-8 group">
-                            <div class="bg-brandBlue-soft w-16 h-16 rounded-3xl flex-shrink-0 flex items-center justify-center font-black text-brandBlue italic text-xl shadow-sm group-hover:bg-brandBlue group-hover:text-white transition-all duration-500">OH</div>
+                            <div class="bg-brandLightPurple-soft w-16 h-16 rounded-3xl flex-shrink-0 flex items-center justify-center font-black text-brandLightPurple italic text-xl shadow-sm group-hover:bg-brandLightPurple group-hover:text-white transition-all duration-500">OH</div>
                             <div>
                                 <h4 class="text-xl font-black mb-2 text-gray-900">Ohio</h4>
-                                <p class="text-lg text-gray-500 font-medium leading-relaxed">Now providing statewide home and community care, headquartered at <span class="font-bold text-gray-900 border-b-2 border-brandYellow/30">14055 Cedar Road, Cleveland</span>.</p>
+                                <p class="text-lg text-gray-500 font-medium leading-relaxed">Now providing statewide home and community care, headquartered at <span class="font-bold text-gray-900 border-b-2 border-brandOrange/30">14055 Cedar Road, Cleveland</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -330,8 +334,8 @@
                         <img src="images/boy-smiling-holding-toy.png" alt="Happy Patient" class="rounded-5xl shadow-2xl shadow-brandPurple/20 transform -rotate-2 hover:rotate-0 transition-transform duration-700">
                     </div>
                     <!-- Decorative shapes -->
-                    <div class="absolute -top-8 lg:p-12 -right-12 w-32 h-32 bg-brandYellow rounded-full -z-10 animate-bounce"></div>
-                    <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-brandBlue/10 rounded-full -z-10 animate-pulse"></div>
+                    <div class="absolute -top-8 lg:p-12 -right-12 w-32 h-32 bg-brandOrange rounded-full -z-10 animate-bounce"></div>
+                    <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-brandLightPurple/10 rounded-full -z-10 animate-pulse"></div>
                 </div>
             </div>
         </section>
@@ -339,12 +343,12 @@
         <!-- PREMIUM QUOTE SECTION -->
         <section class="py-12 lg:py-24 bg-gray-900 text-white relative overflow-hidden">
             <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
-                <div class="text-brandYellow text-8xl font-serif leading-none mb-6">“</div>
+                <div class="text-brandOrange text-8xl font-serif leading-none mb-6">“</div>
                 <h3 class="text-3xl md:text-5xl font-light italic mb-10 leading-relaxed">
                     Consistency changed our lives. My son finally stopped feeling like he was in two different worlds. He's finally thriving.
                 </h3>
-                <div class="w-16 h-1 bg-brandYellow mx-auto mb-8"></div>
-                <p class="text-brandYellow font-bold uppercase tracking-widest text-sm">— Parent in Cleveland, Ohio</p>
+                <div class="w-16 h-1 bg-brandOrange mx-auto mb-8"></div>
+                <p class="text-brandOrange font-bold uppercase tracking-widest text-sm">— Parent in Cleveland, Ohio</p>
             </div>
             <!-- Background Decoration -->
             <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-brandPurple/20 rounded-full blur-[100px] -z-0"></div>
@@ -373,23 +377,23 @@
                     </template>
                 </div>
                 <div class="text-center mt-12">
-                    <a href="faq.html" class="text-brandBlue font-black uppercase tracking-widest text-xs hover:underline">View the full FAQ Center →</a>
+                    <a href="faq.html" class="text-brandLightPurple font-black uppercase tracking-widest text-xs hover:underline">View the full FAQ Center →</a>
                 </div>
             </div>
         </section>
 
         <!-- FINAL CTA -->
         <section class="py-16 bg-brandPurple text-white text-center relative overflow-hidden">
-            <div class="absolute blob w-72 h-72 md:w-[600px] md:h-[600px] bg-brandBlue/30 -top-64 -right-64"></div>
-            <div class="absolute blob w-72 h-72 md:w-[600px] md:h-[600px] bg-brandYellow/20 -bottom-64 -left-64"></div>
+            <div class="absolute blob w-72 h-72 md:w-[600px] md:h-[600px] bg-brandLightPurple/30 -top-64 -right-64"></div>
+            <div class="absolute blob w-72 h-72 md:w-[600px] md:h-[600px] bg-brandOrange/20 -bottom-64 -left-64"></div>
             
             <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">Your child deserves Consistency.</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandOrange" data-aos="zoom-out">Your child deserves Consistency.</h2>
                 <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">
                     Take the first step toward a more predictable, supportive future for your child in New Jersey or Ohio.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Begin Enrollment</a>
+                    <a href="contact.html" class="bg-brandOrange text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Begin Enrollment</a>
                     <a href="tel:8338235433" class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white/20 transition-all duration-500 active:scale-95 transform hover:-translate-y-1">Call (833) 823-5433</a>
                 </div>
             </div>
@@ -412,3 +416,4 @@
     </script>
 </body>
 </html>
+

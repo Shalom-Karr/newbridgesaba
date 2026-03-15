@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -22,8 +22,8 @@
                 extend: {
                     colors: {
                         brandPurple: '#4A2B7A',
-                        brandYellow: '#C9982A',
-                        brandBlue: '#029CC0',
+                        brandOrange: '#F37C20',
+                        brandLightPurple: '#926BBE',
                         brandOrange: '#F37C20',
                     },
                     fontFamily: { sans: ['Onest', 'sans-serif'] }
@@ -64,6 +64,10 @@
   }
 }
 </script>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white" x-data="{ submitted: false }">
 
@@ -76,15 +80,11 @@
             <div class="max-w-7xl mx-auto px-6 text-center">
                 <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-brandPurple mb-8 italic" data-aos="fade-up">Get in Touch.</h1>
                 <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                    Ready to provide your child with <span class="text-brandPurple font-bold">consistent ABA care</span>? 
+                    Ready to provide your child with <span class="text-brandPurple font-bold">consistent ABA care</span>?
                     Our intake specialists in NJ and OH are standing by.
                 </p>
-                <div class="mt-12 max-w-4xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/you-to-phone-3459500.jpg" alt="Contact Us" class="w-full max-h-[400px] object-cover hover:scale-105 transition-transform duration-700">
                 </div>
-            </div>
-        </section>
-
+                </section>
         <!-- CONTACT & FORM SECTION -->
         <section class="py-12 lg:py-24 max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
@@ -100,14 +100,14 @@
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="contact-card">
-                            <div class="bg-brandBlue/10 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">📞</div>
+                            <div class="bg-brandLightPurple/10 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">📞</div>
                             <h4 class="font-bold text-gray-400 uppercase tracking-widest text-xs mb-2">Phone Support</h4>
-                            <a href="tel:8338235433" class="text-xl font-black text-brandBlue hover:text-brandPurple transition">(833) 823-5433</a>
+                            <a href="tel:8338235433" class="text-xl font-black text-brandLightPurple hover:text-brandPurple transition">(833) 823-5433</a>
                         </div>
                         <div class="contact-card">
                             <div class="bg-brandPurple/10 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">✉️</div>
                             <h4 class="font-bold text-gray-400 uppercase tracking-widest text-xs mb-2">Email Support</h4>
-                            <a href="mailto:info@newbridgesaba.net" class="text-xl font-black text-brandPurple hover:text-brandBlue transition break-all">info@newbridgesaba.net</a>
+                            <a href="mailto:info@newbridgesaba.net" class="text-xl font-black text-brandPurple hover:text-brandLightPurple transition break-all">info@newbridgesaba.net</a>
                         </div>
                     </div>
 
@@ -120,11 +120,11 @@
                                 <p class="text-gray-600"><span class="font-bold text-gray-900">Submit Inquiry:</span> Fill out the form or call our intake line.</p>
                             </div>
                             <div class="flex gap-6">
-                                <div class="w-8 h-8 rounded-full bg-brandBlue text-white flex-shrink-0 flex items-center justify-center font-bold">2</div>
+                                <div class="w-8 h-8 rounded-full bg-brandLightPurple text-white flex-shrink-0 flex items-center justify-center font-bold">2</div>
                                 <p class="text-gray-600"><span class="font-bold text-gray-900">Benefits Check:</span> We verify your insurance coverage in NJ or OH.</p>
                             </div>
                             <div class="flex gap-6">
-                                <div class="w-8 h-8 rounded-full bg-brandYellow text-brandPurple flex-shrink-0 flex items-center justify-center font-bold">3</div>
+                                <div class="w-8 h-8 rounded-full bg-brandOrange text-brandPurple flex-shrink-0 flex items-center justify-center font-bold">3</div>
                                 <p class="text-gray-600"><span class="font-bold text-gray-900">Clinical Evaluation:</span> A BCBA schedules an assessment for your child.</p>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                                     <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Additional Information</label>
                                     <textarea rows="4" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="What should we know about your child?"></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-brandPurple text-white py-5 rounded-2xl font-black text-xl hover:bg-brandBlue transition shadow-xl shadow-brandPurple/20 active:scale-95">Send Request</button>
+                                <button type="submit" class="w-full bg-brandPurple text-white py-5 rounded-2xl font-black text-xl hover:bg-brandLightPurple transition shadow-xl shadow-brandPurple/20 active:scale-95">Send Request</button>
                             </form>
                         </div>
 
@@ -184,7 +184,7 @@
                             <p class="text-gray-500 text-lg leading-relaxed mb-10">
                                 Thank you for reaching out to New Bridges ABA. An intake specialist will review your details and contact you within 24 hours to begin the verification process.
                             </p>
-                            <button @click="submitted = false" class="text-brandBlue font-bold underline">Submit another inquiry</button>
+                            <button @click="submitted = false" class="text-brandLightPurple font-bold underline">Submit another inquiry</button>
                         </div>
 
                     </div>
@@ -224,3 +224,4 @@
     </script>
 </body>
 </html>
+

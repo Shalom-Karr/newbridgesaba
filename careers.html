@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -22,8 +22,8 @@
                 extend: {
                     colors: {
                         brandPurple: { DEFAULT: '#4A2B7A', light: '#9D73B6', soft: '#F3EEF6' },
-                        brandYellow: { DEFAULT: '#C9982A', light: '#FDCB3F', soft: '#FFF9E7' },
-                        brandBlue: { DEFAULT: '#029CC0', light: '#35B0CD', soft: '#E6F5F9' },
+                        brandOrange: { DEFAULT: '#F37C20', light: '#FDCB3F', soft: '#FFF9E7' },
+                        brandLightPurple: { DEFAULT: '#926BBE', light: '#35B0CD', soft: '#E6F5F9' },
                         brandOrange: { DEFAULT: '#F37C20', light: '#F6964D', soft: '#FEF2E9' },
                         brandBeige: '#FDF8F0',
                     },
@@ -37,6 +37,10 @@
         [x-cloak] { display: none !important; }
         .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e15 2px, transparent 2px); background-size: 40px 40px; }
     </style>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white">
 
@@ -47,7 +51,7 @@
         <!-- HERO -->
         <section class="hero-pattern py-16 lg:py-32 md:py-48 relative overflow-hidden text-center">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Join Our Team</h3>
+                <h3 class="text-brandLightPurple font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Join Our Team</h3>
                 <h1 class="text-3xl md:text-5xl lg:text-7xl lg:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Work <br> <span class="text-brandPurple">With Us.</span></h1>
                 <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
                     Empower children and families across NJ and OH. We are looking for passionate BCBAs and RBTs to join our clinical team.
@@ -67,18 +71,18 @@
                     </div>
                     <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Board Certified Behavior Analyst (BCBA)</h4>
                     <p class="text-gray-500 font-medium mb-10">Conduct assessments, design treatment plans, and provide supervision for our clinical teams in NJ and OH.</p>
-                    <a href="#apply" class="text-brandPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandPurple pb-1 hover:text-brandBlue hover:border-brandBlue transition-all">Apply Now →</a>
+                    <a href="#apply" class="text-brandPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandPurple pb-1 hover:text-brandLightPurple hover:border-brandLightPurple transition-all">Apply Now →</a>
                 </div>
 
                 <!-- Position 2 -->
                 <div class="p-8 lg:p-12 rounded-5xl bg-brandBeige border border-gray-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex justify-between items-start mb-10">
-                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-gray-100 group-hover:bg-brandBlue group-hover:text-white transition-all duration-500">🙌</div>
-                        <span class="px-4 py-2 rounded-full bg-brandBlue/10 text-brandBlue font-black text-[10px] uppercase tracking-widest">Entry Level Available</span>
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-gray-100 group-hover:bg-brandLightPurple group-hover:text-white transition-all duration-500">🙌</div>
+                        <span class="px-4 py-2 rounded-full bg-brandLightPurple/10 text-brandLightPurple font-black text-[10px] uppercase tracking-widest">Entry Level Available</span>
                     </div>
                     <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">Registered Behavior Technician (RBT)</h4>
                     <p class="text-gray-500 font-medium mb-10">Provide 1:1 therapy sessions and directly support children's progress in school and at home.</p>
-                    <a href="#apply" class="text-brandBlue font-black uppercase tracking-widest text-xs border-b-2 border-brandBlue pb-1 hover:text-brandPurple hover:border-brandPurple transition-all">Apply Now →</a>
+                    <a href="#apply" class="text-brandLightPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandLightPurple pb-1 hover:text-brandPurple hover:border-brandPurple transition-all">Apply Now →</a>
                 </div>
 
             </div>
@@ -87,12 +91,12 @@
         <!-- CTA -->
         <section class="py-16 bg-brandPurple text-white text-center relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandYellow" data-aos="zoom-out">A Career Built on Purpose.</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-8 italic tracking-tighter leading-[0.85] text-brandOrange" data-aos="zoom-out">A Career Built on Purpose.</h2>
                 <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="100">
                     Join a team where your expertise is valued and your work truly makes a difference.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#apply" class="bg-brandYellow text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Send Your Resume</a>
+                    <a href="#apply" class="bg-brandOrange text-brandPurple px-8 md:px-12 py-4 md:py-5 rounded-2xl text-center flex items-center justify-center font-black text-xl hover:bg-white transition-all duration-500 shadow-2xl shadow-black/20 active:scale-95 transform hover:-translate-y-1">Send Your Resume</a>
                 </div>
             </div>
         </section>
@@ -140,7 +144,7 @@
                                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                     <div class="flex text-sm text-gray-600 justify-center">
-                                        <label for="resume" class="relative cursor-pointer bg-transparent rounded-md font-black text-brandPurple hover:text-brandBlue focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brandPurple">
+                                        <label for="resume" class="relative cursor-pointer bg-transparent rounded-md font-black text-brandPurple hover:text-brandLightPurple focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brandPurple">
                                             <span>Upload a file</span>
                                             <input id="resume" name="resume" type="file" class="sr-only" accept=".pdf,.doc,.docx" required>
                                         </label>
@@ -152,7 +156,7 @@
                         </div>
 
                         <div class="pt-4 text-center">
-                            <button type="submit" class="w-full md:w-auto px-12 py-5 bg-brandPurple text-white rounded-2xl font-black text-xl hover:bg-brandBlue transition-all duration-500 shadow-xl shadow-brandPurple/20 active:scale-95 transform">
+                            <button type="submit" class="w-full md:w-auto px-12 py-5 bg-brandPurple text-white rounded-2xl font-black text-xl hover:bg-brandLightPurple transition-all duration-500 shadow-xl shadow-brandPurple/20 active:scale-95 transform">
                                 Submit Application
                             </button>
                         </div>
@@ -172,3 +176,4 @@
     </script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 
 // 1. Fix the header positioning
 let header = fs.readFileSync('header.js', 'utf8');

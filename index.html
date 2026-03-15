@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -22,8 +22,8 @@
                 extend: {
                     colors: {
                         brandPurple: '#4A2B7A',
-                        brandYellow: '#C9982A',
-                        brandBlue: '#029CC0',
+                        brandOrange: '#F37C20',
+                        brandLightPurple: '#926BBE',
                         brandOrange: '#F37C20',
                         brandBeige: '#FDF8F0',
                     },
@@ -37,8 +37,12 @@
         .hero-pattern { background-color: #FDF8F0; background-image: radial-gradient(#804e9e10 2px, transparent 2px); background-size: 30px 30px; }
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(128, 78, 158, 0.1); }
         .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -15px rgba(128, 78, 158, 0.2); }
-        .text-gradient { background: linear-gradient(to right, #4A2B7A, #029CC0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient { background: linear-gradient(to right, #4A2B7A, #926BBE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white" x-data="{ activeFaq: null }">
 
@@ -51,10 +55,10 @@
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-8 lg:p-12 items-center">
                 <div data-aos="fade-right">
                     <div class="inline-flex items-center gap-2 bg-white px-3 py-1 rounded-full border border-brandPurple/10 mb-6 shadow-sm">
-                        <span class="flex h-2 w-2 rounded-full bg-brandYellow animate-ping"></span>
-                        <span class="text-[10px] font-black uppercase tracking-widest text-brandBlue">Now Accepting Clients in NJ & OH</span>
+                        <span class="flex h-2 w-2 rounded-full bg-brandOrange animate-ping"></span>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-brandLightPurple">Now Accepting Clients in NJ & OH</span>
                     </div>
-                    <h4 class="text-brandYellow font-extrabold uppercase tracking-[0.2em] mb-4 text-xs">Consistent. Convenient. Compassionate.</h4>
+                    <h4 class="text-brandOrange font-extrabold uppercase tracking-[0.2em] mb-4 text-xs">Consistent. Convenient. Compassionate.</h4>
                     <h1 class="text-4xl md:text-6xl lg:text-8xl font-black leading-[0.9] text-gray-900 mb-8">
                         Stability <br> For Their <br> <span class="text-brandPurple italic">Future.</span>
                     </h1>
@@ -68,8 +72,8 @@
                 </div>
                 <div class="relative" data-aos="zoom-in">
                     <img src="images/new-bridges-hero-image.png" alt="Child Hero" class="relative z-10 w-full drop-shadow-2xl">
-                    <div class="absolute -top-6 lg:p-10 -right-10 w-40 h-40 bg-brandYellow/20 rounded-full blur-3xl animate-pulse"></div>
-                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-brandBlue/10 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="absolute -top-6 lg:p-10 -right-10 w-40 h-40 bg-brandOrange/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-brandLightPurple/10 rounded-full blur-3xl animate-pulse"></div>
                 </div>
             </div>
         </section>
@@ -137,15 +141,15 @@
 </section>
 
         <!-- COLOR BANNER -->
-        <section class="py-12 lg:py-24 bg-gradient-to-r from-brandPurple to-brandBlue text-white">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-8 lg:p-12 items-center">
+        <section class="py-6 lg:py-10 bg-[#6B4592] text-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-8 lg:p-6 items-center">
                 <div data-aos="fade-right">
-                    <h2 class="text-3xl md:text-5xl font-black italic leading-tight mb-6">
+                    <h2 class="text-2xl md:text-4xl font-black italic leading-tight mb-2">
                         Nurturing the skills that help your child connect, grow, and thrive
                     </h2>
                 </div>
                 <div data-aos="fade-left">
-                    <img src="images/boy-smiling-holding-toy.png" alt="Girl child brushing teeth" class="rounded-[2.5rem] shadow-2xl w-full object-cover">
+                    <img src="images/boy-smiling-holding-toy.png" alt="Boy smiling holding toy" class="rounded-[2.5rem] shadow-2xl w-full object-cover max-h-64 lg:max-h-80">
                 </div>
             </div>
         </section>
@@ -155,7 +159,7 @@
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div data-aos="fade-right">
                     <h2 class="text-5xl font-black mb-4 italic text-brandPurple">Empowering Children with Autism</h2>
-                    <h3 class="text-2xl text-brandYellow font-bold mb-6">Building Skills, One Step at a Time.</h3>
+                    <h3 class="text-2xl text-brandOrange font-bold mb-6">Building Skills, One Step at a Time.</h3>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">
                         At New Bridges, our approach is rooted in the understanding that progress happens through consistency and heart. We focus on building your child with the communication and social tools they need to navigate life with more independence and less frustration. We utilize Applied Behavior Analysis (ABA) to break down complex goals into manageable milestones. By connecting proven science with heartfelt care, we help your child navigate their world with newfound confidence.
                     </p>
@@ -168,68 +172,78 @@
         </section>
 
         <!-- DESIGNED TO YOUR CHILD'S NEEDS -->
-        <section class="py-12 lg:py-24 bg-white" x-data="{ activeTab: 0 }">
+        <section class="py-12 lg:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-8 lg:mb-16" data-aos="fade-up">
                     <h2 class="text-5xl font-black text-brandPurple mb-4 italic">Designed to your child’s needs</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6 lg:gap-8 lg:p-12 items-start">
-                    <div class="space-y-6">
-                        <template x-for="(tab, index) in [
-                            { title: 'Daily Independence (ADLs)', desc: 'Helping children cross the threshold into self-sufficiency by mastering daily routines at home and school.' },
-                            { title: 'Communication Pathways', desc: 'Building the tools for your child to express needs, share thoughts, and connect with the world around them.' },
-                            { title: 'Social Connections', desc: 'Navigating the complexities of social cues, turn-taking, and friendship-building in a supportive environment.' },
-                            { title: 'Behavioral Growth', desc: 'Reducing frustrations with positive skills, focus, and emotional resilience through individualized strategies.' }
-                        ]">
-                            <div @click="activeTab = index" 
-                                 class="p-8 rounded-[2rem] cursor-pointer transition-all border-2"
-                                 :class="activeTab === index ? 'border-brandPurple bg-brandBeige' : 'border-transparent hover:bg-gray-50'">
-                                <div class="flex items-center gap-4 mb-3">
-                                    <svg class="w-8 h-8 text-brandYellow" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.8-6.3 4.8 2.3-7.4-6-4.6h7.6z"/>
-                                    </svg>
-                                    <h4 class="text-2xl font-black text-brandPurple" x-text="tab.title"></h4>
-                                </div>
-                                <p class="text-gray-600 text-lg leading-relaxed pl-12" x-text="tab.desc"></p>
-                            </div>
-                        </template>
+                    <div class="p-8 rounded-[2rem] transition-all border-2 border-transparent bg-gray-50 hover:border-brandPurple hover:bg-brandBeige">
+                        <div class="flex items-center gap-4 mb-3">
+                            <svg class="w-8 h-8 text-brandOrange" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.8-6.3 4.8 2.3-7.4-6-4.6h7.6z"/>
+                            </svg>
+                            <h4 class="text-2xl font-black text-brandPurple">Daily Independence (ADLs)</h4>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed pl-12">Helping children cross the threshold into self-sufficiency by mastering daily routines at home and school.</p>
                     </div>
-                    <div class="sticky top-24 rounded-[3rem] overflow-hidden shadow-2xl h-[600px]">
-                        <img x-show="activeTab === 0" src="images/boy-smiling-holding-toy.png" class="w-full h-full object-cover transition-opacity duration-500" alt="Daily Independence">
-                        <img x-cloak x-show="activeTab === 1" src="new/Collaborative Care & Parent Training (2).png" class="w-full h-full object-cover transition-opacity duration-500" alt="Communication Pathways">
-                        <img x-cloak x-show="activeTab === 2" src="new/what is aba (1).png" class="w-full h-full object-cover transition-opacity duration-500" alt="Social Connections">
-                        <img x-cloak x-show="activeTab === 3" src="images/new-bridges-hero-image.png" class="w-full h-full object-cover transition-opacity duration-500" alt="Behavioral Growth">
+                    <div class="p-8 rounded-[2rem] transition-all border-2 border-transparent bg-gray-50 hover:border-brandPurple hover:bg-brandBeige">
+                        <div class="flex items-center gap-4 mb-3">
+                            <svg class="w-8 h-8 text-brandOrange" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.8-6.3 4.8 2.3-7.4-6-4.6h7.6z"/>
+                            </svg>
+                            <h4 class="text-2xl font-black text-brandPurple">Communication Pathways</h4>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed pl-12">Building the tools for your child to express needs, share thoughts, and connect with the world around them.</p>
+                    </div>
+                    <div class="p-8 rounded-[2rem] transition-all border-2 border-transparent bg-gray-50 hover:border-brandPurple hover:bg-brandBeige">
+                        <div class="flex items-center gap-4 mb-3">
+                            <svg class="w-8 h-8 text-brandOrange" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.8-6.3 4.8 2.3-7.4-6-4.6h7.6z"/>
+                            </svg>
+                            <h4 class="text-2xl font-black text-brandPurple">Social Connections</h4>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed pl-12">Navigating the complexities of social cues, turn-taking, and friendship-building in a supportive environment.</p>
+                    </div>
+                    <div class="p-8 rounded-[2rem] transition-all border-2 border-transparent bg-gray-50 hover:border-brandPurple hover:bg-brandBeige">
+                        <div class="flex items-center gap-4 mb-3">
+                            <svg class="w-8 h-8 text-brandOrange" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.8-6.3 4.8 2.3-7.4-6-4.6h7.6z"/>
+                            </svg>
+                            <h4 class="text-2xl font-black text-brandPurple">Behavioral Growth</h4>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed pl-12">Reducing frustrations with positive skills, focus, and emotional resilience through individualized strategies.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- THE ROADMAP (Journey Section) -->
-        <section class="py-12 lg:py-24 bg-brandBlue text-white overflow-hidden">
+        <section class="py-12 lg:py-24 bg-[#6B4592] text-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-10 lg:mb-20" data-aos="fade-up">
-                    <h2 class="text-5xl font-black mb-4 italic text-brandYellow">The Journey to Stability</h2>
+                    <h2 class="text-5xl font-black mb-4 italic text-brandOrange">The Journey to Stability</h2>
                     <p class="opacity-80">Getting started is simple, transparent, and fast.</p>
                 </div>
                 <div class="grid md:grid-cols-4 gap-8">
                     <div class="relative group" data-aos="fade-up" data-aos-delay="0">
                         <span class="text-6xl font-black opacity-20 block mb-6">01</span>
-                        <h4 class="text-xl font-bold mb-3 text-brandYellow">Intake</h4>
+                        <h4 class="text-xl font-bold mb-3 text-brandOrange">Intake</h4>
                         <p class="text-sm opacity-80">We begin by listening to your story and answering your questions to ensure you feel confident and guided from day one.</p>
                     </div>
                     <div class="relative group" data-aos="fade-up" data-aos-delay="100">
                         <span class="text-6xl font-black opacity-20 block mb-6">02</span>
-                        <h4 class="text-xl font-bold mb-3 text-brandYellow">Insurance</h4>
+                        <h4 class="text-xl font-bold mb-3 text-brandOrange">Insurance</h4>
                         <p class="text-sm opacity-80">Our team verifies your insurance and authorizations to ensure your child receives the maximum support and services they are entitled to.</p>
                     </div>
                     <div class="relative group" data-aos="fade-up" data-aos-delay="200">
                         <span class="text-6xl font-black opacity-20 block mb-6">03</span>
-                        <h4 class="text-xl font-bold mb-3 text-brandYellow">Assessment</h4>
+                        <h4 class="text-xl font-bold mb-3 text-brandOrange">Assessment</h4>
                         <p class="text-sm opacity-80">A kind, experienced BCBA will spend time with your child in a comfortable, play-based setting. This thorough evaluation helps us see where they are today and, more importantly, where they have the potential to go.</p>
                     </div>
                     <div class="relative group" data-aos="fade-up" data-aos-delay="300">
                         <span class="text-6xl font-black opacity-20 block mb-6">04</span>
-                        <h4 class="text-xl font-bold mb-3 text-brandYellow">Implementation & Review</h4>
+                        <h4 class="text-xl font-bold mb-3 text-brandOrange">Implementation & Review</h4>
                         <p class="text-sm opacity-80">Once we’ve designed a plan that feels right for your family, we begin services in a consistent, professional, and timely manner. Through weekly and monthly reviews, we stay in constant communication with you to ensure the plan is yielding real-world results and evolving as your child grows.</p>
                     </div>
                 </div>
@@ -239,12 +253,12 @@
         <!-- PREMIUM QUOTE SECTION -->
         <section class="py-12 lg:py-24 bg-gray-900 text-white relative overflow-hidden">
             <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
-                <div class="text-brandYellow text-8xl font-serif leading-none mb-6">“</div>
+                <div class="text-brandOrange text-8xl font-serif leading-none mb-6">“</div>
                 <h3 class="text-3xl md:text-5xl font-light italic mb-10 leading-relaxed">
                     Consistency changed our lives. My son finally stopped feeling like he was in two different worlds. He's finally thriving.
                 </h3>
-                <div class="w-16 h-1 bg-brandYellow mx-auto mb-8"></div>
-                <p class="text-brandYellow font-bold uppercase tracking-widest text-sm">— Parent in Cleveland, Ohio</p>
+                <div class="w-16 h-1 bg-brandOrange mx-auto mb-8"></div>
+                <p class="text-brandOrange font-bold uppercase tracking-widest text-sm">— Parent in Cleveland, Ohio</p>
             </div>
             <!-- Background Decoration -->
             <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-brandPurple/20 rounded-full blur-[100px] -z-0"></div>
@@ -273,7 +287,7 @@
                     </template>
                 </div>
                 <div class="text-center mt-12">
-                    <a href="faq.html" class="text-brandBlue font-black uppercase tracking-widest text-xs hover:underline">View the full FAQ Center →</a>
+                    <a href="faq.html" class="text-brandLightPurple font-black uppercase tracking-widest text-xs hover:underline">View the full FAQ Center →</a>
                 </div>
             </div>
         </section>
@@ -281,18 +295,18 @@
         <!-- FINAL CTA -->
         <section class="py-12 lg:py-24 bg-brandPurple text-white text-center relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <h2 class="text-4xl md:text-6xl lg:text-8xl font-black mb-10 italic leading-[0.85] text-brandYellow" data-aos="fade-up">Your child deserves <br>Consistency.</h2>
+                <h2 class="text-4xl md:text-6xl lg:text-8xl font-black mb-10 italic leading-[0.85] text-brandOrange" data-aos="fade-up">Your child deserves <br>Consistency.</h2>
                 <p class="text-xl md:text-2xl opacity-90 mb-8 lg:mb-12 max-w-2xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="100">
                     Take the first step toward a more predictable, supportive future for your child in New Jersey or Ohio.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <a href="contact.html" class="bg-brandYellow text-brandPurple px-12 py-6 rounded-[2.5rem] font-bold text-xl hover:bg-white transition shadow-2xl active:scale-95">Begin Enrollment</a>
+                    <a href="contact.html" class="bg-brandOrange text-brandPurple px-12 py-6 rounded-[2.5rem] font-bold text-xl hover:bg-white transition shadow-2xl active:scale-95">Begin Enrollment</a>
                     <a href="tel:8338235433" class="bg-white/10 border-2 border-white/20 text-white px-12 py-6 rounded-[2.5rem] font-bold text-xl hover:bg-white/20 transition active:scale-95">Call (833) 823-5433</a>
                 </div>
             </div>
             <!-- Background Decoration -->
-            <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-brandBlue/20 rounded-full blur-[100px] -z-0"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-brandYellow/10 rounded-full blur-[100px] -z-0"></div>
+            <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-brandLightPurple/20 rounded-full blur-[100px] -z-0"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-brandOrange/10 rounded-full blur-[100px] -z-0"></div>
         </section>
     </main>
 
@@ -306,3 +320,4 @@
     </script>
 </body>
 </html>
+

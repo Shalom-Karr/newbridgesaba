@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 let header = fs.readFileSync('header.js', 'utf8');
 
 // I will just remove the x-cloak from the header.js mobile menu for absolute safety.

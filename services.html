@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -26,13 +26,13 @@
                             light: '#9D73B6',
                             soft: '#F3EEF6',
                         },
-                        brandYellow: {
-                            DEFAULT: '#C9982A',
+                        brandOrange: {
+                            DEFAULT: '#F37C20',
                             light: '#FDCB3F',
                             soft: '#FFF9E7',
                         },
-                        brandBlue: {
-                            DEFAULT: '#029CC0',
+                        brandLightPurple: {
+                            DEFAULT: '#926BBE',
                             light: '#35B0CD',
                             soft: '#E6F5F9',
                         },
@@ -79,6 +79,10 @@
   "description": "Clinical ABA therapy focusing on communication, behavior management, daily living skills, and cognitive development across school and home environments."
 }
 </script>
+    <!-- Supabase & Analytics Tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white">
 
@@ -89,16 +93,16 @@
         <!-- HERO SECTION -->
         <section class="hero-pattern py-16 lg:py-32 md:py-48 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-                <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Professional ABA Therapy</h3>
+                <h3 class="text-brandPurple font-black uppercase tracking-[0.3em] text-[11px] mb-6" data-aos="fade-up">Professional ABA Therapy</h3>
                 <h1 class="text-3xl md:text-5xl lg:text-7xl lg:text-9xl font-black text-gray-900 mb-10 italic tracking-tighter leading-none" data-aos="fade-up" data-aos-delay="100">Support <br>Without <span class="text-brandPurple">Borders.</span></h1>
                 <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
                     We provide a unique "Wrap-Around" model that supports your child in school and at home across 
-                    <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandBlue font-bold italic">Ohio</span>.
+                    <span class="text-brandPurple font-bold italic">New Jersey</span> and <span class="text-brandPurple font-bold italic">Ohio</span>.
                 </p>
             </div>
             <!-- Decorative Blobs -->
             <div class="absolute -top-24 -left-24 w-64 h-64 md:w-96 md:h-96 bg-brandPurple/10 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute -bottom-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-brandBlue/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-brandLightPurple/10 rounded-full blur-3xl animate-pulse"></div>
         </section>
 
         <!-- THE DUAL-CARE MODEL SECTION -->
@@ -137,13 +141,13 @@
 
                 <div class="grid md:grid-cols-2 gap-6 lg:gap-8 lg:p-12 lg:gap-24 items-center mb-40">
                     <div class="order-2 md:order-1 relative" data-aos="fade-right">
-                        <div class="absolute inset-0 bg-brandBlue/5 rounded-5xl rotate-3"></div>
-                        <img src="images/mother-child-play-mosaic-toy-together-indoors-girl-35935091.jpg" alt="In-home therapy" class="relative z-10 rounded-5xl shadow-2xl shadow-brandBlue/20 transform hover:scale-[1.02] transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brandLightPurple/5 rounded-5xl rotate-3"></div>
+                        <img src="https://www.shutterstock.com/shutterstock/photos/2611052623/display_1500/stock-photo-therapist-girl-education-drawing-development-learning-2611052623.jpg" alt="In-home therapy" class="relative z-10 rounded-5xl shadow-2xl shadow-brandLightPurple/20 transform hover:scale-[1.02] transition-transform duration-500">
                     </div>
                     <div class="order-1 md:order-2" data-aos="fade-left">
-                        <div class="inline-flex items-center gap-3 bg-brandBlue-soft px-4 py-2 rounded-2xl mb-8">
-                            <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
-                            <span class="text-xs font-black uppercase tracking-widest text-brandBlue">Home-Based Mastery</span>
+                        <div class="inline-flex items-center gap-3 bg-brandLightPurple-soft px-4 py-2 rounded-2xl mb-8">
+                            <span class="w-2 h-2 rounded-full bg-brandLightPurple"></span>
+                            <span class="text-xs font-black uppercase tracking-widest text-brandLightPurple">Home-Based Mastery</span>
                         </div>
                         <h2 class="text-5xl font-black text-gray-900 mb-8 italic tracking-tight">Predictable In-Home Care.</h2>
                         <p class="text-lg text-gray-500 mb-10 leading-relaxed font-medium">
@@ -151,15 +155,15 @@
                         </p>
                         <ul class="space-y-6">
                             <li class="flex items-start gap-5 group">
-                                <span class="w-10 h-10 rounded-xl bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 flex-shrink-0">1</span>
+                                <span class="w-10 h-10 rounded-xl bg-brandLightPurple-soft text-brandLightPurple flex items-center justify-center font-bold group-hover:bg-brandLightPurple group-hover:text-white transition-all duration-300 flex-shrink-0">1</span>
                                 <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Skill Generalization</strong> <span class="text-gray-500 font-medium">Using school-learned skills in a natural home environment.</span></div>
                             </li>
                             <li class="flex items-start gap-5 group">
-                                <span class="w-10 h-10 rounded-xl bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 flex-shrink-0">2</span>
+                                <span class="w-10 h-10 rounded-xl bg-brandLightPurple-soft text-brandLightPurple flex items-center justify-center font-bold group-hover:bg-brandLightPurple group-hover:text-white transition-all duration-300 flex-shrink-0">2</span>
                                 <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Daily Living Mastery</strong> <span class="text-gray-500 font-medium">Independence in eating, dressing, and hygiene.</span></div>
                             </li>
                             <li class="flex items-start gap-5 group">
-                                <span class="w-10 h-10 rounded-xl bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 flex-shrink-0">3</span>
+                                <span class="w-10 h-10 rounded-xl bg-brandLightPurple-soft text-brandLightPurple flex items-center justify-center font-bold group-hover:bg-brandLightPurple group-hover:text-white transition-all duration-300 flex-shrink-0">3</span>
                                 <div><strong class="text-gray-900 block text-lg mb-1 tracking-tight">Sibling & Family Integration</strong> <span class="text-gray-500 font-medium">Helping the whole family unit communicate effectively.</span></div>
                             </li>
                         </ul>
@@ -204,7 +208,7 @@
         <section class="py-16 lg:py-32 bg-white relative overflow-hidden border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-10 lg:mb-20" data-aos="fade-up">
-                    <h3 class="text-brandBlue font-black uppercase tracking-[0.3em] text-[11px] mb-4">Evidence-Based Techniques</h3>
+                    <h3 class="text-brandLightPurple font-black uppercase tracking-[0.3em] text-[11px] mb-4">Evidence-Based Techniques</h3>
                     <h2 class="text-5xl font-black text-gray-900 italic tracking-tight">ABA in Action.</h2>
                     <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg mt-6">We turn everyday moments into milestones using proven clinical methods tailored to your child.</p>
                 </div>
@@ -247,3 +251,4 @@
     </script>
 </body>
 </html>
+

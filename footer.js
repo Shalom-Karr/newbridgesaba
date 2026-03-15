@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Background Accents -->
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brandPurple/20 to-transparent"></div>
         <div class="absolute -bottom-24 -left-24 w-64 h-64 md:w-96 md:h-96 bg-brandPurple/5 rounded-full blur-3xl"></div>
-        <div class="absolute -top-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-brandBlue/5 rounded-full blur-3xl"></div>
+        <div class="absolute -top-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-brandLightPurple/5 rounded-full blur-3xl"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 mb-8 lg:mb-12 lg:mb-24">

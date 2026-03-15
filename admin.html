@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | New Bridges ABA</title>
+    <script src="vendor/tailwindcss.js"></script>
+    <script defer src="vendor/alpine.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Supabase integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="analytics.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: '#4A2B7A',
+                        brandOrange: '#F37C20',
+                        brandLightPurple: '#926BBE',
+                    },
+                    fontFamily: { sans: ['Onest', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800" x-data="adminPanel()">
+
+    <!-- Admin Header -->
+    <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-brandPurple rounded-lg flex items-center justify-center text-white font-black text-xl">NB</div>
+            <h1 class="text-xl font-bold text-gray-900 tracking-tight">Admin Portal</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-brandPurple">View Site</a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-10" x-show="isConfigured" x-cloak>
+        
+        <!-- Dashboard Tabs -->
+        <div class="flex gap-4 mb-8">
+            <button @click="tab = 'posts'" :class="tab === 'posts' ? 'bg-brandPurple text-white' : 'bg-white text-gray-600 border border-gray-200'" class="px-6 py-2 rounded-xl font-bold transition">Manage Content</button>
+            <button @click="tab = 'analytics'" :class="tab === 'analytics' ? 'bg-brandPurple text-white' : 'bg-white text-gray-600 border border-gray-200'" class="px-6 py-2 rounded-xl font-bold transition">Analytics Overview</button>
+        </div>
+
+        <!-- POSTS TAB -->
+        <div x-show="tab === 'posts'">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-black text-gray-900">Blog Posts</h2>
+                <button @click="openModal()" class="bg-brandOrange text-white px-6 py-2 rounded-xl font-bold hover:opacity-90 transition">+ New Post</button>
+            </div>
+
+            <div class="bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200">
+                            <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">Title</th>
+                            <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">Category</th>
+                            <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="py-4 px-6 font-bold text-sm text-gray-500 uppercase tracking-wider text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="post in posts" :key="post.id">
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-bold text-brandPurple" x-text="post.title"></td>
+                                <td class="py-4 px-6">
+                                    <span class="bg-brandLightPurple/10 text-brandLightPurple px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" x-text="post.category || 'Article'"></span>
+                                </td>
+                                <td class="py-4 px-6 text-sm text-gray-500" x-text="new Date(post.created_at).toLocaleDateString()"></td>
+                                <td class="py-4 px-6 text-right">
+                                    <button @click="openModal(post)" class="text-blue-500 font-bold hover:underline mr-4">Edit</button>
+                                    <button @click="deletePost(post.id)" class="text-red-500 font-bold hover:underline">Delete</button>
+                                </td>
+                            </tr>
+                        </template>
+                        <tr x-show="posts.length === 0">
+                            <td colspan="4" class="py-8 text-center text-gray-400 font-bold">No posts found. Create one!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ANALYTICS TAB -->
+        <div x-show="tab === 'analytics'" x-cloak>
+            <h2 class="text-2xl font-black text-gray-900 mb-6">Tracking Analytics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Page Views</p>
+                    <p class="text-5xl font-black text-brandPurple" x-text="analytics.pageViews">0</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Clicks</p>
+                    <p class="text-5xl font-black text-brandOrange" x-text="analytics.clicks">0</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm text-center">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Unique Sessions</p>
+                    <p class="text-5xl font-black text-brandLightPurple" x-text="analytics.uniqueSessions">0</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm p-8">
+                <p class="text-gray-500 italic">Advanced analytics dashboards can be built here or directly within your Supabase SQL editor using the 'newbridges_tracking' table.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- UNCONFIGURED STATE -->
+    <main class="max-w-2xl mx-auto px-6 py-20 text-center" x-show="!isConfigured">
+        <div class="bg-white p-12 rounded-[2rem] border-2 border-red-200 shadow-xl">
+            <h2 class="text-3xl font-black text-red-500 mb-4">Supabase Not Connected</h2>
+            <p class="text-gray-600 mb-6 text-lg">Please edit <strong>supabase.js</strong> and add your Supabase URL and Anon Key to enable the admin portal, content management, and analytics.</p>
+        </div>
+    </main>
+
+    <!-- Post Modal -->
+    <div x-show="showModal" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm flex items-center justify-center z-[100] p-4" x-cloak>
+        <div class="bg-white rounded-[2rem] w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden" @click.stop>
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+                <h3 class="text-xl font-black text-gray-900" x-text="form.id ? 'Edit Post' : 'New Post'"></h3>
+                <button @click="showModal = false" class="text-gray-400 hover:text-gray-900 text-2xl font-bold">&times;</button>
+            </div>
+            <div class="p-8 overflow-y-auto space-y-6 bg-gray-50 flex-1">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Title</label>
+                    <input type="text" x-model="form.title" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Category (e.g. Education)</label>
+                        <input type="text" x-model="form.category" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Emoji Icon (e.g. 🧩)</label>
+                        <input type="text" x-model="form.emoji" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">URL Slug (e.g. aba-therapy-guide)</label>
+                    <input type="text" x-model="form.slug" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Excerpt (Short description)</label>
+                    <textarea x-model="form.excerpt" rows="2" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Content (HTML allowed)</label>
+                    <textarea x-model="form.content" rows="10" class="w-full px-4 py-3 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent"></textarea>
+                </div>
+            </div>
+            <div class="p-6 border-t border-gray-100 flex justify-end gap-4 bg-white">
+                <button @click="showModal = false" class="px-6 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Cancel</button>
+                <button @click="savePost()" class="px-8 py-3 bg-brandPurple text-white rounded-xl font-bold hover:bg-opacity-90 shadow-lg transition" x-text="isSaving ? 'Saving...' : 'Save Post'" :disabled="isSaving"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function adminPanel() {
+            return {
+                isConfigured: window.supabaseClient !== undefined,
+                tab: 'posts',
+                posts: [],
+                analytics: { pageViews: 0, clicks: 0, uniqueSessions: 0 },
+                showModal: false,
+                isSaving: false,
+                form: { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '' },
+                
+                async init() {
+                    if (this.isConfigured) {
+                        await this.fetchPosts();
+                        await this.fetchAnalytics();
+                    }
+                },
+
+                async fetchPosts() {
+                    const { data, error } = await window.supabaseClient.from('newbridges_content').select('*').order('created_at', { ascending: false });
+                    if (!error) this.posts = data || [];
+                },
+
+                async fetchAnalytics() {
+                    // Very basic aggregation demo from the tracking table
+                    const { data, error } = await window.supabaseClient.from('newbridges_tracking').select('event_type, session_id');
+                    if (!error && data) {
+                        this.analytics.pageViews = data.filter(e => e.event_type === 'page_view').length;
+                        this.analytics.clicks = data.filter(e => e.event_type === 'click').length;
+                        const sessions = new Set(data.map(e => e.session_id));
+                        this.analytics.uniqueSessions = sessions.size;
+                    }
+                },
+
+                openModal(post = null) {
+                    if (post) {
+                        this.form = { ...post };
+                    } else {
+                        this.form = { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '📝' };
+                    }
+                    this.showModal = true;
+                },
+
+                async savePost() {
+                    if (!this.form.title || !this.form.slug) return alert("Title and Slug are required.");
+                    this.isSaving = true;
+                    try {
+                        let result;
+                        if (this.form.id) {
+                            result = await window.supabaseClient.from('newbridges_content').update({
+                                title: this.form.title, slug: this.form.slug, excerpt: this.form.excerpt, 
+                                content: this.form.content, category: this.form.category, emoji: this.form.emoji
+                            }).eq('id', this.form.id);
+                        } else {
+                            result = await window.supabaseClient.from('newbridges_content').insert([{
+                                title: this.form.title, slug: this.form.slug, excerpt: this.form.excerpt, 
+                                content: this.form.content, category: this.form.category, emoji: this.form.emoji
+                            }]);
+                        }
+                        if (result.error) throw result.error;
+                        await this.fetchPosts();
+                        this.showModal = false;
+                    } catch (e) {
+                        alert("Error saving: " + e.message);
+                    } finally {
+                        this.isSaving = false;
+                    }
+                },
+
+                async deletePost(id) {
+                    if (!confirm("Are you sure you want to delete this post?")) return;
+                    try {
+                        const { error } = await window.supabaseClient.from('newbridges_content').delete().eq('id', id);
+                        if (error) throw error;
+                        await this.fetchPosts();
+                    } catch (e) {
+                        alert("Error deleting: " + e.message);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

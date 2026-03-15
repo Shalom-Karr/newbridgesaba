@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 
 let header = fs.readFileSync('header.js', 'utf8');
 header = header.replace(/if\s*\(typeof window\.Alpine\.start === 'function'\)\s*\{\s*try\s*\{\s*window\.Alpine\.start\(\);\s*\}\s*catch\s*\(e\)\s*\{\}\s*\}/, '');

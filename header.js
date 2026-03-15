@@ -84,15 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="h-8 w-px bg-gray-100 mx-4"></div>
                 
                 <div class="flex items-center gap-4">
-                    <a href="tel:8338235433" class="text-brandBlue flex items-center gap-2 group">
-                        <span class="bg-brandBlue/10 p-2.5 rounded-full group-hover:bg-brandBlue group-hover:text-white transition-all duration-300">
+                    <a href="tel:8338235433" class="text-brandLightPurple flex items-center gap-2 group">
+                        <span class="bg-brandLightPurple/10 p-2.5 rounded-full group-hover:bg-brandLightPurple group-hover:text-white transition-all duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                         </span>
                         <span class="font-black text-sm tracking-widest">(833) 823-5433</span>
                     </a>
-                    <a href="contact.html" class="group relative flex items-center gap-2 bg-gradient-to-r from-brandPurple to-brandBlue text-white px-8 py-3.5 rounded-2xl font-black shadow-xl shadow-brandPurple/40 hover:shadow-2xl hover:shadow-brandBlue/50 transition-all duration-500 hover:-translate-y-1 active:scale-95 overflow-hidden">
+                    <a href="contact.html" class="group relative flex items-center gap-2 bg-gradient-to-r from-brandPurple to-brandLightPurple text-white px-8 py-3.5 rounded-2xl font-black shadow-xl shadow-brandPurple/40 hover:shadow-2xl hover:shadow-brandLightPurple/50 transition-all duration-500 hover:-translate-y-1 active:scale-95 overflow-hidden">
                         <div class="absolute inset-0 w-full h-full bg-white/20 group-hover:translate-x-full transition-transform duration-700 -translate-x-full skew-x-12"></div>
                         <span class="relative z-10 tracking-wide">Enroll Now</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-10 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -176,19 +176,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <div class="pt-12 space-y-8">
-                    <div class="bg-brandBlue/5 p-8 rounded-[2.5rem] flex items-center justify-between group">
+                    <div class="bg-brandLightPurple/5 p-8 rounded-[2.5rem] flex items-center justify-between group">
                         <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-brandBlue mb-2">Direct Support</p>
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-brandLightPurple mb-2">Direct Support</p>
                             <a href="tel:8338235433" class="text-2xl font-black text-gray-900">(833) 823-5433</a>
                         </div>
-                        <div class="bg-brandBlue text-white p-4 rounded-full shadow-lg shadow-brandBlue/30">
+                        <div class="bg-brandLightPurple text-white p-4 rounded-full shadow-lg shadow-brandLightPurple/30">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                         </div>
                     </div>
                     
-                    <a href="contact.html" @click="mobileMenu = false" class="group relative flex items-center justify-center gap-3 w-full bg-gradient-to-r from-brandPurple to-brandBlue text-white py-6 rounded-[2rem] font-black text-xl shadow-2xl shadow-brandPurple/30 hover:shadow-brandBlue/50 active:scale-95 transition-all duration-500 overflow-hidden">
+                    <a href="contact.html" @click="mobileMenu = false" class="group relative flex items-center justify-center gap-3 w-full bg-gradient-to-r from-brandPurple to-brandLightPurple text-white py-6 rounded-[2rem] font-black text-xl shadow-2xl shadow-brandPurple/30 hover:shadow-brandLightPurple/50 active:scale-95 transition-all duration-500 overflow-hidden">
                         <div class="absolute inset-0 w-full h-full bg-white/20 group-hover:translate-x-full transition-transform duration-700 -translate-x-full skew-x-12"></div>
                         <span class="relative z-10 tracking-wide">Start Enrollment</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 relative z-10 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
