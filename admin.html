@@ -110,9 +110,32 @@
                 </div>
             </div>
             <div class="card table-wrapper bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm">
-                <div class="flex justify-between items-center bg-white p-6 pb-2" style="margin-bottom:1rem; padding: 1.5rem 1.5rem 0.5rem;">
-                    <h3 class="text-xl font-bold">Detailed Logs</h3>
-                    <div style="font-size:0.8rem; color:var(--text-muted);" id="table-status" class="text-gray-500" x-text="`Showing ${logs.length} records`">Showing 0 records</div>
+                <div class="flex flex-col md:flex-row justify-between items-center bg-white p-6 pb-4 gap-4 border-b border-gray-100">
+                    <div>
+                        <h3 class="text-xl font-bold">Detailed Logs</h3>
+                        <div class="text-sm text-gray-500 mt-1" x-text="logs.length === 0 ? 'Showing 0 records' : `Showing ${itemsPerPage === 'all' ? 1 : (currentPage - 1) * itemsPerPage + 1} to ${itemsPerPage === 'all' ? logs.length : Math.min(logs.length, currentPage * itemsPerPage)} of ${logs.length} records`"></div>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <label class="text-sm text-gray-500 font-bold">Per page:</label>
+                            <select x-model="itemsPerPage" @change="currentPage = 1" class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="250">250</option>
+                                <option value="500">500</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center gap-2" x-show="totalPages > 1">
+                            <button @click="prevPage()" :disabled="currentPage === 1" class="p-1 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                            </button>
+                            <span class="text-sm font-bold text-gray-700" x-text="`Page ${currentPage} of ${totalPages}`"></span>
+                            <button @click="nextPage()" :disabled="currentPage === totalPages" class="p-1 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table id="log-table" class="w-full text-left border-collapse">
@@ -127,7 +150,7 @@
                             </tr>
                         </thead>
                         <tbody id="log-tbody">
-                            <template x-for="log in logs" :key="log.id">
+                            <template x-for="log in paginatedLogs" :key="log.id">
                                 <tr :id="'row-' + log.id" class="border-b border-gray-100 hover:bg-gray-50">
                                     <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap" style="color:var(--text-muted); white-space:nowrap;" x-text="new Date(log.created_at).toLocaleString()"></td>
                                     <td class="py-4 px-6 font-mono font-medium text-sm" style="font-family:monospace; font-weight:500;" x-text="log.ip_address || 'Unknown'"></td>
@@ -160,10 +183,10 @@
         <!-- LOGIN STATE -->
     <main class="max-w-md mx-auto px-6 py-20 text-center" x-show="isConfigured && !isLoggedIn" x-cloak>
         <div class="bg-white p-12 rounded-[2rem] border border-gray-200 shadow-xl">
-            <h2 class="text-3xl font-black text-gray-900 mb-2">Admin Login</h2>
-            <p class="text-gray-500 mb-8">Sign in with your authorized email to manage content.</p>
+            <h2 class="text-3xl font-black text-gray-900 mb-2" x-text="isSignUp ? 'Request Access' : 'Admin Login'"></h2>
+            <p class="text-gray-500 mb-8" x-text="isSignUp ? 'Create an account to request dashboard access.' : 'Sign in with your authorized email to manage content.'"></p>
             
-            <form @submit.prevent="handleLogin" class="space-y-4 text-left">
+            <form @submit.prevent="isSignUp ? handleSignUp() : handleLogin()" class="space-y-4 text-left">
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
                     <input type="email" x-model="loginEmail" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
@@ -174,10 +197,13 @@
                 </div>
                 <div x-show="loginMessage" class="text-sm font-bold rounded-lg p-3 text-center" :class="loginError ? 'bg-red-50 text-red-600' : 'bg-green-50 text-green-600'" x-text="loginMessage"></div>
                 <button type="submit" class="w-full bg-brandPurple text-white py-3 rounded-xl font-bold hover:bg-opacity-90 transition shadow-lg flex justify-center items-center" :disabled="isLoggingIn">
-                    <span x-show="!isLoggingIn">Log In</span>
-                    <span x-show="isLoggingIn" class="animate-pulse">Logging in...</span>
+                    <span x-show="!isLoggingIn" x-text="isSignUp ? 'Submit Request' : 'Log In'"></span>
+                    <span x-show="isLoggingIn" class="animate-pulse" x-text="isSignUp ? 'Submitting...' : 'Logging in...'"></span>
                 </button>
             </form>
+            <div class="mt-6">
+                <button @click="isSignUp = !isSignUp; loginMessage = ''; loginError = false; loginEmail = ''; loginPassword = '';" class="text-sm font-bold text-brandPurple hover:underline" x-text="isSignUp ? 'Already have access? Log In' : 'Need access? Request Access'"></button>
+            </div>
         </div>
     </main>
 
@@ -264,6 +290,7 @@
             return {
                 isConfigured: window.supabaseClient !== undefined,
                 isLoggedIn: false,
+                isSignUp: false,
                 loginEmail: '',
                 loginPassword: '',
                 isLoggingIn: false,
@@ -272,6 +299,24 @@
                 tab: 'posts',
                 posts: [],
                 logs: [],
+                currentPage: 1,
+                itemsPerPage: 100,
+                get paginatedLogs() {
+                    if (this.itemsPerPage === 'all') return this.logs;
+                    const start = (this.currentPage - 1) * parseInt(this.itemsPerPage);
+                    const end = start + parseInt(this.itemsPerPage);
+                    return this.logs.slice(start, end);
+                },
+                get totalPages() {
+                    if (this.itemsPerPage === 'all') return 1;
+                    return Math.ceil(this.logs.length / parseInt(this.itemsPerPage)) || 1;
+                },
+                nextPage() {
+                    if (this.currentPage < this.totalPages) this.currentPage++;
+                },
+                prevPage() {
+                    if (this.currentPage > 1) this.currentPage--;
+                },
                 analytics: { pageViews: 0, clicks: 0, uniqueSessions: 0 },
                 showModal: false,
                 isSaving: false,
@@ -352,6 +397,32 @@
                 async handleLogout() {
                     await window.supabaseAuth.signOut();
                     this.isLoggedIn = false;
+                },
+
+                async handleSignUp() {
+                    this.isLoggingIn = true;
+                    this.loginMessage = '';
+                    this.loginError = false;
+                    try {
+                        const { data, error } = await window.supabaseAuth.signUp({
+                            email: this.loginEmail,
+                            password: this.loginPassword
+                        });
+                        if (error) throw error;
+                        
+                        this.loginError = false;
+                        this.loginMessage = 'Request submitted! Please speak to the developer Shalom Karr for access.';
+                        this.loginEmail = '';
+                        this.loginPassword = '';
+                        
+                        // Ensure they don't stay authenticated locally until approved
+                        await window.supabaseAuth.signOut();
+                    } catch (e) {
+                        this.loginError = true;
+                        this.loginMessage = e.message;
+                    } finally {
+                        this.isLoggingIn = false;
+                    }
                 },
 
                 async fetchPosts() {
