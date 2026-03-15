@@ -35,12 +35,13 @@
             <div class="w-10 h-10 bg-brandPurple rounded-lg flex items-center justify-center text-white font-black text-xl">NB</div>
             <h1 class="text-xl font-bold text-gray-900 tracking-tight">Admin Portal</h1>
         </div>
-        <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4">
             <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-brandPurple">View Site</a>
+            <button x-show="isLoggedIn" @click="handleLogout" class="text-sm font-bold text-red-500 hover:text-red-700 bg-red-50 px-3 py-1.5 rounded-lg transition" x-cloak>Log Out</button>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-10" x-show="isConfigured" x-cloak>
+        <main class="max-w-6xl mx-auto px-6 py-10" x-show="isConfigured && isLoggedIn" x-cloak>
         
         <!-- Dashboard Tabs -->
         <div class="flex gap-4 mb-8">
@@ -110,6 +111,26 @@
         </div>
     </main>
 
+        <!-- LOGIN STATE -->
+    <main class="max-w-md mx-auto px-6 py-20 text-center" x-show="isConfigured && !isLoggedIn" x-cloak>
+        <div class="bg-white p-12 rounded-[2rem] border border-gray-200 shadow-xl">
+            <h2 class="text-3xl font-black text-gray-900 mb-2">Admin Login</h2>
+            <p class="text-gray-500 mb-8">Sign in with your authorized email to manage content.</p>
+            
+            <form @submit.prevent="handleLogin" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                    <input type="email" x-model="loginEmail" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                </div>
+                <div x-show="loginMessage" class="text-sm font-bold rounded-lg p-3 text-center" :class="loginError ? 'bg-red-50 text-red-600' : 'bg-green-50 text-green-600'" x-text="loginMessage"></div>
+                <button type="submit" class="w-full bg-brandPurple text-white py-3 rounded-xl font-bold hover:bg-opacity-90 transition shadow-lg flex justify-center items-center" :disabled="isLoggingIn">
+                    <span x-show="!isLoggingIn">Send Login Link</span>
+                    <span x-show="isLoggingIn" class="animate-pulse">Sending...</span>
+                </button>
+            </form>
+        </div>
+    </main>
+
     <!-- UNCONFIGURED STATE -->
     <main class="max-w-2xl mx-auto px-6 py-20 text-center" x-show="!isConfigured">
         <div class="bg-white p-12 rounded-[2rem] border-2 border-red-200 shadow-xl">
@@ -163,7 +184,12 @@
     <script>
         function adminPanel() {
             return {
-                isConfigured: true,
+                isConfigured: window.supabaseClient !== undefined,
+                isLoggedIn: false,
+                loginEmail: '',
+                isLoggingIn: false,
+                loginMessage: '',
+                loginError: false,
                 tab: 'posts',
                 posts: [],
                 analytics: { pageViews: 0, clicks: 0, uniqueSessions: 0 },
@@ -173,9 +199,51 @@
                 
                 async init() {
                     if (this.isConfigured) {
-                        await this.fetchPosts();
-                        await this.fetchAnalytics();
+                        // Check active session
+                        const { data: { session } } = await window.supabaseAuth.getSession();
+                        this.isLoggedIn = !!session;
+
+                        // Listen for auth changes (like returning from magic link)
+                        window.supabaseAuth.onAuthStateChange((event, session) => {
+                            this.isLoggedIn = !!session;
+                            if (this.isLoggedIn) {
+                                this.fetchPosts();
+                                this.fetchAnalytics();
+                            }
+                        });
+
+                        if (this.isLoggedIn) {
+                            await this.fetchPosts();
+                            await this.fetchAnalytics();
+                        }
                     }
+                },
+
+                async handleLogin() {
+                    this.isLoggingIn = true;
+                    this.loginMessage = '';
+                    this.loginError = false;
+                    try {
+                        const { error } = await window.supabaseAuth.signInWithOtp({
+                            email: this.loginEmail,
+                            options: {
+                                emailRedirectTo: window.location.href
+                            }
+                        });
+                        if (error) throw error;
+                        this.loginMessage = 'Check your email for the login link!';
+                        this.loginEmail = '';
+                    } catch (e) {
+                        this.loginError = true;
+                        this.loginMessage = e.message;
+                    } finally {
+                        this.isLoggingIn = false;
+                    }
+                },
+
+                async handleLogout() {
+                    await window.supabaseAuth.signOut();
+                    this.isLoggedIn = false;
                 },
 
                 async fetchPosts() {
@@ -244,4 +312,5 @@
     </script>
 </body>
 </html>
+
 
