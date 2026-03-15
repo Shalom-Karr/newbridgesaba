@@ -151,7 +151,7 @@
                     <label class="block text-sm font-bold text-gray-700 mb-2">Title</label>
                     <input type="text" x-model="form.title" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
                 </div>
-                <div class="grid grid-cols-2 gap-4">
+                                <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2">Category (e.g. Education)</label>
                         <input type="text" x-model="form.category" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
@@ -159,6 +159,34 @@
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2">Emoji Icon (e.g. 🧩)</label>
                         <input type="text" x-model="form.emoji" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Publication Month</label>
+                        <select x-model="form.postMonth" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Publication Year</label>
+                        <select x-model="form.postYear" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandPurple focus:border-transparent">
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                        </select>
                     </div>
                 </div>
                 <div>
@@ -195,7 +223,7 @@
                 analytics: { pageViews: 0, clicks: 0, uniqueSessions: 0 },
                 showModal: false,
                 isSaving: false,
-                form: { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '' },
+                                form: { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '', postMonth: '01', postYear: '2026' },
                 
                 async init() {
                     if (this.isConfigured) {
@@ -262,29 +290,42 @@
                     }
                 },
 
-                openModal(post = null) {
+                                openModal(post = null) {
+                    const now = new Date();
+                    const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
+                    const currentYear = String(now.getFullYear());
+                    
                     if (post) {
                         this.form = { ...post };
+                        const postDate = new Date(post.created_at);
+                        this.form.postMonth = String(postDate.getMonth() + 1).padStart(2, '0');
+                        this.form.postYear = String(postDate.getFullYear());
                     } else {
-                        this.form = { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '📝' };
+                        this.form = { id: null, title: '', slug: '', excerpt: '', content: '', category: '', emoji: '📝', postMonth: currentMonth, postYear: currentYear };
                     }
                     this.showModal = true;
                 },
 
-                async savePost() {
+                                async savePost() {
                     if (!this.form.title || !this.form.slug) return alert("Title and Slug are required.");
                     this.isSaving = true;
+                    
+                    // Construct created_at timestamp using the selected month and year
+                    const createdTimestamp = `${this.form.postYear}-${this.form.postMonth}-01T12:00:00Z`;
+
                     try {
                         let result;
                         if (this.form.id) {
                             result = await window.supabaseClient.from('newbridges_content').update({
                                 title: this.form.title, slug: this.form.slug, excerpt: this.form.excerpt, 
-                                content: this.form.content, category: this.form.category, emoji: this.form.emoji
+                                content: this.form.content, category: this.form.category, emoji: this.form.emoji,
+                                created_at: createdTimestamp
                             }).eq('id', this.form.id);
                         } else {
                             result = await window.supabaseClient.from('newbridges_content').insert([{
                                 title: this.form.title, slug: this.form.slug, excerpt: this.form.excerpt, 
-                                content: this.form.content, category: this.form.category, emoji: this.form.emoji
+                                content: this.form.content, category: this.form.category, emoji: this.form.emoji,
+                                created_at: createdTimestamp
                             }]);
                         }
                         if (result.error) throw result.error;
@@ -312,5 +353,9 @@
     </script>
 </body>
 </html>
+
+
+
+
 
 
