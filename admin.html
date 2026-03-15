@@ -301,7 +301,7 @@
                             await window.supabaseAuth.signOut();
                             this.isLoggedIn = false;
                             this.loginError = true;
-                            this.loginMessage = 'Unauthorized: Your email is not an administrator.';
+                            this.loginMessage = 'Unauthorized: Speak to the developer Shalom Karr for access.';
                         }
                     } else {
                         this.isLoggedIn = false;
@@ -337,7 +337,7 @@
                         const isAdmin = await this.checkAdmin(data.user.email);
                         if (!isAdmin) {
                             await window.supabaseAuth.signOut();
-                            throw new Error('Unauthorized: Your email is not an administrator.');
+                            throw new Error('Unauthorized: Speak to the developer Shalom Karr for access.');
                         }
 
                         this.loginEmail = '';
