@@ -109,6 +109,7 @@
                                 const { data, error } = await window.supabaseClient
                                     .from('newbridges_content')
                                     .select('*')
+                                    .lte('created_at', new Date().toISOString())
                                     .order('created_at', { ascending: false });
                                 if (error) throw error;
                                 this.posts = data || [];
