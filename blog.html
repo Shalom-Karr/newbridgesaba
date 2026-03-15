@@ -93,7 +93,7 @@
             <script>
                 document.addEventListener('alpine:init', () => {
                     Alpine.data('blogManager', () => ({
-                        isConfigured: window.supabaseClient !== undefined,
+                        isConfigured: true,
                         posts: [],
                         loading: true,
                         async init() {
@@ -143,4 +143,5 @@
     </script>
 </body>
 </html>
+
 

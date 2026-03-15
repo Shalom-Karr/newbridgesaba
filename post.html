@@ -93,7 +93,7 @@
             <script>
                 document.addEventListener('alpine:init', () => {
                     Alpine.data('postManager', () => ({
-                        isConfigured: window.supabaseClient !== undefined,
+                        isConfigured: true,
                         post: null,
                         loading: true,
                         async init() {
@@ -151,4 +151,5 @@
     </script>
 </body>
 </html>
+
 

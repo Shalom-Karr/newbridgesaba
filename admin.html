@@ -163,7 +163,7 @@
     <script>
         function adminPanel() {
             return {
-                isConfigured: window.supabaseClient !== undefined,
+                isConfigured: true,
                 tab: 'posts',
                 posts: [],
                 analytics: { pageViews: 0, clicks: 0, uniqueSessions: 0 },
@@ -244,3 +244,4 @@
     </script>
 </body>
 </html>
+
