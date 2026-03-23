@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const headerHTML = `
-    <nav class="fixed top-0 left-0 w-full max-w-[100vw] z-[100] bg-white/80 backdrop-blur-2xl border-b border-gray-100/50 transition-all duration-300" :class="{ 'h-screen !bg-white': mobileMenu }" x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
+    <nav class="fixed top-0 left-0 w-full max-w-[100vw] z-[100] bg-white/80 backdrop-blur-2xl border-b border-gray-100/50 transition-all duration-300" :class="{ 'h-screen !bg-white': mobileMenu }" x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)" x-effect="document.body.style.overflow = mobileMenu ? 'hidden' : ''">
         <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 md:h-24 flex justify-between items-center transition-all duration-500" :class="scrolled ? 'h-20' : 'h-20 md:h-24'">
             
             <!-- Logo -->
@@ -124,18 +124,15 @@ document.addEventListener('DOMContentLoaded', () => {
              class="lg:hidden fixed inset-0 z-[100] bg-white pt-24 px-6 overflow-y-auto">
             
             <div class="flex flex-col space-y-1">
-                <a href="index.html" @click="mobileMenu = false" class="text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Home</a>
+                <a href="index.html" @click="mobileMenu = false" class="text-xl md:text-2xl font-black text-gray-900 italic hover:text-brandPurple transition-colors py-3 border-b border-gray-50">Home</a>
                 
                 <!-- About Us Accordion -->
                 <div x-data="{ open: false }" class="border-b border-gray-50">
-                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
+                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-xl md:text-2xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
                         <span>About Us</span>
                         <svg class="w-6 h-6 transition-transform duration-300 text-brandPurple" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div x-show="open" 
-                         x-transition:enter="transition ease-out duration-300"
-                         x-transition:enter-start="opacity-0 -translate-y-2"
-                         x-transition:enter-end="opacity-100 translate-y-0"
+                    <div x-show="open" x-collapse x-cloak
                          class="flex flex-col space-y-3 pb-4 pl-4" style="display: none;">
                         <a href="about.html" @click="mobileMenu = false" class="text-xl font-bold text-gray-600 hover:text-brandPurple transition-colors">Our Approach</a>
                         <a href="careers.html" @click="mobileMenu = false" class="text-xl font-bold text-gray-600 hover:text-brandPurple transition-colors">Join Our Team</a>
@@ -144,14 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Care & Services Accordion -->
                 <div x-data="{ open: false }" class="border-b border-gray-50">
-                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
+                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-xl md:text-2xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
                         <span>Care & Services</span>
                         <svg class="w-6 h-6 transition-transform duration-300 text-brandPurple" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div x-show="open" 
-                         x-transition:enter="transition ease-out duration-300"
-                         x-transition:enter-start="opacity-0 -translate-y-2"
-                         x-transition:enter-end="opacity-100 translate-y-0"
+                    <div x-show="open" x-collapse x-cloak
                          class="flex flex-col space-y-3 pb-4 pl-4" style="display: none;">
                         <a href="services.html" @click="mobileMenu = false" class="text-xl font-bold text-gray-600 hover:text-brandPurple transition-colors">Services</a>
                         <a href="locations.html" @click="mobileMenu = false" class="text-xl font-bold text-gray-600 hover:text-brandPurple transition-colors">Locations</a>
@@ -160,14 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Resources Accordion -->
                 <div x-data="{ open: false }" class="border-b border-gray-50">
-                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-2xl md:text-3xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
+                    <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-xl md:text-2xl font-black text-gray-900 italic hover:text-brandPurple transition-colors">
                         <span>Resources</span>
                         <svg class="w-6 h-6 transition-transform duration-300 text-brandPurple" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div x-show="open" 
-                         x-transition:enter="transition ease-out duration-300"
-                         x-transition:enter-start="opacity-0 -translate-y-2"
-                         x-transition:enter-end="opacity-100 translate-y-0"
+                    <div x-show="open" x-collapse x-cloak
                          class="flex flex-col space-y-3 pb-4 pl-4" style="display: none;">
                         <a href="faq.html" @click="mobileMenu = false" class="text-xl font-bold text-gray-600 hover:text-brandPurple transition-colors">Help Center</a>
                         <a href="blog.html" @click="mobileMenu = false" class="text-xl font-bold text-gray-600 hover:text-brandPurple transition-colors">Blog</a>
