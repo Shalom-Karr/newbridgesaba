@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4 class="font-black text-gray-900 mb-8 uppercase tracking-[0.2em] text-[11px]">Resources</h4>
                     <ul class="space-y-4">
                         <li><a href="faq.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Help Center</a></li>
-                        <li><a href="careers.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><img src="images/new-bridges-aba-logo.png" alt="" class="w-3 h-3 object-contain scale-0 group-hover:scale-100 transition-transform"> Join Our Team</a></li>
+                        <li><a href="careers.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Join Our Team</a></li>
                         <li><a href="blog.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Blog</a></li>
                         <li><a href="contact.html" class="text-gray-500 hover:text-brandPurple transition-colors font-bold text-sm flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brandPurple scale-0 group-hover:scale-100 transition-transform"></span> Contact Us</a></li>
                     </ul>
