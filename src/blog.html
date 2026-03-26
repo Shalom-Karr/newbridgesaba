@@ -12,12 +12,12 @@
             }
         })();
     </script>
-    <link rel="canonical" href="https://newbridgesaba.org/post.html" />
+    <link rel="canonical" href="https://newbridgesaba.org/blog.html" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "@id": "https://newbridgesaba.org/post.html#breadcrumblist",
+      "@id": "https://newbridgesaba.org/blog.html#breadcrumblist",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -32,44 +32,37 @@
           "position": 2,
           "item": "https://newbridgesaba.org/blog.html",
           "name": "Blog"
-        },
-        {
-          "@type": "ListItem",
-          "@id": "https://newbridgesaba.org/post.html#listItem",
-          "position": 3,
-          "item": "https://newbridgesaba.org/post.html",
-          "name": "Post"
         }
       ]
     }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Read this article from New Bridges ABA's Care Journal for insights on ABA therapy, autism support, and evidence-based strategies for families." />
-    <meta name="keywords" content="ABA therapy article, autism blog post, New Bridges ABA insights, ABA therapy tips" />
+    <meta name="description" content="Read the latest articles, clinical advice, and autism resources from New Bridges ABA's Care Journal. Stay informed on ABA therapy best practices." />
+    <meta name="keywords" content="ABA therapy blog, autism resources, ABA therapy articles, autism parenting tips, New Bridges ABA blog" />
     <title>Blog | New Bridges ABA - NJ & OH</title>
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="New Bridges ABA" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="Blog Post | New Bridges ABA Care Journal" />
-    <meta property="og:description" content="Read this article from New Bridges ABA's Care Journal for insights on ABA therapy, autism support, and evidence-based strategies for families." />
-    <meta property="og:url" content="https://newbridgesaba.org/post.html" />
+    <meta property="og:title" content="Care Journal | ABA Therapy Insights &amp; News" />
+    <meta property="og:description" content="Read the latest articles, clinical advice, and autism resources from New Bridges ABA's Care Journal. Stay informed on ABA therapy best practices." />
+    <meta property="og:url" content="https://newbridgesaba.org/blog.html" />
     <meta property="og:image" content="https://newbridgesaba.org/images/new-bridges-aba-logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Blog Post | New Bridges ABA Care Journal" />
-    <meta name="twitter:description" content="Read this article from New Bridges ABA's Care Journal for insights on ABA therapy, autism support, and evidence-based strategies for families." />
+    <meta name="twitter:title" content="Care Journal | ABA Therapy Insights &amp; News" />
+    <meta name="twitter:description" content="Read the latest articles, clinical advice, and autism resources from New Bridges ABA's Care Journal. Stay informed on ABA therapy best practices." />
     <meta name="twitter:image" content="https://newbridgesaba.org/images/new-bridges-aba-logo.png" />
     
     <!-- External Resources -->
-    <script src="vendor/tailwindcss.js"></script>
-    <script defer src="vendor/alpine-collapse.min.js"></script>
-    <script defer src="vendor/alpine.min.js"></script>
-    <link href="vendor/aos.css" rel="stylesheet">
+    <script src="/vendor/tailwindcss.js"></script>
+    <script defer src="/vendor/alpine-collapse.min.js"></script>
+    <script defer src="/vendor/alpine.min.js"></script>
+    <link href="/vendor/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Modular JS Includes -->
-    <script src="header.js"></script>
-    <script src="footer.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
 
     <script>
         tailwind.config = {
@@ -96,8 +89,8 @@
     </style>
     <!-- Supabase & Analytics Tracking -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase.js"></script>
-    <script src="analytics.js"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/analytics.js"></script>
 </head>
 <body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white">
 
@@ -116,53 +109,47 @@
             </div>
         </section>
 
-                <!-- BLOG POST CONTENT -->
-        <section class="py-16 bg-white" x-data="postManager()">
-            <div class="max-w-4xl mx-auto px-6">
+                <!-- BLOG GRID -->
+        <section class="py-16 lg:py-32 bg-white" x-data="blogManager()">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
                 
-                <div x-show="!isConfigured" class="bg-red-50 text-red-600 p-8 rounded-3xl border border-red-200 text-center mb-10 mx-auto" x-cloak>
+                <div x-show="!isConfigured" class="bg-red-50 text-red-600 p-8 rounded-3xl border border-red-200 text-center mb-10 max-w-3xl mx-auto" x-cloak>
                     <p class="font-bold text-lg mb-2">Supabase is not configured yet.</p>
-                    <p class="text-sm">To read blog posts, configure <strong>supabase.js</strong>.</p>
+                    <p class="text-sm">To see blog posts, add your Supabase URL and Anon Key to <strong>supabase.js</strong> and create the 'newbridges_content' table.</p>
                 </div>
 
                 <div x-show="loading && isConfigured" class="text-center py-20 text-brandLightPurple font-bold text-xl animate-pulse">
-                    Loading article...
+                    Loading insights...
+                </div>
+                
+                <div x-show="!loading && posts.length === 0 && isConfigured" class="text-center py-20 bg-brandBeige rounded-[3rem] border border-gray-100 max-w-3xl mx-auto" x-cloak>
+                    <p class="text-2xl font-black text-gray-900 mb-2">No articles yet.</p>
+                    <p class="text-gray-500 font-medium">Check back later for new insights, or log in to the admin portal to write a post.</p>
                 </div>
 
-                <div x-show="!loading && !post && isConfigured" class="text-center py-20 bg-brandBeige rounded-[3rem] border border-gray-100" x-cloak>
-                    <p class="text-2xl font-black text-gray-900 mb-2">Article not found.</p>
-                    <p class="text-gray-500 font-medium">This post might have been removed or the URL is incorrect.</p>
-                    <a href="blog.html" class="inline-block mt-6 text-brandLightPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandLightPurple pb-1 hover:text-brandPurple transition-all">← Back to Blog</a>
+                <div x-show="!loading && posts.length > 0" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 lg:p-10" x-cloak>
+                    <template x-for="post in posts" :key="post.id">
+                        <div class="post-card group p-8 rounded-5xl bg-brandBeige border border-gray-100 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-brandPurple/10" data-aos="fade-up">
+                            <div class="mb-8 overflow-hidden rounded-4xl bg-brandLightPurple/10 flex items-center justify-center text-4xl aspect-[4/3] group-hover:scale-105 transition-transform duration-700" x-text="post.emoji || '📝'"></div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="px-3 py-1 rounded-full bg-brandLightPurple/10 text-brandLightPurple font-black text-[9px] uppercase tracking-widest" x-text="post.category || 'Article'"></span>
+                                <span class="text-gray-400 font-bold text-[10px] uppercase tracking-widest" x-text="new Date(post.created_at).toLocaleDateString('en-US', {month: 'short', year: 'numeric'})"></span>
+                            </div>
+                            <h4 class="text-2xl font-black text-gray-900 mb-4 tracking-tight leading-snug line-clamp-2" x-text="post.title"></h4>
+                            <p class="text-gray-500 font-medium mb-10 text-sm leading-relaxed line-clamp-3" x-text="post.excerpt"></p>
+                            <a :href="'post.html?slug=' + post.slug" class="inline-block text-brandLightPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandLightPurple pb-1 hover:text-brandPurple hover:border-brandPurple transition-all">Read More →</a>
+                        </div>
+                    </template>
                 </div>
-
-                <div x-show="post" x-cloak>
-                    <div class="mb-10 text-center">
-                        <span class="px-4 py-2 rounded-full bg-brandLightPurple/10 text-brandLightPurple font-black text-[11px] uppercase tracking-widest" x-text="post?.category || 'Article'"></span>
-                        <h1 class="text-3xl md:text-6xl font-black text-gray-900 mt-6 mb-6 tracking-tight" x-text="post?.title"></h1>
-                        <span class="text-gray-400 font-bold text-sm uppercase tracking-widest" x-text="post ? new Date(post.created_at).toLocaleDateString('en-US', {month: 'long', year: 'numeric'}) : ''"></span>
-                    </div>
-                    <div class="prose prose-lg prose-purple mx-auto text-gray-600 leading-relaxed font-medium" x-html="post?.content">
-                    </div>
-                    <div class="text-center mt-16">
-                        <a href="blog.html" class="inline-block text-brandPurple font-black uppercase tracking-widest text-xs border-b-2 border-brandPurple pb-1 hover:text-brandLightPurple transition-all">← Back to Blog</a>
-                    </div>
-                </div>
-
             </div>
             <script>
                 document.addEventListener('alpine:init', () => {
-                    Alpine.data('postManager', () => ({
+                    Alpine.data('blogManager', () => ({
                         isConfigured: true,
-                        post: null,
+                        posts: [],
                         loading: true,
                         async init() {
                             if (!this.isConfigured) {
-                                this.loading = false;
-                                return;
-                            }
-                            const params = new URLSearchParams(window.location.search);
-                            const slug = params.get('slug');
-                            if (!slug) {
                                 this.loading = false;
                                 return;
                             }
@@ -170,14 +157,12 @@
                                 const { data, error } = await window.supabaseClient
                                     .from('newbridges_content')
                                     .select('*')
-                                    .eq('slug', slug)
                                     .lte('created_at', new Date().toISOString())
-                                    .single();
+                                    .order('created_at', { ascending: false });
                                 if (error) throw error;
-                                this.post = data;
-                                document.title = data.title + " | New Bridges ABA - NJ & OH";
+                                this.posts = data || [];
                             } catch (e) {
-                                console.error('Error fetching post:', e);
+                                console.error('Error fetching posts:', e);
                             } finally {
                                 this.loading = false;
                             }
@@ -205,12 +190,13 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="vendor/aos.js"></script>
+    <script src="/vendor/aos.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true });
     </script>
 </body>
 </html>
+
 
 
 
