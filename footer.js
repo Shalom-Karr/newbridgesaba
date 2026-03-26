@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="group">
                             <p class="text-[10px] text-brandPurple font-black uppercase tracking-[0.2em] mb-2">Email</p>
-                            <a href="mailto:info@newbridgesaba.net" class="text-base font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300 break-all">
-                                info@newbridgesaba.net
+                            <a href="mailto:info@newbridgesaba.org" class="text-base font-black text-gray-900 group-hover:text-brandPurple transition-colors duration-300 break-all">
+                                info@newbridgesaba.org
                             </a>
                         </div>
                     </div>
