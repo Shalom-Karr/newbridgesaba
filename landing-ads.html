@@ -95,10 +95,10 @@
                 <div data-aos="fade-right">
                     <div class="inline-flex items-center gap-3 bg-brandLightPurple/10 px-4 py-2 rounded-full mb-6">
                         <span class="w-2 h-2 rounded-full bg-brandLightPurple animate-pulse"></span>
-                        <span class="text-xs font-black uppercase tracking-widest text-brandLightPurple">No Waitlists in NJ & OH</span>
+                        <span class="text-xs font-black uppercase tracking-widest text-brandLightPurple animate-pulse text-red-500" style="animation-duration: 1s;">No Waitlists in NJ & OH</span>
                     </div>
                     <h1 class="text-3xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 italic tracking-tighter leading-[0.95]">
-                        Expert ABA Therapy, <br><span class="text-brandPurple">In School & At Home.</span>
+                        Expert ABA Therapy, <br><span class="text-brandPurple">In School & Home.</span>
                     </h1>
                     <p class="text-xl text-gray-600 mb-8 leading-relaxed font-medium">
                         Consistency matters. We provide a unique "Wrap-Around" model using the <strong class="text-gray-900">same dedicated therapist</strong> across both home and school environments to accelerate your child's progress.
@@ -115,7 +115,7 @@
                         </li>
                         <li class="flex items-center gap-3 text-lg font-bold text-gray-800">
                             <div class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-sm">✓</div>
-                            Immediate Openings Available
+                            NO WAITLIST
                         </li>
                     </ul>
 
@@ -126,8 +126,21 @@
                     </div>
                 </div>
 
+                <!-- Hero Image -->
+                <div data-aos="fade-left" class="relative">
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-brandLightPurple/20 rounded-full blur-3xl z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1587313835697-3908c6cb41fa?q=80&w=2000&auto=format&fit=crop" alt="ABA Therapy" class="relative z-10 w-full h-auto object-cover rounded-[2.5rem] shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-square">
+                </div>
+
+            </div>
+        </section>
+
+        
+        <!-- DEDICATED INTAKE SECTION -->
+        <section class="py-16 bg-gray-50 border-t border-gray-100" id="intake-section">
+            <div class="max-w-3xl mx-auto px-6">
                 <!-- Quick Intake Form Overlay -->
-                <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 relative" data-aos="fade-left" id="form" x-data="{ sending: false, sent: false }">
+                <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 relative" data-aos="fade-left" id="form" class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-gray-100 relative" x-data="{ sending: false, sent: false }">
                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-brandLightPurple/20 rounded-full blur-2xl z-0"></div>
                     <div class="relative z-10">
                         <h3 class="text-2xl font-black text-gray-900 mb-2">Request a Free Consultation</h3>
@@ -179,15 +192,14 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
-
+        
         <!-- TRUST BADGES (Insurances) -->
         <section class="py-10 bg-white border-y border-gray-100">
             <div class="max-w-7xl mx-auto px-6">
                 <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Proudly Accepting Major Insurances</p>
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12  transition-all duration-500">
                     <img src="images/aetna.png" alt="Aetna" class="h-8 md:h-10 w-auto object-contain">
                     <img src="images/united-healthcare.png" alt="United Healthcare" class="h-8 md:h-10 w-auto object-contain">
                     <img src="images/horizon-nj.png" alt="Horizon NJ" class="h-8 md:h-10 w-auto object-contain">
@@ -270,7 +282,7 @@
                     </div>
                     <!-- Step 4 -->
                     <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-20 h-20 mx-auto bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl shadow-green-500/20 border-4 border-white">4</div>
+                        <div class="w-20 h-20 mx-auto bg-brandOrange text-brandPurple rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl shadow-brandOrange/20 border-4 border-white">4</div>
                         <h4 class="text-xl font-black text-gray-900 mb-2">Start Therapy</h4>
                         <p class="text-gray-600 font-medium">Your dedicated RBT begins consistent 1:1 sessions without the waitlist delays.</p>
                     </div>
