@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /test.html
+Disallow: /node_modules/
+
+Sitemap: https://newbridgesaba.org/sitemap.xml
