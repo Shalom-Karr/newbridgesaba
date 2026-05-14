@@ -63,6 +63,7 @@
     <!-- Modular JS Includes -->
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/forms.js"></script>
 
     <script>
         tailwind.config = {
@@ -117,7 +118,7 @@
     <script src="js/supabase.js"></script>
     <script src="js/analytics.js"></script>
 </head>
-<body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white" x-data="{ submitted: false }">
+<body class="overflow-x-hidden w-full font-sans text-gray-800 bg-white" x-data="{ submitted: false, sending: false, error: '', async submit(e) { this.sending = true; this.error = ''; const r = await window.NB_FORMS.submitForm(e.target, { subject: 'New Enrollment Inquiry — NewBridges ABA Website', fromName: 'NewBridges ABA Contact Form' }); this.sending = false; if (r.ok) { this.submitted = true; e.target.reset(); } else { this.error = r.message; } } }">
 
     <!-- Header Placeholder (Injected via header.js) -->
     <div id="header-placeholder"></div>
@@ -188,15 +189,16 @@
                             <h3 class="text-3xl font-black text-brandPurple mb-2 italic">Start Enrollment</h3>
                             <p class="text-gray-500 mb-10">Briefly share your needs and we'll reach out.</p>
 
-                            <form @submit.prevent="submitted = true" class="space-y-5">
+                            <form @submit.prevent="submit($event)" class="space-y-5">
+                                <input type="text" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
                                 <div class="grid md:grid-cols-2 gap-5">
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Child's Name</label>
-                                        <input required type="text" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="First & Last">
+                                        <input required type="text" name="child_name" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="First & Last">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">State</label>
-                                        <select required class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none text-gray-500">
+                                        <select required name="state" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none text-gray-500">
                                             <option value="">Select Location</option>
                                             <option>New Jersey</option>
                                             <option>Ohio</option>
@@ -205,23 +207,27 @@
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Guardian Name</label>
-                                    <input required type="text" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="Your Name">
+                                    <input required type="text" name="guardian_name" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="Your Name">
                                 </div>
                                 <div class="grid md:grid-cols-2 gap-5">
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Email</label>
-                                        <input required type="email" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="email@address.com">
+                                        <input required type="email" name="email" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="email@address.com">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Phone</label>
-                                        <input required type="tel" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="(000) 000-0000">
+                                        <input required type="tel" name="phone" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="(000) 000-0000">
                                     </div>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Additional Information</label>
-                                    <textarea rows="4" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="What should we know about your child?"></textarea>
+                                    <textarea rows="4" name="message" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brandPurple transition outline-none" placeholder="What should we know about your child?"></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-brandPurple text-white py-5 rounded-2xl font-black text-xl hover:bg-brandLightPurple transition shadow-xl shadow-brandPurple/20 active:scale-95">Send Request</button>
+                                <p x-show="error" x-text="error" x-cloak class="text-red-600 text-sm font-bold"></p>
+                                <button type="submit" :disabled="sending" class="w-full bg-brandPurple text-white py-5 rounded-2xl font-black text-xl hover:bg-brandLightPurple transition shadow-xl shadow-brandPurple/20 active:scale-95 disabled:opacity-60">
+                                    <span x-show="!sending">Send Request</span>
+                                    <span x-show="sending" x-cloak>Sending...</span>
+                                </button>
                             </form>
                         </div>
 
