@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="text-center md:text-left text-gray-400 text-[10px] uppercase tracking-[0.3em] font-black">
                     © 2026 New Bridges ABA. All rights reserved. <br> 
                     <span class="text-brandPurple italic mt-2 inline-block">Convenient. Consistent. Compassionate.</span>
+                    <br><a href="privacy.html" class="text-gray-400 hover:text-brandPurple transition-colors mt-2 inline-block normal-case tracking-normal">Privacy Policy</a>
                 </div>
                 
                 <!-- Back to Top -->
